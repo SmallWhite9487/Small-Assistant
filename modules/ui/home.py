@@ -42,11 +42,31 @@ class HomePageMixin:
             style="Accent.TButton",
             command=self.show_add_form,
         ).pack(side="right", padx=(12, 0))
+        actions = tk.Frame(self.content, bg=self.BACKGROUND)
+        actions.pack(side="bottom", fill="x", pady=(12, 0))
+        ttk.Button(actions, text="Edit selected", command=self.edit_selected).pack(
+            side="left"
+        )
+        ttk.Button(actions, text="Delete selected", command=self.delete_selected).pack(
+            side="left", padx=(8, 0)
+        )
+        ttk.Button(
+            actions,
+            text="Check flagged words",
+            command=self.show_word_check,
+        ).pack(side="left", padx=(8, 0))
+        ttk.Button(
+            actions,
+            text="Review today's words",
+            style="Accent.TButton",
+            command=lambda: self.show_review(False),
+        ).pack(side="right")
+
         table_frame = tk.Frame(self.content, bg=self.SURFACE)
         table_frame.pack(fill="both", expand=True)
         columns = ("word", "reading", "meaning", "added_on", "check_ai")
         self.word_table = ttk.Treeview(
-            table_frame, columns=columns, show="headings", selectmode="browse"
+            table_frame, columns=columns, show="headings", selectmode="browse", height=4
         )
         for column, title, width in (
             ("word", "JAPANESE", 150),
@@ -66,26 +86,6 @@ class HomePageMixin:
         self.word_table.bind("<Button-1>", self._toggle_check_from_table)
         self.word_table.bind("<Double-1>", self._edit_from_table)
         self._render_words()
-
-        actions = tk.Frame(self.content, bg=self.BACKGROUND)
-        actions.pack(fill="x", pady=(12, 0))
-        ttk.Button(actions, text="Edit selected", command=self.edit_selected).pack(
-            side="left"
-        )
-        ttk.Button(actions, text="Delete selected", command=self.delete_selected).pack(
-            side="left", padx=(8, 0)
-        )
-        ttk.Button(
-            actions,
-            text="Check flagged words",
-            command=self.show_word_check,
-        ).pack(side="left", padx=(8, 0))
-        ttk.Button(
-            actions,
-            text="Review today's words",
-            style="Accent.TButton",
-            command=lambda: self.show_review(False),
-        ).pack(side="right")
 
     def _render_words(self) -> None:
         if not hasattr(self, "word_table") or not self.word_table.winfo_exists():
