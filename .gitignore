@@ -219,3 +219,9 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 pull.cmd
+.env
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store

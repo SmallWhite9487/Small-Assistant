@@ -76,16 +76,216 @@ b5388c68-8a76-4eea-91f3-468d7f588dc8,自由,じゆう,free,,False,2026-10-19
 063efc22-536b-4075-a4bd-39bb8c33d8bb,美術館,びじゅつかん,museum,,False,2026-10-19
 c777fc48-97a7-4b81-86f1-868feba2fac3,バー,ばー,bar,,False,2026-10-19
 f3384d27-d281-4853-8d43-82d52080ecc8,映画館,えいがかん,cinema,,False,2026-10-19
-8f2b6c9d-9c67-455a-a495-e0b6b7139123,ラーメン屋,らーめんや,ramen shop,,True,2026-10-19
-651dece0-8151-4d39-a0e0-47aaebfcb9a3,発表,はっぴょう,announcement,,True,2026-10-19
-118cfddf-86da-4925-ad11-a3513ea19bb4,お花見,おはなみ,#,,True,2026-10-19
-05cc40f3-1185-4e4b-b4a1-51bd731508cd,切ります,きります,cut,,True,2026-10-19
-b6bcbbf9-4b7e-45c4-a06d-3611a326dd12,送ります,,give,,True,2026-10-19
-71cbe9c9-6b29-4bc7-87d5-d9c344762998,貸します,,borrow,,True,2026-10-19
-02412c01-6b7d-454e-8654-25a05e5b4dad,のり,,glue,,True,2026-10-19
-363e585d-48e9-4aea-b9d7-5ab7d5d99138,パンチ,,＃,,True,2026-10-19
-c10f2718-63ba-4be5-93cb-a99eb5836dd8,ホッチキス,,＃,,True,2026-10-19
-6cc464bb-f045-4e71-a1ce-9156a4894808,サロテープ,,＃,,True,2026-10-19
-257740c7-ceca-46f7-9f8a-9d3c1ec88d63,消しゴム,,rubber,,True,2026-10-19
-37f87c7f-a81a-40e2-a683-eba3ad6f20bd,ハンコ,,印章,,True,2026-10-19
-5bbb25f1-0da2-436b-ac80-3d086895c50f,タブレット,,tablet,,True,2026-10-19
+8f2b6c9d-9c67-455a-a495-e0b6b7139123,ラーメン屋,らーめんや,ramen shop,,False,2026-10-19
+651dece0-8151-4d39-a0e0-47aaebfcb9a3,発表,はっぴょう,announcement,,False,2026-10-19
+118cfddf-86da-4925-ad11-a3513ea19bb4,お花見,おはなみ,cherry-blossom viewing,,False,2026-10-19
+05cc40f3-1185-4e4b-b4a1-51bd731508cd,切ります,きります,cut,,False,2026-10-19
+b6bcbbf9-4b7e-45c4-a06d-3611a326dd12,送ります,おくります,send,,False,2026-10-19
+71cbe9c9-6b29-4bc7-87d5-d9c344762998,貸します,かします,lend,,False,2026-10-19
+02412c01-6b7d-454e-8654-25a05e5b4dad,のり,のり,glue,,False,2026-10-19
+363e585d-48e9-4aea-b9d7-5ab7d5d99138,パンチ,ぱんち,hole punch,,False,2026-10-19
+c10f2718-63ba-4be5-93cb-a99eb5836dd8,ホッチキス,ほっちきす,stapler,,False,2026-10-19
+6cc464bb-f045-4e71-a1ce-9156a4894808,セロテープ,せろてーぷ,cellophane tape,,False,2026-10-19
+257740c7-ceca-46f7-9f8a-9d3c1ec88d63,消しゴム,けしごむ,rubber,,False,2026-10-19
+37f87c7f-a81a-40e2-a683-eba3ad6f20bd,ハンコ,はんこ,印章,,False,2026-10-19
+5bbb25f1-0da2-436b-ac80-3d086895c50f,タブレット,たぶれっと,tablet,,False,2026-10-19
+919f00e5-7f60-4da1-b965-b0c25cadb168,あげます,あげます,give,,False,2026-10-20
+d1b1aba7-4bbc-4eb5-8333-bfd01b36f3a7,もらいます,もらいます,get,,False,2026-10-20
+02ff442b-092b-4e7b-a8d7-9d2dfee3345a,教えます,おしえます,teach,,False,2026-10-20
+182d5da3-8df4-4c37-9133-5e21b315f729,習います,ならいます,study,,False,2026-10-20
+6b76f1b8-15ca-46e4-9ec6-50642e279a35,掛けます,かけます,hang / make a phone call,,False,2026-10-20
+3dc76a14-2195-4fe2-93a7-e992418248fa,年賀状,ねんがじょう,New Year's card,,False,2026-10-20
+9b85e1db-8056-4b9e-bea5-69f83cfd105e,出します,だします,take out / send,,False,2026-10-20
+c5b38148-271a-4513-881e-bec2db6b6525,届きます,とどきます,arrive / be delivered,,False,2026-10-20
+77592cfa-fcc7-46df-96d9-e244edddb868,郵便局,ゆうびんきょく,post office,,False,2026-10-20
+5a53a926-2842-4357-aba2-35fbe1b87104,シャツ,しゃつ,shirt,,False,2026-10-20
+14b89a87-040a-453b-b4f9-438e8d284596,プレゼント,ぷれぜんと,gift,,False,2026-10-20
+c3517bc3-e969-464e-8fef-2ce14ffccba3,荷物,にもつ,luggage / package,,False,2026-10-20
+3da96089-02cf-481f-b0ac-2bd2d9aaefa9,お金,おかね,money,,False,2026-10-20
+12d1cb10-723b-4cfc-acaf-8228688b7ab7,シルバー,シルバー,silver,,False,2026-10-20
+d4918563-4329-4f4f-b739-63c4bcee9156,銅,どう,copper,,False,2026-10-20
+c9bcb8e0-62e7-4724-bc7c-7ce2a2c5601d,切符,きっぷ,ticket,,False,2026-10-20
+2dcd6347-dafa-472b-980e-109e149e9728,考える,かんがえる,think,,False,2026-10-20
+ebc35d8b-716d-4974-8e21-6713be7f36ea,字幕,じまく,subtitle,,False,2026-10-20
+13bbfd06-c9e1-40ad-97c2-ad5a51b065ba,終わります,おわります,end,,False,2026-10-20
+f5436182-48e1-4a60-8cd6-3710a8ad7ae5,<N>や<N>,や,or,,False,2026-10-20
+1a17f377-d0d2-41b2-9a4e-caaa196c4a6b,ハンサム,はんさむ,handsome,,False,2026-10-20
+aed8a714-2bc6-45cb-a247-0de8ab2cbfcc,綺麗,きれい,beautiful/pretty,,False,2026-10-20
+13490cb7-f37c-46ec-8f1a-2dac8becabdb,静か,しずか,quiet,,False,2026-10-20
+b959004d-9d58-419e-ad46-bece4fe42256,夢,ゆめ,dream,,False,2026-10-20
+db465d04-efd8-4405-a77e-13fd3b813a47,親切な,しんせつな,kind,,False,2026-10-20
+2b7cb1c9-94de-45e1-bfe2-23b3c8d0d99c,便利な,べんりな,convenient,,False,2026-10-20
+33c713bd-3fc9-4941-8ce0-aff36ad31180,素敵な,すてきな,lovely/nice,,False,2026-10-20
+900b5df3-5af8-4255-9c49-cbfbd03eb24e,大きな,おおきな,big,,False,2026-10-20
+8952a4bf-2d10-4faa-98c6-25fd035e9070,小さな,ちいさな,small,,False,2026-10-20
+f2770af3-54f2-4063-9b39-3e314b025750,いい,いい,good,,False,2026-10-20
+4865b019-61bd-4e0c-9929-a02747db839e,悪い,わるい,bad,,False,2026-10-20
+25e33fef-d528-473a-844e-a2326cb3a7db,暑い,あつい,hot,,False,2026-10-20
+99231c95-3822-4057-be14-6bc9713d102d,冷たい,つめたい,cold,,False,2026-10-20
+8282c03f-caea-4bab-bd50-76941f71992f,優しい,やさしい,kind/gentle,,False,2026-10-20
+cc9708d7-ebf4-456c-aba3-0d399bdc372b,高い,たかい,tall/expensive,,False,2026-10-20
+f67ede2d-1418-4bc2-86eb-fcf14f572048,低い,ひくい,short/low,,False,2026-10-20
+29e20592-be50-423d-a80c-6d2a7d009127,美味しい,おいしい,yummy/delicious,,False,2026-10-20
+c3634818-c18f-4ef4-adf7-8dd8efb4d34e,楽しい,たのしい,fun,,False,2026-10-20
+6bf0fed3-3254-469b-bf0a-3f44bf10f89e,生活,せいかつ,life,,False,2026-10-20
+9b3e9c46-e83c-4599-a15b-67b455471b8f,仕事,しごと,job,,False,2026-10-20
+e2d60005-4174-48a5-9215-e55a18350bdf,暇,ひま,free,,False,2026-10-20
+2c675054-aa98-4f27-94ce-b3c7644f0f17,町,まち,town,,False,2026-10-20
+f819b925-d2a4-4733-bdab-1aa8b917c779,忙しい,いそがしい,busy,,False,2026-10-20
+51adaca2-2c54-433b-a6d1-c6fd2816e4bd,いつも,いつも,always,,False,2026-10-20
+31f5366f-d63b-4f4c-b8a3-1d5b9fbd60ea,たくさん,たくさん,many / a lot,,False,2026-10-20
+d7218393-6c0e-489e-ae22-3ce31e5973d3,多く,おおく,many,,False,2026-10-21
+e8f45f16-79e1-4396-9ced-cec56f5e1f94,労働者,ろうどうしゃ,worker,,False,2026-10-21
+634fd1b6-65fc-4a0f-9478-7a34c0252604,渡った,わたった,crossed,,False,2026-10-21
+59007fcb-0d17-436a-931e-969721e8058f,自分,じぶん,myself,,False,2026-10-21
+bbd53f69-4d13-46d4-8c91-a115c83579ec,運命,うんめい,fate,,False,2026-10-21
+ed0d6ca9-ee21-462c-ad23-6deaeff0790b,餃子,ぎょうざ,dumpling,,False,2026-10-21
+63147432-0630-41d8-ac1b-bf727b030b44,焼き,やき,"grilling, baking, roasting",,False,2026-10-21
+d9d67d6d-99be-4cb1-bd90-536901d3ed93,赤い,あかい,red,,False,2026-10-21
+7e70cb08-93ef-4241-8ecd-19149c412c3a,面白い,おもしろい,interesting / funny,,False,2026-10-21
+284a1f7b-8ecf-4438-abfb-ba03a35e5b12,寒い,さむい,cold,,False,2026-10-21
+9f61fdf9-c717-4fbb-a96e-37e0fedeaf3e,寮,りょう,dormitory,,False,2026-10-21
+5a99e0f7-2605-44c7-8651-118f31cf82a1,古い,ふるい,old,,False,2026-10-21
+d24d5d84-aed8-4dfe-9458-95acbd0fdb71,借ります,かります,borrow,,False,2026-10-21
+17b319b6-af9c-437b-88a9-5e7e921e3c47,如何,いかが,how,,False,2026-10-21
+5eba55f6-3db5-418b-964a-6613c8372530,丸,まる,circle,,False,2026-10-21
+7b0924d0-7bac-4a0c-a200-e14c7694a676,罰,ばつ,punishment,,False,2026-10-21
+0629cf91-3f35-402e-a100-8c895a9fdc91,賑やか,にぎやか,lively,,False,2026-10-21
+63aec24c-71b0-4b72-96b0-73d20eab06c5,点心,てんしん,dim sum,,False,2026-10-21
+0f268f19-3815-424e-928f-422557c92227,暇,ひま,free time,,False,2026-10-21
+762e919d-7470-4601-9831-3ac1983c6348,白い,しろい,white,,False,2026-10-22
+cee87e2c-0129-469a-b5a2-c9a11c920e66,広い,ひろい,wide,,False,2026-10-22
+5b3e7bfa-c318-462d-a6ce-455ade49b722,赤い,あかい,red,,False,2026-10-22
+53442130-d7ae-40e9-985b-15d5366202ac,青い,あおい,blue,,False,2026-10-22
+b4a98268-5529-4ac6-8ebf-b8328a97d08d,税,ぜい,tax,,False,2026-10-22
+c8de6b58-4025-4731-a027-8438214ecb57,好み,このみ,"taste, liking",,False,2026-10-22
+5823b03c-c7f2-48e5-928a-342f79ece2f2,相手,あいて,"partner, opponent",,False,2026-10-22
+fc3cb4bb-a751-47ee-99cb-71d0758326b1,料理,りょうり,"cooking, cuisine",,False,2026-10-22
+ffb30a46-09cb-40ae-a3ed-70260b415dbd,カメラ,かめら,camera,,False,2026-10-22
+70d0dd73-a65d-4ce4-9b4b-750d13158d4d,お酒,おさけ,"alcohol, sake",,False,2026-10-22
+190eaa13-3166-4e4b-90ce-e129467f8df4,ビル,びる,building,,False,2026-10-22
+d29774d3-c6d3-4c56-b065-ae1d31c4603a,隣,となり,"next to, neighbor",,False,2026-10-22
+2376b3bb-ccf0-4272-ad9d-98deb118d23e,歌,うた,song,,False,2026-10-22
+c7db632e-821c-48ca-8aff-ac80b85c7c9b,上手,じょうず,skillful,,False,2026-10-22
+ec844634-bb7f-4ef8-8933-4fe344fb70ca,飲み物,のみもの,"drink, beverage",,False,2026-10-22
+96a27b49-9ac4-4708-b59e-0d71a6fc33b0,洗濯機,せんたっき,washing machine,,False,2026-10-22
+8c9aeb1c-cf85-4f31-9d8e-c99f8545794b,冷蔵庫,れいぞうこ,refrigerator,,False,2026-10-22
+929e0dbc-8d01-4a3b-9921-3d0892b7fc95,旅行,りょこう,"travel, trip",,False,2026-10-22
+066b8e92-11a2-49bb-9edd-d50efdd85872,新幹線,しんかんせん,"Shinkansen, bullet train",,False,2026-10-22
+ac388dde-7ced-443c-ae4b-584fe272b28e,富士山,ふじさん,Mt. Fuji,,False,2026-10-22
+8382cbeb-79cd-4c68-9bb6-cc45510294a8,学校,がっこう,school,,False,2026-10-22
+c55987b1-c159-429d-bc07-fcfc2b439055,学生,がくせい,student,,False,2026-10-22
+07fbe79a-a5f7-4b39-85d9-d5e5a8a833fa,カラオケ,からおけ,karaoke,,False,2026-10-22
+8b9da964-8e03-4512-91f2-dd1160c3ec19,コンサート,こんさーと,concert,,False,2026-10-22
+a787e22a-ac10-45b8-b084-e68d2cb4b1ac,歌舞伎,かぶき,Kabuki,,False,2026-10-22
+0e3d11f7-3913-45c4-a477-9012715d40cf,刀,かたな,"sword, katana",,False,2026-10-22
+e5340904-2429-465c-88c1-7e06903e130d,和牛,わぎゅう,Wagyu beef,,False,2026-10-22
+a453bdb8-a001-4125-a82c-03dbdea7d8e7,元気,げんき,"healthy, energetic",,False,2026-10-22
+348d5f09-5b1d-4722-9245-8b400d258914,皆,みな,"everyone, all",,False,2026-10-22
+c40e6deb-09b5-4be9-9775-abe45e5c2fa0,お客様,おきゃくさま,"customer, guest",,False,2026-10-22
+775b8afc-3abe-4b79-8911-ded958489fe4,忍者,にんじゃ,ninja,,False,2026-10-22
+2b641876-d797-4ba2-938f-0e49d70ddd94,繁体字,はんたいじ,Traditional Chinese characters,,False,2026-10-22
+624ad641-dd83-45d3-aa80-50b5b13cc1c3,政治,せいじ,Politics,,False,2026-10-22
+c6ec9ed4-694e-4ccb-9901-6cdf5a48bc28,簡体字,かんたいじ,Simplified Chinese characters,,False,2026-10-22
+f295a3ab-620f-42af-8a1d-34e65ac337d6,野球,やきゅう,Baseball,,False,2026-10-22
+2208893d-baea-4973-ae85-1d2a1d3b82b7,サッカー,サッカー,Soccer,,False,2026-10-22
+8255b0db-d7e9-459f-916e-20eff3a84c8e,スポーツ,スポーツ,Sports,,False,2026-10-22
+5ccf39ea-44b7-48d3-89d3-4675cfa60ac4,バスケ,バスケ,Basketball,,False,2026-10-22
+9a151f51-503a-494f-9d9e-b13ddafca07d,コーヒー,コーヒー,Coffee,,False,2026-10-22
+d9055133-6ec1-45fc-a849-9017597c226d,喫茶店,きっさてん,Coffee shop,,False,2026-10-22
+ffa209f7-544d-4617-9ffd-d1daa1d03502,タピオカ,タピオカ,Tapioca,,False,2026-10-22
+d15bed74-51ed-4c10-a591-987beae03dd2,エナジー,エナジー,Energy,,False,2026-10-22
+f3564dd9-844b-46e7-badb-d9aa913067af,エナジードリンク,エナジードリンク,Energy drink,,False,2026-10-22
+3c089981-743b-47e7-b5d7-23a3ef8e646d,デリバリー,デリバリー,Delivery,,False,2026-10-22
+b5254de2-1721-4ee0-b80e-93970d9cc031,ミルク,ミルク,Milk,,False,2026-10-22
+a13867ea-27c8-4b2e-a572-9acf91cd9a86,ブランド,ブランド,Brand,,False,2026-10-22
+f6ba0510-a7d6-48df-8f78-07044c23bef1,質問,しつもん,Question,,False,2026-10-22
+cf0064d4-b406-44e3-a20d-0bc64ff6d6e5,お茶,おちゃ,Tea,,False,2026-10-22
+2d42670e-b624-419d-add6-369a63bfef63,インド,インド,India,,False,2026-10-22
+549f3581-6860-45ec-84dd-001356286b42,香港,ほんこん,Hong Kong,,False,2026-10-22
+c9dc7911-ffb4-4a7c-9e2e-e9e819422ca9,天ぷら,てんぷら,Tempura,,False,2026-10-22
+83e1a829-d5df-4ddf-b09f-1f476ea17326,中国,ちゅうごく,China,,False,2026-10-22
+7e6f63b7-8c79-4a24-aa1e-c0b4bbd928a8,韓国,かんこく,South Korea,,False,2026-10-22
+863a112c-8c4f-41bc-a1d1-f30fa47bead7,日本,にほん,Japan,,False,2026-10-22
+0b0a3ef3-d980-49d3-8110-526ed286d120,イタリア,イタリア,Italy,,False,2026-10-22
+1b174949-68c0-4467-820d-e97b5e6a76b0,ピザ,ピザ,Pizza,,False,2026-10-22
+751f6609-49c0-44f5-aabd-c40f40dce540,広東,かんとん,Guangdong,,False,2026-10-22
+87721c8a-97f2-4169-a97c-ac9e342034c8,台湾,たいわん,Taiwan,,False,2026-10-22
+fbc7711c-34c9-42b7-b988-cf734b75db16,アメリカ,アメリカ,America,,False,2026-10-22
+3a35b92d-ef24-4b40-a147-8bb9b04812b9,イギリス,イギリス,UK,,False,2026-10-22
+dca9c4c9-0218-4c3f-9ea9-9e4850b0017d,欧米,おうべい,Europe and America,,False,2026-10-22
+f9873210-6f5d-4fe2-a822-381a6c06b24e,アジア,アジア,Asia,,False,2026-10-22
+c647ba35-09d5-4fed-a717-cdbf65916693,クラシック,クラシック,Classical music,,False,2026-10-22
+42820ea0-65b7-4d9c-9c97-1e1ae0e10396,音楽,おんがく,Music,,False,2026-10-22
+bd4c97d5-1b02-4392-81d7-38066a2ae4f0,ジャズ,ジャズ,Jazz,,False,2026-10-22
+9c0ee03f-d15b-43f8-9850-b6804502a9c5,ロック,ロック,Rock music,,False,2026-10-22
+d54df792-48a4-4224-b046-ccc9c8d9bd9c,フランス,フランス,France,,False,2026-10-22
+41e9e53a-82bc-4c21-8c0f-8d92b40817d6,ロシア,ロシア,Russia,,False,2026-10-22
+fcc08723-f7ae-42a0-a991-9be240432260,自転車,じてんしゃ,bicycle,,False,2026-10-22
+4a53b04b-bb7d-4e94-af2c-b8b7a5a244b6,遠い,とおい,far,,False,2026-10-22
+42e541a4-875e-447b-ba67-957852b217d9,空,そら,sky,,False,2026-10-22
+1242c2d3-850f-45b9-9688-39207f37b11e,縁,えん,fate/connection,,False,2026-10-22
+adb07cbe-62dc-4bf3-a741-70b694b10a5b,片岡,かたおか,Kataoka (surname),,False,2026-10-22
+f013abc7-4e2d-463b-b5fb-2dc0c808679b,スペイン,すぺいん,Spain,,False,2026-10-22
+bbed1fe8-4f6d-45b1-8f6f-fbe21f5c725c,平仮名,ひらがな,hiragana,,False,2026-10-22
+11d30933-5ef8-4a63-a95a-3c7832d40923,片仮名,かたかな,katakana,,False,2026-10-22
+40913a74-d208-4054-b9d3-04161f7173de,ローマ字,ろーまじ,Roman alphabet,,False,2026-10-22
+b2f20c6c-b2e6-4821-a824-a9c9ca5ab3df,練習,れんしゅう,practice,,False,2026-10-22
+b4d17b92-f489-4dcb-933e-d9ad65bc32e9,うち,うち,home/inside,,False,2026-10-22
+ff996e19-638a-4ba9-9a2b-9ff683cb4a37,神,かみ,god,,False,2026-10-22
+57805a11-9c5c-43aa-9a18-614547b9a5c6,紙,かみ,paper,,False,2026-10-22
+310b4598-d893-4142-b9d9-756893b8faaf,髪,かみ,hair,,False,2026-10-22
+5e142584-fdcc-4f65-8fb2-e091b76565b3,心,こころ,heart/mind,,False,2026-10-22
+67d84c5e-6f60-4bd0-ba9c-e9f1207f4c0b,地下鉄,ちかてつ,subway,,False,2026-10-22
+9282485a-4687-42cd-8f81-e474ceec2449,タクシー,たくしー,taxi,,False,2026-10-22
+ad9fcdf9-e471-4725-ab1b-731a813e5f80,バス,ばす,bus,,False,2026-10-22
+40f9bd02-b143-4e77-bfec-04479f309749,フェリー,ふぇりー,ferry,,False,2026-10-22
+b527f66a-137b-4fb7-939a-51eb593812f3,飛行機,ひこうき,airplane,,False,2026-10-22
+70b70154-84e6-4546-a206-49e8018dfe5f,車,くるま,car,,False,2026-10-22
+ef4f1034-3f13-4f61-a6f4-96bbeca2b2d9,ポイント,ぽいんと,point,,False,2026-10-22
+f9f735d2-4b73-433b-aba5-79df0d1f837e,時間,じかん,time,,False,2026-10-22
+2f24dfa2-bcb7-4ddd-9edb-c9a8feb0f76c,時計,とけい,clock/watch,,False,2026-10-22
+53009030-25a7-4b3a-8071-319e720d7611,ビデオ,びでお,video,,False,2026-10-22
+a1657592-6229-4a00-9e38-183b2e3eca76,テレビ,てれび,television,,False,2026-10-22
+56d5e618-9833-41ea-993d-d01bc4cd2272,チケット,ちけっと,ticket,,False,2026-10-22
+5af837cb-badb-4c0c-ab95-cafb996833af,カード,かーど,card,,False,2026-10-22
+d2c97627-c29b-42c4-bdfc-8e3c81b10208,クレジットカード,くれじっとかーど,credit card,,False,2026-10-22
+d415dfab-0f90-4093-9c8e-44e0f7d2a11b,番号,ばんごう,number,,False,2026-10-22
+6e79d553-20e5-4386-974c-d845f92bb615,放題,ほうだい,unlimited,,False,2026-10-22
+5ea2d6a2-2ebb-4d6d-b32c-27b9eedb6a4c,牛丼,ぎゅうどん,beef bowl,,False,2026-10-22
+0dc6606c-cd80-4a7b-bfe7-76be2c3f5373,不安,ふあん,uneasiness; anxiety; worry,,False,2026-10-22
+2ba69beb-00bc-4c3b-a31f-c0e644f451ab,戦士,せんし,warrior; soldier,,False,2026-10-22
+75e21bd7-6b58-4bea-a831-c072e78af7fa,有効,ゆうこう,valid; effective,,False,2026-10-22
+a58c2989-5b8c-430e-b8d2-bc3a5226d4ad,焼肉,やきにく,grilled meat; Japanese BBQ,,False,2026-10-22
+11b7f23a-4f0f-48d6-af64-a6e98d81858f,無料,むりょう,free of charge,,False,2026-10-22
+76fd268a-dd9b-4ab9-8a29-4865e5974762,有料,ゆうりょう,paid; not free,,False,2026-10-22
+7b2b860d-0331-47f9-92d1-4affa3d704be,このまま,このまま,as it is; like this,,False,2026-10-22
+c611ef4e-d3df-4c2d-92d9-bedac5f4b91f,円,えん,yen; circle,,False,2026-10-22
+83453bf2-b844-462d-86fd-e47208342e1d,ドル,ドル,dollar,,False,2026-10-22
+f747ae3a-bee7-4514-af3a-4015a686ed74,あまり,あまり,not very (with negative); remainder,,False,2026-10-22
+9646b651-f146-44fe-95ff-968687a54285,よく,よく,often; well,,False,2026-10-22
+ce1a2c8d-651d-4342-baa0-5048984afc1a,大体,だいたい,mostly; approximately,,False,2026-10-22
+58120a92-701e-4c70-9187-3ea1d96d1575,少し,すこし,a little,,False,2026-10-22
+e3773544-c8d9-4ba6-98f6-3952c34c5572,全然,ぜんぜん,not at all (with negative),,False,2026-10-22
+ce4ca9eb-9d39-4a81-b9f9-377736f09c3b,全て,すべて,all; everything,,False,2026-10-22
+f404ebd1-a7f1-439c-9605-b128ecf68e76,全部,ぜんぶ,all; whole,,False,2026-10-22
+da83a7d5-c679-4c17-9684-6abde99a45bd,とても,とても,very,,False,2026-10-22
+bda5b7fe-4185-4a7d-b14b-9c1d0241e68a,物,もの,thing,,False,2026-10-22
+3329a253-e1e5-45d4-8849-f2db1b445fa2,復習,ふくしゅう,review (of studies),,False,2026-10-22
+abd45c89-047c-4f5b-adf7-a82068dd8430,苦手,にがて,weak point; not good at,,False,2026-10-22
+d55ec677-a922-4f57-8286-a390849e6ebc,戦車,せんしゃ,tank,,False,2026-10-22
+312a1a64-d7e8-4963-9268-d53456a87cfc,絵,え,picture,,False,2026-10-22
+d5077f92-2975-4083-908b-6ca4ab7f3d55,歌,うた,song,,False,2026-10-22
+cd66801f-86a3-44b4-ba73-ccc4006fada4,佐藤,さとう,A common Japanese surname.,,False,2026-10-22
+5b0b328a-052b-4485-9829-1b6937ce6333,天安門,てんあんもん,Tiananmen (Gate of Heavenly Peace).,,False,2026-10-22
+60e44281-0fdf-43ec-a8c3-b43c4b0e6bf9,新宿,しんじゅく,Shinjuku (a special ward in Tokyo).,,False,2026-10-22
+f25471f1-7bb8-443c-b1eb-1b75fbdf3b71,東京,とうきょう,Tokyo (the capital of Japan).,,False,2026-10-22
+29a32d5d-ef54-46f9-85d0-ce6ebd99aaa6,渋谷,しぶや,Shibuya (a special ward in Tokyo).,,False,2026-10-22
+30cfe3a3-f4b6-4516-8ba3-a0335e77c15e,天皇陛下,てんのうへいか,His Majesty the Emperor.,,False,2026-10-22
+defdc387-dc32-43fb-a21a-14a5bc7d8bce,祝日,しゅくじつ,Public holiday.,,False,2026-10-22
+b33db77d-1884-4326-b747-25ec05f638a5,国民,こくみん,Citizen; people of a country.,,False,2026-10-22
+427d5f86-b888-42a1-9b95-e2b2ea16278e,平成,へいせい,Heisei era (1989–2019).,,False,2026-10-22
+11d424a8-dd6c-4fe3-8bfd-b93dbded7a2c,新年,しんねん,New Year.,,False,2026-10-22
+416f9e55-e2f6-46f7-8fad-edb63d9c80ad,平和,へいわ,Peace.,,False,2026-10-22
+47a7bb2d-2fb1-4ccb-a087-dac165ca5ed1,昭和,しょうわ,Showa era (1926–1989).,,False,2026-10-22
+>>>>>>> 3c32572 (20261022)
