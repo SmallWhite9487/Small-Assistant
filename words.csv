@@ -1,0 +1,91 @@
+id,word,reading,meaning,notes,check_ai,added_on
+f60a3d41-c40d-45aa-a358-9841bd534a3f,漢字,かんじ,中国からの字,,False,2026-10-08
+d8a77ad8-4785-4a04-88b2-73277fb3e862,おやすみ,おやすみ,break,,False,2026-10-08
+2f9211b2-17d1-4510-a00b-754793d243d1,休み,やすみ,break / rest,,False,2026-10-08
+224a85d1-e1ac-4664-94ac-88b894d2bbe6,変える,かえる,change,,False,2026-10-08
+0494b0fd-0480-47e3-a127-4cf9d1384e93,担任,たんにん,班主任,,False,2026-10-08
+04238659-704e-47ea-8a64-f3bed3a758f4,エレベーター,えれべーたー,升降機,,False,2026-10-13
+e4f746c2-6da0-4466-900d-a73a51b47fc2,自動販売機,じどうはんばいき,vending machine,,False,2026-10-13
+8ec43eb1-27c9-4cc8-bd48-841ef436d3c7,男子トイレ,だんしといれ,men's toilet,,False,2026-10-13
+720aa8f3-10e0-471c-a40c-dc79399ffe72,女子トイレ,じょしといれ,women's toilet,,False,2026-10-13
+e24d79b7-7d32-4b64-9489-35a53dcf379e,カフェ,かふぇ,cafe,,False,2026-10-13
+338e9522-9891-4a7a-b6d1-1b3ab7efe2a2,図書室,としょしつ,library,,False,2026-10-13
+db7d1a5e-0af9-4636-9f3d-c81a2a13315c,ゴミ箱,ごみばこ,rubbish bin,,False,2026-10-13
+ad9e5b55-0538-4f90-9cbd-dbe184c4ea92,喫煙所,きつえんじょ,smoking area,,False,2026-10-13
+2826c922-9649-421b-8217-ca349f5f29f6,自習室,じしゅうしつ,self-learning room,,False,2026-10-13
+f0fb87da-9184-46a0-bd70-d4df03a6d247,横山,よこやま,name,,False,2026-10-13
+43c96a6a-bd5c-4198-a61b-8c6456490c9b,山,やま,山,,False,2026-10-13
+3172fc22-5fc7-40f2-9846-743dddaf88cf,違う,ちがう,wrong,,False,2026-10-13
+c9d30f8e-45bc-4df9-9eaa-e98639161558,何,なん,[What] 虛,,False,2026-10-13
+16717523-a1b2-4421-98a9-a644277525f5,何,なに,[What] 實,,False,2026-10-13
+99c49c2a-2beb-49e6-9953-18378b34ea66,事務所,じむしょ,office,,False,2026-10-13
+d4742124-563c-4d42-8e4d-fbd5a1f207c0,価格,かかく,price,,False,2026-10-13
+0c6afc20-d4e6-4eac-95c8-ea4e99aa242b,扇子,せんす,扇子,,False,2026-10-13
+8b7a700e-909d-4eb1-9d08-837be7394087,ネクタイ,ねくたい,tie,,False,2026-10-13
+50ee43d3-b96e-4636-bee6-6f3519bf08ba,靴,くつ,靴,,False,2026-10-13
+c73c618f-9673-40ac-95fa-80286a501d28,エスカレーター,えすかれーたー,扶手電梯,,False,2026-10-14
+d3a49638-e944-415f-a66c-a6d5955aaca4,寝ます,ねます,sleep,,False,2026-10-14
+3c81e087-89d6-497d-9f2c-17e53d59d722,夕食,ゆうしょく,dinner,,False,2026-10-14
+79f2bee7-a9ff-427d-ac28-5864b9d116a1,答え,こたえ,answer,,False,2026-10-14
+daa19837-e7d2-4c79-aad9-2e64c351af43,彼,かれ,he/BF,,False,2026-10-16
+c56f15b3-6fc6-43c8-b764-6a2e97cf95d8,彼女,かのじょ,she/GF,,False,2026-10-16
+d42713a3-7463-4b9e-a0c9-89da07d5e35f,家族,かぞく,family,,False,2026-10-16
+5fdef748-8aa7-4cd7-9c04-d44168d59c73,独り,ひとり,alone,,False,2026-10-16
+b3679b8e-ebf7-4459-bb0e-2896d001f31d,先週,せんしゅう,last week,,False,2026-10-16
+2507ede0-7100-47e2-92ab-5c571bec722b,今週,こんしゅう,this week,,False,2026-10-16
+1dfc96f1-f491-4ea0-bcc3-2513d859bc21,来週,らいしゅう,next week,,False,2026-10-16
+9c27117e-221d-4f05-8fee-651163ef42d5,先月,せんげつ,last month,,False,2026-10-16
+21c0955f-982a-4009-9ce1-9262d7de03ce,今月,こんげつ,this month,,False,2026-10-16
+3c7228fe-9719-489b-bde3-93f95ca17233,来月,らいげつ,next month,,False,2026-10-16
+95d077c6-72a7-49fd-9d78-291839654fea,去年,きょねん,last year,,False,2026-10-16
+790a29b4-b265-4897-8832-7459c702a00c,今年,ことし,this year,,False,2026-10-16
+9dc8eb64-aa16-4981-951b-47925cd09807,来年,らいねん,next year,,False,2026-10-16
+03367119-7ac8-4b08-943f-3513b6483e51,普通,ふつう,[Train]normal,,False,2026-10-16
+b8e69e8a-8b2d-4462-9213-fdae900448cc,急行,きゅうこう,[Train]fast,,False,2026-10-16
+8e8209b1-eed1-45f8-8078-2d2908061298,特急,とっきゅう,[Train]very fast,,False,2026-10-16
+4ca5c0aa-45f0-46eb-966c-8190e7160a92,手帳,てちょう,notebook,,False,2026-10-16
+9fcae0a0-fb97-4c98-8a60-94c91bb8f8f4,夜,よる,night,,False,2026-10-16
+72999676-321a-47b2-a539-28c0b0b1fa53,手,て,hand,,False,2026-10-16
+ec660933-5efa-435e-b3f6-3dbd7c449e57,パン,ぱん,bread,,False,2026-10-16
+0865a52b-473c-4289-b832-3c9b2cc79307,卵,たまご,egg,,False,2026-10-16
+9cb625b3-f57f-4a0e-8171-47396594dba5,肉,にく,meat,,False,2026-10-16
+56f59070-9e11-4376-8790-279ac62e01eb,魚,さかな,fish,,False,2026-10-16
+31e16b75-c2ca-45b3-9561-bff18d709cfe,野菜,やさい,vegetables,,False,2026-10-16
+eb8db0b4-db17-4089-bcfa-bf07caf8820f,果物,くだもの,fruit,,False,2026-10-16
+c0cd278b-d90c-4c1a-a179-fa53f1570bd9,牛乳,ぎゅうにゅう,milk,,False,2026-10-16
+05c790fd-cea3-4b82-b1a4-781b675b7f39,店,みせ,store,,False,2026-10-16
+b6aabf80-2f3c-4496-a881-9787292cffb6,食べます,たべます,eat,,False,2026-10-16
+266c64ec-2691-4ce9-bf6b-41b0f440c64e,飲みます,のみます,drink,,False,2026-10-16
+f92090f4-2719-4306-94a7-92effe1edcd7,吸います,すいます,smoke/inhale,,False,2026-10-16
+e0acce10-47b5-4f74-9cd0-118bd0bdf904,見ます,みます,see,,False,2026-10-16
+452b3e47-6fe8-4ef0-9990-1cd865c76972,聞きます,ききます,hear,,False,2026-10-16
+d9b27991-5e0b-4edc-a75b-99305059f1b0,読みます,よみます,read,,False,2026-10-16
+ac5902eb-6d70-406a-aa1b-b78d7cfc5d0e,書きます,かきます,write,,False,2026-10-16
+c7ca8afc-57cd-4bf1-a2ee-f370323c057a,描きます,かきます,draw,,False,2026-10-16
+fd06a81c-44c2-4d11-8773-915028ab7658,買います,かいます,buy,,False,2026-10-16
+f3294661-b997-42cc-9e66-6cfb171da4b5,撮ります,とります,take a photo,,False,2026-10-16
+ab96de8d-1334-4d9d-bd90-d10b85a7cebc,会います,あいます,meet,,False,2026-10-16
+176a9215-a33e-46d0-a922-816191360bb9,朝ご飯,あさごはん,breakfast,,False,2026-10-16
+f2681fd3-f767-4e2b-b152-2fc84a3813ae,昼ご飯,ひるごはん,lunch,,False,2026-10-16
+03763d30-24cf-4b5d-88ab-3cc337ba81aa,晩ご飯,ばんごはん,dinner,,False,2026-10-16
+2197e20e-464b-4fb2-bcea-fbe019ca15f3,非常,ひじょう,emergency/very,,False,2026-10-19
+34b50f17-3870-4d44-851e-a49f8bfb4ad4,寝ます,ねます,sleep,,False,2026-10-19
+c70bfb21-75cb-49c9-bc02-0b05aa44bfa5,働きます,はたらきます,work,,False,2026-10-19
+9aa5db26-13d2-4d22-b6a6-8edae233a728,起きます,おきます,wake up,,False,2026-10-19
+b5388c68-8a76-4eea-91f3-468d7f588dc8,自由,じゆう,free,,False,2026-10-19
+063efc22-536b-4075-a4bd-39bb8c33d8bb,美術館,びじゅつかん,museum,,False,2026-10-19
+c777fc48-97a7-4b81-86f1-868feba2fac3,バー,ばー,bar,,False,2026-10-19
+f3384d27-d281-4853-8d43-82d52080ecc8,映画館,えいがかん,cinema,,False,2026-10-19
+8f2b6c9d-9c67-455a-a495-e0b6b7139123,ラーメン屋,らーめんや,ramen shop,,True,2026-10-19
+651dece0-8151-4d39-a0e0-47aaebfcb9a3,発表,はっぴょう,announcement,,True,2026-10-19
+118cfddf-86da-4925-ad11-a3513ea19bb4,お花見,おはなみ,#,,True,2026-10-19
+05cc40f3-1185-4e4b-b4a1-51bd731508cd,切ります,きります,cut,,True,2026-10-19
+b6bcbbf9-4b7e-45c4-a06d-3611a326dd12,送ります,,give,,True,2026-10-19
+71cbe9c9-6b29-4bc7-87d5-d9c344762998,貸します,,borrow,,True,2026-10-19
+02412c01-6b7d-454e-8654-25a05e5b4dad,のり,,glue,,True,2026-10-19
+363e585d-48e9-4aea-b9d7-5ab7d5d99138,パンチ,,＃,,True,2026-10-19
+c10f2718-63ba-4be5-93cb-a99eb5836dd8,ホッチキス,,＃,,True,2026-10-19
+6cc464bb-f045-4e71-a1ce-9156a4894808,サロテープ,,＃,,True,2026-10-19
+257740c7-ceca-46f7-9f8a-9d3c1ec88d63,消しゴム,,rubber,,True,2026-10-19
+37f87c7f-a81a-40e2-a683-eba3ad6f20bd,ハンコ,,印章,,True,2026-10-19
+5bbb25f1-0da2-436b-ac80-3d086895c50f,タブレット,,tablet,,True,2026-10-19
