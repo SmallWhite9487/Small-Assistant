@@ -4,7 +4,7 @@ d8a77ad8-4785-4a04-88b2-73277fb3e862,おやすみ,おやすみ,break,,False,2026
 2f9211b2-17d1-4510-a00b-754793d243d1,休み,やすみ,break / rest,,False,2026-10-08
 224a85d1-e1ac-4664-94ac-88b894d2bbe6,変える,かえる,change,,False,2026-10-08
 0494b0fd-0480-47e3-a127-4cf9d1384e93,担任,たんにん,homeroom teacher / person in charge,,False,2026-10-08
-04238659-704e-47ea-8a64-f3bed3a758f4,エレベーター,エレベーター,elevator,,False,2026-10-13
+04238659-704e-47ea-8a64-f3bed3a758f4,エレベーター,えれべーたー,elevator,,False,2026-10-13
 e4f746c2-6da0-4466-900d-a73a51b47fc2,自動販売機,じどうはんばいき,vending machine,,False,2026-10-13
 8ec43eb1-27c9-4cc8-bd48-841ef436d3c7,男子トイレ,だんしといれ,men's toilet,,False,2026-10-13
 720aa8f3-10e0-471c-a40c-dc79399ffe72,女子トイレ,じょしといれ,women's toilet,,False,2026-10-13
@@ -23,7 +23,7 @@ d4742124-563c-4d42-8e4d-fbd5a1f207c0,価格,かかく,price,,False,2026-10-13
 0c6afc20-d4e6-4eac-95c8-ea4e99aa242b,扇子,せんす,folding fan,,False,2026-10-13
 8b7a700e-909d-4eb1-9d08-837be7394087,ネクタイ,ねくたい,tie,,False,2026-10-13
 50ee43d3-b96e-4636-bee6-6f3519bf08ba,靴,くつ,shoes,,False,2026-10-13
-c73c618f-9673-40ac-95fa-80286a501d28,エスカレーター,エスカレーター,escalator,,False,2026-10-14
+c73c618f-9673-40ac-95fa-80286a501d28,エスカレーター,えすかれーたー,escalator,,False,2026-10-14
 d3a49638-e944-415f-a66c-a6d5955aaca4,寝ます,ねます,sleep,,False,2026-10-14
 3c81e087-89d6-497d-9f2c-17e53d59d722,夕食,ゆうしょく,dinner,,False,2026-10-14
 79f2bee7-a9ff-427d-ac28-5864b9d116a1,答え,こたえ,answer,,False,2026-10-14
@@ -76,7 +76,7 @@ b5388c68-8a76-4eea-91f3-468d7f588dc8,自由,じゆう,free,,False,2026-10-19
 063efc22-536b-4075-a4bd-39bb8c33d8bb,美術館,びじゅつかん,museum,,False,2026-10-19
 c777fc48-97a7-4b81-86f1-868feba2fac3,バー,ばー,bar,,False,2026-10-19
 f3384d27-d281-4853-8d43-82d52080ecc8,映画館,えいがかん,cinema,,False,2026-10-19
-8f2b6c9d-9c67-455a-a495-e0b6b7139123,ラーメン屋,らーめんや,ramen shop,,False,2026-10-19
+8f2b6c9d-9c67-455a-a495-e0b6b7139123,ラーメン屋,らあめんや,ramen shop,,False,2026-10-19
 651dece0-8151-4d39-a0e0-47aaebfcb9a3,発表,はっぴょう,announcement,,False,2026-10-19
 118cfddf-86da-4925-ad11-a3513ea19bb4,お花見,おはなみ,cherry-blossom viewing,,False,2026-10-19
 05cc40f3-1185-4e4b-b4a1-51bd731508cd,切ります,きります,cut,,False,2026-10-19
@@ -102,7 +102,7 @@ c5b38148-271a-4513-881e-bec2db6b6525,届きます,とどきます,arrive / be de
 14b89a87-040a-453b-b4f9-438e8d284596,プレゼント,ぷれぜんと,gift,,False,2026-10-20
 c3517bc3-e969-464e-8fef-2ce14ffccba3,荷物,にもつ,luggage / package,,False,2026-10-20
 3da96089-02cf-481f-b0ac-2bd2d9aaefa9,お金,おかね,money,,False,2026-10-20
-12d1cb10-723b-4cfc-acaf-8228688b7ab7,シルバー,シルバー,silver,,False,2026-10-20
+12d1cb10-723b-4cfc-acaf-8228688b7ab7,シルバー,しるばあ,silver,,False,2026-10-20
 d4918563-4329-4f4f-b739-63c4bcee9156,銅,どう,copper,,False,2026-10-20
 c9bcb8e0-62e7-4724-bc7c-7ce2a2c5601d,切符,きっぷ,ticket,,False,2026-10-20
 2dcd6347-dafa-472b-980e-109e149e9728,考える,かんがえる,think,,False,2026-10-20
@@ -187,7 +187,7 @@ c40e6deb-09b5-4be9-9775-abe45e5c2fa0,お客様,おきゃくさま,"customer, gue
 624ad641-dd83-45d3-aa80-50b5b13cc1c3,政治,せいじ,Politics,,False,2026-10-22
 c6ec9ed4-694e-4ccb-9901-6cdf5a48bc28,簡体字,かんたいじ,Simplified Chinese characters,,False,2026-10-22
 f295a3ab-620f-42af-8a1d-34e65ac337d6,野球,やきゅう,Baseball,,False,2026-10-22
-2208893d-baea-4973-ae85-1d2a1d3b82b7,サッカー,サッカー,Soccer,,False,2026-10-22
+2208893d-baea-4973-ae85-1d2a1d3b82b7,サッカー,さっかー,Soccer,,False,2026-10-22
 8255b0db-d7e9-459f-916e-20eff3a84c8e,スポーツ,スポーツ,Sports,,False,2026-10-22
 5ccf39ea-44b7-48d3-89d3-4675cfa60ac4,バスケ,バスケ,Basketball,,False,2026-10-22
 9a151f51-503a-494f-9d9e-b13ddafca07d,コーヒー,コーヒー,Coffee,,False,2026-10-22
@@ -397,3 +397,6 @@ ad24fef4-3550-42e1-8050-d3ac43ff9b3a,勉強,べんきょう,study,,False,2026-10
 97250bae-b997-415c-8183-09e17ca2f603,頑張る,がんばる,to do one's best,,False,2026-10-23
 b0586435-921f-4067-b981-a4e9025bd68e,初級,しょきゅう,beginner level,,False,2026-10-23
 6cea95e4-d02c-468e-b944-5f1394974293,進めます,すすめます,to advance; to promote,,False,2026-10-23
+ee285cdc-b504-411b-8a89-7a3ab7a8ffd8,追証,おいしょう,Margin call,,False,2026-10-24
+676648c7-565d-42e4-8e4b-1cb255527a38,お世話,おせわ,"care, help, assistance",,False,2026-10-24
+105e870b-e927-424e-bb37-cf77e35b1af8,押す,おす,"to push, to press",,False,2026-10-24

@@ -50,26 +50,27 @@ class ShellMixin:
             fg=self.GREEN,
             font=("TkDefaultFont", 17, "bold"),
         ).pack(anchor="w", pady=(0, 34))
-        ttk.Button(sidebar, text="⌂   Home", command=self.show_home, justify="left"
-        ).pack(fill="x", pady=(0, 8))
+        ttk.Button(sidebar, text="⌂   Home", command=self.show_home).pack(
+            fill="x", pady=(0, 8)
+        )
         ttk.Button(
-            sidebar, text="◷   Review", command=self.show_review, justify="left"
+            sidebar, text="◷   Review", command=self.show_review
         ).pack(fill="x", pady=(8, 0))
         ttk.Button(
-            sidebar, text="★   Revision all", command=self.show_revision_all, justify="left"
+            sidebar, text="★   Revision all", command=self.show_revision_all
         ).pack(fill="x", pady=(8, 0))
         ttk.Button(
-            sidebar, text="✐   Notes", command=self.show_notes, justify="left"
+            sidebar, text="✐   Notes", command=self.show_notes
         ).pack(fill="x", pady=(8, 0))
         ttk.Button(
-            sidebar, text="✎   Grammar check", command=self.show_grammar_check, justify="left"
+            sidebar, text="✎   Grammar check", command=self.show_grammar_check
         ).pack(fill="x", pady=(8, 0))
         ttk.Button(
-            sidebar, text="あ   Kana reader", command=self.show_kana_reader, justify="left"
+            sidebar, text="あ   Kana reader", command=self.show_kana_reader
         ).pack(fill="x", pady=(8, 0))
         ttk.Button(
-            sidebar, text="✓   Check word info", command=self.show_word_check, justify="left"
-        ).pack(fill="x", pady=(8, 0), anchor="w")
+            sidebar, text="✓   Check word info", command=self.show_word_check
+        ).pack(fill="x", pady=(8, 0))
         tk.Label(
             sidebar,
             text="Your personal\nJapanese Learning Helper",
