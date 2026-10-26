@@ -274,7 +274,6 @@ bda5b7fe-4185-4a7d-b14b-9c1d0241e68a,物,もの,thing,,False,2026-10-22
 abd45c89-047c-4f5b-adf7-a82068dd8430,苦手,にがて,weak point; not good at,,False,2026-10-22
 d55ec677-a922-4f57-8286-a390849e6ebc,戦車,せんしゃ,tank,,False,2026-10-22
 312a1a64-d7e8-4963-9268-d53456a87cfc,絵,え,picture,,False,2026-10-22
-d5077f92-2975-4083-908b-6ca4ab7f3d55,歌,うた,song,,False,2026-10-22
 cd66801f-86a3-44b4-ba73-ccc4006fada4,佐藤,さとう,A common Japanese surname.,,False,2026-10-22
 5b0b328a-052b-4485-9829-1b6937ce6333,天安門,てんあんもん,Tiananmen (Gate of Heavenly Peace).,,False,2026-10-22
 60e44281-0fdf-43ec-a8c3-b43c4b0e6bf9,新宿,しんじゅく,Shinjuku (a special ward in Tokyo).,,False,2026-10-22
@@ -400,3 +399,193 @@ b0586435-921f-4067-b981-a4e9025bd68e,初級,しょきゅう,beginner level,,Fals
 ee285cdc-b504-411b-8a89-7a3ab7a8ffd8,追証,おいしょう,Margin call,,False,2026-10-24
 676648c7-565d-42e4-8e4b-1cb255527a38,お世話,おせわ,"care, help, assistance",,False,2026-10-24
 105e870b-e927-424e-bb37-cf77e35b1af8,押す,おす,"to push, to press",,False,2026-10-24
+5ef0d2e0-0114-4def-8eec-001267fa197f,結核,けっかく,tuberculosis,,False,2026-10-26
+a1fbd906-2497-4a3b-970c-9ef0eb8e0f4d,検診,けんしん,medical examination,,False,2026-10-26
+0ff7245f-49b4-4bb2-9c0e-c9c88f209dfc,健康,けんこう,health,,False,2026-10-26
+c41464a1-7e5a-4ee5-9414-de4ef28dc885,保険,ほけん,insurance,,False,2026-10-26
+c6451fc1-d368-4e20-af93-8af98003c99a,お知らせ,おしらせ,notice / notification,,False,2026-10-26
+7b069f3b-491b-4ebc-a47a-9efbbf72064f,課,か,section / division,,False,2026-10-26
+664dff65-5b9a-4cb2-9f0c-49e2fcd00d50,ご案内,ごあんない,"information, guidance",,False,2026-10-26
+acba73fb-f776-4da7-95a8-269ca125b4e6,分かります,わかります,to understand,,False,2026-10-26
+e65f19fe-7336-431b-8876-2a9e2cc7bf19,知ります,しります,"to know, to get to know",,False,2026-10-26
+b3ba0461-9e0d-496b-b0a8-0bdf5fcdb55d,紅茶,こうちゃ,black tea,,False,2026-10-26
+6426951c-b016-48e7-bfbd-56e7c62cecc1,鈴木,すずき,Suzuki (Japanese surname),,False,2026-10-26
+37857862-4d86-4cd5-8fc1-f7cee229ba9b,熱い,あつい,hot (to the touch),,False,2026-10-26
+19f5aae8-d4b1-4750-aff0-f4ed9f90c2ec,友達,ともだち,friend,,False,2026-10-26
+2e346e3a-1137-47e3-8b98-bbccfb2a481d,難しい,むずかしい,difficult,,False,2026-10-26
+df607ab3-307d-428a-a6f9-54b9b2eb57c2,月,つき,moon; month,,False,2026-10-26
+b1736395-f6e4-4dfd-8872-cf98b74a1368,火,ひ,fire,,False,2026-10-26
+559fb9fd-c146-4347-808d-88132b9ff895,火,か,fire (often used in compounds),,False,2026-10-26
+f5fa5250-5520-4f8b-9191-c6bb0495eb51,火山,かざん,volcano,,False,2026-10-26
+60f18ea1-5cf6-41dc-bca1-fe8d5a2cf147,言葉,ことば,"language, word",,False,2026-10-26
+7c96a4ca-ab70-4806-8677-74c59d0adc1c,基,もと,"foundation, basis",,False,2026-10-26
+75aea94e-77c4-4d0e-8f5c-82c58eb1576b,木,き,"tree, wood",,False,2026-10-26
+68c523ba-bf9c-450e-86a1-fbdfca0e2ee6,メダル,めだる,medal,,False,2026-10-26
+d30903ee-68f4-4b71-abd5-ac623646386d,土,つち,"earth, soil",,False,2026-10-26
+514d410e-2342-4679-8a30-f8a0d3880821,土地,とち,"land, plot",,False,2026-10-26
+be83eb34-c4b6-4215-aa37-7c01dd530b8e,次,つぎ,next,,False,2026-10-26
+fd5ed5d8-627e-4df6-94b8-9e20ee081e22,線,せん,line,,False,2026-10-26
+b4488cbb-27ce-48a6-944c-353649585922,長,ながい,long,,False,2026-10-26
+088687d1-0afb-4fce-8b83-fa22463471d1,一番,いちばん,"number one, best",,False,2026-10-26
+7a9f9684-ba55-41e6-9b33-0728a170ba48,方,ほう,"direction, way",,False,2026-10-26
+50280b19-9430-44b5-bcaf-7667ea6d5956,東,ひがし,east,,False,2026-10-26
+084e27b7-63b9-4f56-8d7e-1b45d8f50362,西,にし,west,,False,2026-10-26
+1247c05c-bf76-4304-b811-f9aef46c08b7,南,みなみ,south,,False,2026-10-26
+e8bd5e10-5524-48af-a98b-ac81cb1d7f6e,北,きた,north,,False,2026-10-26
+05ab9c59-7551-4b46-847b-a02319f5ea24,前,まえ,"before, front",,False,2026-10-26
+ee3a6f0e-f3f5-4ef8-ab30-daa654f99084,後,あと,"after, behind",,False,2026-10-26
+6cd0a373-d279-4430-bc7d-f28d2d899822,左,ひだり,left,,False,2026-10-26
+ca59cbeb-2bce-4218-b794-a34e04d48047,上,うえ,"above, up",,False,2026-10-26
+cef8cabb-8fba-4bb6-8849-cba2a8fd5a6a,中,なか,"inside, middle",,False,2026-10-26
+299741c9-a3d7-44bb-bba6-741ba9decedf,水,みず,water,,False,2026-10-26
+4154e03f-276a-4bd7-8804-726119871019,開発者,かいはつしゃ,developer,,False,2026-10-26
+7da895d6-b607-4035-8957-7ce63ae9959f,意味,いみ,meaning,,False,2026-10-26
+e7223dcf-7902-4f9d-974e-aa9ac1e7ddb1,大変,たいへん,very; serious; difficult,,False,2026-10-26
+8628eaa3-3d78-4206-bb09-20d96aa57d30,趣味,しゅみ,hobby,,False,2026-10-26
+6984f4eb-c48c-453e-ab1a-4e518a391a73,興味,きょうみ,interest,,False,2026-10-26
+74f11144-dcee-4a85-a5bb-eb51dc9dc4a6,無理,むり,impossible; unreasonable,,False,2026-10-26
+6883cad4-da31-446b-94b6-0ec1a1f66fcb,世界,せかい,world,,False,2026-10-26
+a5e83f58-4f97-4d86-b8ce-79abb31e4436,人生,じんせい,life,,False,2026-10-26
+35345f85-a7bb-42e8-b8fe-70a9ca4c0bc4,相談,そうだん,consultation,,False,2026-10-26
+aecb8643-87c3-4872-bfdd-911091cc3a63,塗ります,ぬります,to paint/apply,,False,2026-10-26
+93eb991b-075d-4455-9faf-9e313dda0cb3,変えます,かえます,to change,,False,2026-10-26
+2c789bd4-60b8-43b3-8573-f1d4591684b4,大逸,たいいつ,great/extraordinary,,False,2026-10-26
+62fc9f2f-5a98-42c6-90da-e58337507a13,俳優,はいゆう,actor,,False,2026-10-26
+2a26acdd-51aa-44d9-bcce-bffe67b083cb,成れます,なれます,to become,,False,2026-10-26
+827c11d8-dbed-4d68-8c61-20084d38ff89,インターネット,インターネット,internet,,False,2026-10-26
+a011072f-3d90-44ac-95f6-36c18b9a7953,北海道,ほっかいどう,Hokkaido,,False,2026-10-26
+2df00182-0c64-4765-867c-281c2e40361a,チョコレート,チョコレート,chocolate,,False,2026-10-26
+8870d5ae-6794-4dbb-9602-1bf38336a208,やります,やります,to do,,False,2026-10-26
+a208380c-d09f-4cb5-b8d1-d316bb6f1683,会社,かいしゃ,company,,False,2026-10-26
+9dbdc0d7-abd5-44fb-8737-8fda1d07c332,会社員,かいしゃいん,company employee,,False,2026-10-26
+a8ed324a-cb03-43c8-b2f3-daf6fd9c3c44,先生,せんせい,teacher,,False,2026-10-26
+c2b1a487-682c-4dbb-bdaa-37e6cf219914,教師,きょうし,teacher,,False,2026-10-26
+819ca4c0-b400-43a8-9393-7269a2bd029c,銀行員,ぎんこういん,bank employee,,False,2026-10-26
+77dd0eee-e49a-4314-b995-ac63b8ce3ae8,研究員,けんきゅういん,researcher,,False,2026-10-26
+441a1012-2f35-4a7c-88f5-3de5d34e22fa,研究会,けんきゅうかい,research group,,False,2026-10-26
+979bd7e3-6e1d-4be4-9cd0-0b062b926060,社員,しゃいん,employee,,False,2026-10-26
+dedafdde-3ad1-41cf-b40f-8bcfd77e2221,雑誌,ざっし,magazine,,False,2026-10-26
+85b4d595-21ea-4d7d-aed9-d612f39c2d6c,漫画,まんが,manga,,False,2026-10-26
+40506335-f6c9-4ffa-9786-093098095dc0,アニメ,アニメ,anime,,False,2026-10-26
+46a50fa9-2529-4d71-bc26-d39de8813870,本,ほん,book,,False,2026-10-26
+05fb802e-278a-4edf-a3fa-b80bf8a3aed1,辞書,じしょ,dictionary,,False,2026-10-26
+d9561f52-4640-44cb-a51f-b749b5b7810d,新聞,しんぶん,newspaper,,False,2026-10-26
+eabf2ba1-6ca1-49c1-ab2d-db4b07ecf82b,ニュース,ニュース,news,,False,2026-10-26
+6cd285f5-d447-475a-95f9-e13a30f90bd9,ノート,ノート,notebook,,False,2026-10-26
+60f73a09-f60e-4e8d-a34a-bc4973945cea,名刺,めいし,business card,,False,2026-10-26
+aa807cbf-ca48-459c-99f8-76b1e56bdbc2,鉛筆,えんぴつ,pencil,,False,2026-10-26
+1964c937-49c0-4d12-ae2c-a112fd202bfc,ボールペン,ボールペン,ballpoint pen,,False,2026-10-26
+be7e7fa2-d1e9-4866-8f04-e44749b6eecc,シャープペンシル,シャープペンシル,mechanical pencil,,False,2026-10-26
+324224ec-8d05-4bba-a58a-732f7bd9fe48,鍵,かぎ,key,,False,2026-10-26
+4e761455-90fb-4c75-9ba2-378e0430ed5f,傘,かさ,umbrella,,False,2026-10-26
+aec0f6ee-fbc7-4729-b428-54c46324fa3f,コンピュータ,コンピュータ,computer,,False,2026-10-26
+c2a53569-31b8-4878-9a6a-8965a7f2da37,かばん,かばん,bag,,False,2026-10-26
+55bd6bf6-90fd-484b-94c2-bcca60f7c6ee,ラジオ,ラジオ,radio,,False,2026-10-26
+f82f5400-c22f-4bee-9668-47e7634b05c3,机,つくえ,desk,,False,2026-10-26
+6f9b6ca4-424f-4cc0-8624-761c3c3a1567,椅子,いす,chair,,False,2026-10-26
+3d1e44f9-3beb-45da-92bd-604713fe1c22,お土産,おみやげ,souvenir,,False,2026-10-26
+f74b52a3-d20d-4130-ab01-9355afedf850,教室,きょうしつ,classroom,,False,2026-10-26
+99792389-a4e2-4296-af4f-c9bf9cb58023,事務所,じむしょ,office,,False,2026-10-26
+945ea830-17b2-4c5b-bc60-63482cc8129f,最初,さいしょ,first/beginning,,False,2026-10-26
+be858018-0b4f-4020-ae0a-aecacdc1840c,受付,うけつけ,reception,,False,2026-10-26
+c1b8b3af-d362-4d49-bf4d-c50e1df4722b,ロビー,ロビー,lobby,,False,2026-10-26
+dac581f5-69c9-4181-8f8d-59790765e58d,部屋,へや,room,,False,2026-10-26
+4d8f6f95-6803-46a4-af0c-3c1f518cee26,階段,かいだん,stairs,,False,2026-10-26
+fa7d6820-2844-4d3b-9b77-ca9376d3ee69,電話,でんわ,telephone,,False,2026-10-26
+17e24e4d-3089-4d92-a42e-26742db438f7,売り場,うりば,sales counter,,False,2026-10-26
+d01696ce-1b1a-41d3-8fa3-991719d3864b,うるさい,うるさい,noisy,,False,2026-10-26
+09b37909-062d-45cc-9536-3f450fb9a701,図書館,としょかん,library,,False,2026-10-26
+0b660f22-a3eb-40a9-879f-0d72b6f217e7,午前,ごぜん,morning,,False,2026-10-26
+35923ed0-00a2-48fe-865f-337a7ea6cfce,午後,ごご,afternoon,,False,2026-10-26
+4072ce93-9a8e-43a6-99b2-fb9387af058f,一昨日,おととい,day before yesterday,,False,2026-10-26
+6f42fd2c-95b6-4d18-bfd1-2e46156896fd,昨日,きのう,yesterday,,False,2026-10-26
+2f9f4c62-3c34-4004-89ad-50163fe92a7b,今日,きょう,today,,False,2026-10-26
+91c052ac-768e-46a7-bbf2-c62e13954047,明日,あした,tomorrow,,False,2026-10-26
+5ab379c2-5e49-4671-90c9-6367b5f06b86,明後日,あさって,day after tomorrow,,False,2026-10-26
+6777f661-c494-452c-bdec-38c2ae710f30,今朝,けさ,this morning,,False,2026-10-26
+1f7f4045-3ef6-45e9-94b9-4389eba77d6b,こんばん,こんばん,tonight,,False,2026-10-26
+66dc9655-0f92-4e05-a9d5-8e14ef1e1b5d,毎朝,まいあさ,every morning,,False,2026-10-26
+a6251f6a-262e-489f-87e9-119cf20b24d7,毎日,まいにち,every day,,False,2026-10-26
+fefe0c1c-11ac-446b-a0f1-e95ab2f5d395,船,ふね,ship,,False,2026-10-26
+16583a71-2e26-4b0a-9636-ac2660a9106a,行きます,いきます,to go,,False,2026-10-26
+5a14d4bd-8f81-47fa-ac51-1c8d35bdcd91,来ます,きます,to come,,False,2026-10-26
+b0f47998-0119-4c28-acdd-cc0cacff4eda,いつ,いつ,when,,False,2026-10-26
+07242640-6039-4ba9-8794-40ff73b6f2b0,電車,でんしゃ,train,,False,2026-10-26
+7582457d-f3fc-41bf-aad3-f18ed2421eee,タクシー,タクシー,taxi,,False,2026-10-26
+ae8b88a2-967f-472b-87bf-019a3d14f8ec,歩いて,あるいて,on foot,,False,2026-10-26
+07533ba8-d935-4321-b38a-700ca832f01c,はし,はし,chopsticks/bridge,,False,2026-10-26
+ad7aff29-cea6-4d80-a6e0-437481354675,スプーン,スプーン,spoon,,False,2026-10-26
+690d9811-8d2e-45f5-ae46-3b5b27753963,ナイフ,ナイフ,knife,,False,2026-10-26
+4544218f-8d5e-4db5-943b-849b7afdaa71,鋏,はさみ,scissors,,False,2026-10-26
+3a6052df-481e-4787-852a-5516582e53f8,周り,まわり,surroundings; vicinity,,False,2026-10-26
+b9880889-9699-4ba5-87fd-576d60563c4e,紹介,しょうかい,introduction,,False,2026-10-26
+9aed4feb-deb3-4f3b-bfa6-8ff9e2a7d499,ベッド,べっど,bed,,False,2026-10-26
+41969d5e-357f-4c02-97c2-7b8c089e9dac,ドア,どあ,door,,False,2026-10-26
+f6a89c03-c42d-41ff-a0bf-309ec345d371,叩き,たたき,knocking; beating,,False,2026-10-26
+cc13e4e0-11d5-4fd2-98bc-b1c5abe708db,本棚,ほんだな,bookshelf,,False,2026-10-26
+c1d7bcbf-97d6-4caa-8ff3-4fd74ae3ecce,窓,まど,window,,False,2026-10-26
+79baf2fe-972a-49a2-b625-297751401c86,パンダ,ぱんだ,panda,,False,2026-10-26
+ddbaf959-a9d0-437c-bd45-553d170f4a6c,象,ぞう,elephant,,False,2026-10-26
+d773a4e5-6d34-43d5-9d9b-3ac9891315c5,犬,いぬ,dog,,False,2026-10-26
+d4de86a4-2b14-4718-9532-d5b7d2df98d5,猫,ねこ,cat,,False,2026-10-26
+44954cff-5ba7-4ca0-a907-2063ebd6c22b,箱,はこ,box,,False,2026-10-26
+5ff6055e-fc9e-4f32-9085-620bd2f0be1f,電池,でんち,battery,,False,2026-10-26
+24267925-6d02-4431-9217-2c67d09404fd,スイッチ,すいっち,switch,,False,2026-10-26
+7c57517a-cdbd-4704-a9d4-96fac481913f,たな,たな,shelf,,False,2026-10-26
+78dbdd0c-6015-4b86-8e5d-7a23f9ed818b,ポスト,ぽすと,mailbox; post,,False,2026-10-26
+5d9734f7-3d8e-4f1d-a961-fa145e2f50c4,コンビニ,こんびに,convenience store,,False,2026-10-26
+14f599cf-31d6-4995-a9f6-8ac2197ad3b8,男の子,おとこのこ,boy,,False,2026-10-26
+22a02918-9eae-4d47-a667-752922aae7fd,女の子,おんなのこ,girl,,False,2026-10-26
+a92b3e4d-d945-4f95-8086-072ec0353655,男の人,おとこのひと,man,,False,2026-10-26
+d954f568-bd2d-46f1-b020-32ff8fd7bedc,女の人,おんなのひと,woman,,False,2026-10-26
+523fd160-a15f-49e6-b173-568e9561388f,公園,こうえん,park,,False,2026-10-26
+c169217e-0488-465f-852b-612e65ae71fc,乗り場,のりば,boarding area; stop,,False,2026-10-26
+626e8129-deb8-4ccc-a6ea-aebbb471e221,県,けん,prefecture,,False,2026-10-26
+2bb70808-72bb-44eb-bcd1-b35c9e5e9d85,魔法,まほう,magic,,False,2026-10-26
+575ff381-6b99-4d2e-9427-ba4e789098bf,少女,しょうじょ,young girl,,False,2026-10-26
+b44c9c1e-486f-47c9-bb4c-9ad9cbc68a26,後ろ,うしろ,back; behind,,False,2026-10-26
+b9f5838e-6a58-4a2e-8a65-50c64a8aa5ce,下,した,under; below,,False,2026-10-26
+fad8e874-5797-4b0b-ac32-d1812bcf58c8,外,そと,outside,,False,2026-10-26
+3941fa8f-37d7-4629-8d3d-42845a86d636,テープル,てーぶる,table,,False,2026-10-26
+a34381ca-7e1a-4479-9d26-f4e58b1942c5,近く,ちかく,near; vicinity,,False,2026-10-26
+4acfbc18-8dff-4291-b81a-fbd28187540e,間,あいだ,between; interval,,False,2026-10-26
+4ae91329-c35c-45cd-9b4c-0e47e9577c15,家電,かでん,home appliances,,False,2026-10-26
+b752b75f-2925-433e-8143-8103908cf2ed,コーナー,こーなー,corner; section,,False,2026-10-26
+1e20d0bd-ad94-4073-bafa-7db6af8d0df9,建物,たてもの,building,,False,2026-10-26
+5ff9f172-b7f8-476c-8f95-c28ff8bf97e0,右,みぎ,right,,False,2026-10-26
+8d9118d2-6cb7-455b-891c-d19598f7522e,足,あし,foot/leg,,False,2026-10-26
+85a5cd84-9afa-42d4-b4fa-38630062a864,玄関,げんかん,entrance,,False,2026-10-26
+312a80f9-ad9d-44c2-b988-8cb0ca09566b,風呂場,ふろば,bathroom,,False,2026-10-26
+21eb8787-e086-4f0c-8c7a-d9b67e4f9751,洗面所,せんめんじょ,washroom,,False,2026-10-26
+23ddd7bf-68aa-4304-9004-66f032a7b95f,台所,だいどころ,kitchen,,False,2026-10-26
+98dd3b4f-2654-4b66-9272-7ff0f14376cc,居間,いま,living room,,False,2026-10-26
+ccb156bb-5150-477e-9905-d640f4f86b89,寝室,しんしつ,bedroom,,False,2026-10-26
+d9bd801d-3dff-4923-9b2f-1f024633bf61,ベランダ,べらんだ,veranda,,False,2026-10-26
+b819f9b1-900b-4c68-93d7-afb04757b703,廊下,ろうか,hallway,,False,2026-10-26
+5b53d497-0a33-4c76-a420-3dbda7eca4a4,食堂,しょくどう,dining room,,False,2026-10-26
+dfbb5695-aef5-4316-b321-5942c249985d,もう一回,もういっかい,One more time,,False,2026-10-26
+db211c77-c7ea-4780-96f4-7fe4a3e1479d,ソファ,ソファ,sofa,,False,2026-10-26
+cf837904-6c37-4a87-8870-ec56390670cb,未来,みらい,future,,False,2026-10-26
+733afde6-3e46-4039-8071-42ddf574a4fd,警察,けいさつ,police,,False,2026-10-26
+70849d42-f013-4188-bae5-f0e5af4ebccc,迷子,まいご,lost child,,False,2026-10-26
+351a556b-cda9-4231-85cc-0055bf836f4b,お巡り,おまわり,police officer (colloquial),,False,2026-10-26
+f01b5355-a3c3-44fc-8c8c-2ba6f7b5dfd5,現在,げんざい,present / current,,False,2026-10-26
+f43f53a1-998d-4f48-b60b-d261a655251f,場所,ばしょ,place / location,,False,2026-10-26
+962d362d-2f0f-4fbe-97ee-aae76844a059,保護者,ほごしゃ,guardian,,False,2026-10-26
+ed2b6b20-5cdc-41e8-b4b8-fe3c3c1d2c38,子供,こども,child,,False,2026-10-26
+ebae8553-0763-4efb-a2bd-5c9c89d79a9a,大人,おとな,adult,,False,2026-10-26
+733c7035-de67-4444-8852-d561106d101f,困難な,こんなんな,difficult,,False,2026-10-26
+16c791f8-7ace-423a-90b9-fe8108507ea6,蜂,はち,bee,,False,2026-10-26
+c89520c7-feaa-4c82-baa6-59ded6c8133a,はちみつ,はちみつ,honey,,False,2026-10-26
+1148960b-8f53-456f-9f3f-cc99633aee55,おにぎり,おにぎり,Rice ball,,False,2026-10-26
+7e15a4e8-af17-48e6-9644-b195a13b8b09,幽霊,ゆうれい,Ghost,,False,2026-10-26
+6c7bc0b3-510a-4012-86db-e39c9f003afd,お化け,おばけ,Ghost; monster; specter,,False,2026-10-26
+661b03d5-c6f3-4f2c-a2c3-624c28505747,文章,ぶんしょう,Sentence; text; composition,,False,2026-10-26
+978227c4-a434-4909-99ff-8ab1c8072615,横,よこ,side; horizontal,,False,2026-10-26
+cb51ddef-6524-419a-a810-632a2949b8f6,無駄,むだ,waste; futility,,False,2026-10-26
+dba902d6-9276-4bb1-9dd9-1c7accd2beb8,貞子,さだこ,Sadako (female given name),,False,2026-10-26
+0fe3ea05-26fc-4fda-b0fb-9f4b2f3d5091,鳥,とり,bird,,False,2026-10-26
+ccf01ae6-71ac-48d7-ae85-f570c1eb69b4,区役所,くやくしょ,ward office,,False,2026-10-26
+8376f7d0-d4c5-4939-88c6-310cfe994d14,ドイツ,どいつ,Germany,,False,2026-10-26
+672bfcfa-f280-465b-81bc-1f3fb42bee6c,出身,しゅっしん,place of origin; hometown,,False,2026-10-26
+067e1dbb-7905-4e29-a363-f2f5d27eebf9,者,もの,person,,False,2026-10-26
