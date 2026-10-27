@@ -40,7 +40,7 @@ class NotesPageMixin:
         left.pack(side="left", fill="y", padx=(0, 16))
         self.note_list = tk.Listbox(
             left, width=24, activestyle="none", exportselection=False, relief="flat",
-            bg=self.SURFACE, fg=self.INK, highlightthickness=0, font=("TkDefaultFont", 11),
+            bg=self.SURFACE, fg=self.INK, highlightthickness=0, font=self._font(11),
             selectbackground="#dcebe2", selectforeground=self.GREEN,
         )
         ttk.Button(left, text="＋  New note", command=self._new_note).pack(
@@ -54,7 +54,7 @@ class NotesPageMixin:
         self.note_title_var = tk.StringVar()
         tk.Entry(
             card, textvariable=self.note_title_var, relief="flat", bg=self.SURFACE,
-            fg=self.INK, font=("TkDefaultFont", 18, "bold"), highlightthickness=0,
+            fg=self.INK, font=self._font(18, "bold"), highlightthickness=0,
             insertbackground=self.INK,
         ).pack(fill="x")
         tk.Frame(card, bg="#d7e2da", height=1).pack(fill="x", pady=(8, 8))
@@ -68,14 +68,14 @@ class NotesPageMixin:
         )
         ttk.Button(actions, text="Delete", command=self._delete_note).pack(side="left", padx=(8, 0))
         self.note_status = tk.Label(
-            actions, text="", bg=self.SURFACE, fg=self.MUTED, font=("TkDefaultFont", 9)
+            actions, text="", bg=self.SURFACE, fg=self.MUTED, font=self._font(9)
         )
         self.note_status.pack(side="right")
         text_frame = tk.Frame(card, bg=self.SURFACE)
         text_frame.pack(fill="both", expand=True, pady=(8, 0))
         self.note_text = tk.Text(
             text_frame, wrap="word", undo=True, bg=self.SURFACE, fg=self.INK, relief="flat",
-            padx=2, pady=6, font=("TkDefaultFont", 12), highlightthickness=0,
+            padx=2, pady=6, font=self._font(12), highlightthickness=0,
             insertbackground=self.INK, spacing1=2, spacing3=2,
         )
         scrollbar = ttk.Scrollbar(text_frame, orient="vertical", command=self.note_text.yview)
@@ -134,7 +134,7 @@ class NotesPageMixin:
 
         self.preview_button = tk.Label(
             bar, text="Preview", bg=self.TILE, fg=self.INK, cursor="hand2", padx=12, pady=4,
-            font=("TkDefaultFont", 10, "bold"),
+            font=self._font(10, "bold"),
         )
         self.preview_button.pack(side="right")
         self.preview_button.bind("<Button-1>", lambda _e: self._toggle_note_preview())

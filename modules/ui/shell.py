@@ -1,6 +1,6 @@
 import threading
 import tkinter as tk
-from tkinter import ttk
+from tkinter import font as tkfont, ttk
 
 
 class ShellMixin:
@@ -14,14 +14,22 @@ class ShellMixin:
     ERROR = "#a33d32"
     TILE = "#eef3ef"
     TILE_HOVER = "#e0e9e2"
+    FONT_PREFERENCES = (
+        "SF Pro Display",
+        "SF Pro Text",
+        "Helvetica Neue",
+        "Inter",
+        "Segoe UI",
+    )
 
     def _build_shell(self) -> None:
+        self._configure_font()
         style = ttk.Style(self.ui)
         if "clam" in style.theme_names():
             style.theme_use("clam")
         style.configure("TFrame", background=self.BACKGROUND)
         style.configure("TLabel", background=self.BACKGROUND, foreground=self.INK)
-        style.configure("TButton", padding=(12, 8), font=("TkDefaultFont", 10))
+        style.configure("TButton", padding=(12, 8), font=self._font(10))
         style.configure(
             "Accent.TButton",
             background=self.GREEN,
@@ -35,9 +43,9 @@ class ShellMixin:
             background=self.SURFACE,
             fieldbackground=self.SURFACE,
             foreground=self.INK,
-            font=("TkDefaultFont", 10),
+            font=self._font(10),
         )
-        style.configure("Treeview.Heading", font=("TkDefaultFont", 10, "bold"))
+        style.configure("Treeview.Heading", font=self._font(10, "bold"))
 
         sidebar = tk.Frame(self.ui, bg="#e6ede7", width=205, padx=20, pady=24)
         sidebar.pack(side="left", fill="y")
@@ -48,7 +56,7 @@ class ShellMixin:
             justify="left",
             bg="#e6ede7",
             fg=self.GREEN,
-            font=("TkDefaultFont", 17, "bold"),
+            font=self._font(17, "bold"),
         ).pack(anchor="w", pady=(0, 34))
         ttk.Button(sidebar, text="⌂   Home", command=self.show_home).pack(
             fill="x", pady=(0, 8)
@@ -74,7 +82,7 @@ class ShellMixin:
             justify="left",
             bg="#e6ede7",
             fg=self.MUTED,
-            font=("TkDefaultFont", 9),
+            font=self._font(9),
         ).pack(side="bottom", anchor="w")
 
         # Keep Space/Enter from re-triggering a sidebar button that kept focus.
@@ -84,6 +92,28 @@ class ShellMixin:
 
         self.content = tk.Frame(self.ui, bg=self.BACKGROUND, padx=34, pady=28)
         self.content.pack(side="left", fill="both", expand=True)
+
+    def _configure_font(self) -> None:
+        available_fonts = set(tkfont.families(self.ui))
+        default_font = tkfont.nametofont("TkDefaultFont")
+        self.font_family = default_font.actual("family")
+        for font in self.FONT_PREFERENCES:
+            if font in available_fonts:
+                self.font_family = font
+                break
+        for font_name in (
+            "TkDefaultFont",
+            "TkTextFont",
+            "TkMenuFont",
+            "TkHeadingFont",
+            "TkCaptionFont",
+            "TkSmallCaptionFont",
+            "TkTooltipFont",
+        ):
+            tkfont.nametofont(font_name).configure(family=self.font_family)
+
+    def _font(self, size: int, weight: str = "normal") -> tuple[str, int, str]:
+        return (self.font_family, size, weight)
 
     def _clear_content(self) -> None:
         self._page_generation += 1
@@ -97,14 +127,14 @@ class ShellMixin:
             text=title,
             bg=self.BACKGROUND,
             fg=self.INK,
-            font=("TkDefaultFont", 23, "bold"),
+            font=self._font(23, "bold"),
         ).pack(anchor="w")
         tk.Label(
             self.content,
             text=subtitle,
             bg=self.BACKGROUND,
             fg=self.MUTED,
-            font=("TkDefaultFont", 10),
+            font=self._font(10),
         ).pack(anchor="w", pady=(4, 20))
 
     def _provider_selector(
@@ -117,7 +147,7 @@ class ShellMixin:
             text="AI service",
             bg=bg,
             fg=self.INK,
-            font=("TkDefaultFont", 10, "bold"),
+            font=self._font(10, "bold"),
         ).pack(side="left", padx=(0, 12))
         variable = tk.StringVar(self.ui, value="local")
         ttk.Radiobutton(
@@ -229,7 +259,7 @@ class ShellMixin:
             cursor="hand2",
             padx=14 if small else 18,
             pady=5 if small else 14,
-            font=("TkDefaultFont", 10 if small else 12),
+            font=self._font(10 if small else 12),
         )
         button.base_bg = base
         button.hover_bg = hover
@@ -263,7 +293,7 @@ class ShellMixin:
         group = tk.Frame(parent, bg=self.BACKGROUND)
         group.pack(side="left", padx=(0, 22))
         tk.Label(
-            group, text=caption, bg=self.BACKGROUND, fg=self.MUTED, font=("TkDefaultFont", 10)
+            group, text=caption, bg=self.BACKGROUND, fg=self.MUTED, font=self._font(10)
         ).pack(side="left", padx=(0, 8))
         track = tk.Frame(group, bg="#d7e2da", padx=2, pady=2)
         track.pack(side="left")
@@ -287,7 +317,7 @@ class ShellMixin:
             on_change()
 
         for index, text in enumerate(labels):
-            segment = tk.Label(track, text=text, padx=14, pady=4, font=("TkDefaultFont", 10, "bold"))
+            segment = tk.Label(track, text=text, padx=14, pady=4, font=self._font(10, "bold"))
             segment.pack(side="left")
             segment.bind("<Button-1>", lambda _e, i=index: select(i))
             segments.append(segment)

@@ -20,7 +20,7 @@ class CompositionMixin:
         card.pack(fill="x", pady=(0, 14))
         tk.Label(
             card, text=title.upper(), bg=self.SURFACE, fg=self.MUTED,
-            font=("TkDefaultFont", 9, "bold"),
+            font=self._font(9, "bold"),
         ).pack(anchor="w", pady=(0, 10))
         return card
 
@@ -60,14 +60,14 @@ class CompositionMixin:
         chip_area.pack(fill="x")
         placeholder = tk.Label(
             chip_area, text="Press “Draw words” to get started. Click a word to swap it.",
-            bg=self.SURFACE, fg=self.MUTED, font=("TkDefaultFont", 11),
+            bg=self.SURFACE, fg=self.MUTED, font=self._font(11),
         )
         placeholder.grid(row=0, column=0, sticky="w")
         chip_widgets: list[tk.Widget] = []
 
         write_card = self._card(body, "Your composition")
         composition_input = tk.Text(
-            write_card, height=7, wrap="word", font=("TkDefaultFont", 13), undo=True,
+            write_card, height=7, wrap="word", font=self._font(13), undo=True,
             padx=12, pady=10, relief="flat", bg=self.TILE, fg=self.INK,
             highlightthickness=1, highlightbackground="#d7e2da", highlightcolor=self.GREEN,
             insertbackground=self.INK,
@@ -86,7 +86,7 @@ class CompositionMixin:
         submit_button.pack(side="right")
 
         status = tk.Label(
-            body, text="", bg=self.BACKGROUND, fg=self.MUTED, font=("TkDefaultFont", 10),
+            body, text="", bg=self.BACKGROUND, fg=self.MUTED, font=self._font(10),
             justify="left", anchor="w",
         )
         status.pack(fill="x", pady=(0, 10))
@@ -94,11 +94,11 @@ class CompositionMixin:
 
         result_card = self._card(body, "Feedback")
         result = tk.Text(
-            result_card, height=10, wrap="word", font=("TkDefaultFont", 12), padx=12, pady=10,
+            result_card, height=10, wrap="word", font=self._font(12), padx=12, pady=10,
             relief="flat", bg=self.TILE, fg=self.INK, highlightthickness=0, state="disabled",
         )
         result.pack(fill="x")
-        result.tag_configure("title", font=("TkDefaultFont", 11, "bold"), foreground=self.GREEN)
+        result.tag_configure("title", font=self._font(11, "bold"), foreground=self.GREEN)
 
         def clear_result() -> None:
             result.config(state="normal")
@@ -126,7 +126,7 @@ class CompositionMixin:
                     label += f"  {item['reading']}"
                 chip = tk.Label(
                     chip_area, text=label, bg="#dcebe2", fg=self.GREEN, cursor="hand2",
-                    font=("TkDefaultFont", 12, "bold"), padx=12, pady=6,
+                    font=self._font(12, "bold"), padx=12, pady=6,
                 )
                 chip.bind("<Button-1>", lambda _e, i=index: replace_word(i))
                 chip.bind("<Enter>", lambda _e, c=chip: c.config(bg="#c9e0d3"))

@@ -34,7 +34,7 @@ class WordFormMixin:
                 text=f"{label}{' *' if required else ''}",
                 bg=self.SURFACE,
                 fg=self.INK,
-                font=("TkDefaultFont", 10, "bold"),
+                font=self._font(10, "bold"),
             ).grid(row=row * 2, column=0, sticky="w", pady=(0, 5 if row == 0 else 0))
             variable = tk.StringVar(value=values.get(key, ""))
             variables[key] = variable
@@ -47,9 +47,9 @@ class WordFormMixin:
             text="Notes (optional)",
             bg=self.SURFACE,
             fg=self.INK,
-            font=("TkDefaultFont", 10, "bold"),
+            font=self._font(10, "bold"),
         ).grid(row=6, column=0, sticky="w", pady=(0, 5))
-        notes = tk.Text(form, height=4, wrap="word", font=("TkDefaultFont", 10))
+        notes = tk.Text(form, height=4, wrap="word", font=self._font(10))
         notes.grid(row=7, column=0, sticky="ew")
         notes.insert("1.0", values.get("notes", ""))
         check_ai_var = tk.BooleanVar(value=values.get("check_ai", "True") == "True")

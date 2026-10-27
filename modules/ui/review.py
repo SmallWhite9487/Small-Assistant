@@ -27,7 +27,7 @@ class ReviewPageMixin:
             settings, "Order", ("Random", "Original"), self.review_order, self._load_review_scope
         )
         self.review_count = tk.Label(
-            settings, text="", bg=self.BACKGROUND, fg=self.MUTED, font=("TkDefaultFont", 10)
+            settings, text="", bg=self.BACKGROUND, fg=self.MUTED, font=self._font(10)
         )
         self.review_count.pack(side="right")
 
@@ -68,7 +68,7 @@ class ReviewPageMixin:
                 text="No words saved yet" if all_words else "No words added today",
                 bg=self.SURFACE,
                 fg=self.INK,
-                font=("TkDefaultFont", 16, "bold"),
+                font=self._font(16, "bold"),
             ).pack(anchor="w")
             tk.Label(
                 empty,
@@ -98,19 +98,19 @@ class ReviewPageMixin:
         self.review_card = card
         card.bind("<Button-1>", lambda _e: self._toggle_reveal())
         self.review_word_label = tk.Label(
-            card, text="", bg=self.SURFACE, fg=self.INK, font=("TkDefaultFont", 34, "bold")
+            card, text="", bg=self.SURFACE, fg=self.INK, font=self._font(34, "bold")
         )
         self.review_word_label.pack(pady=(12, 18))
         self.review_reading_label = tk.Label(
-            card, text="", bg=self.SURFACE, fg=self.GREEN, font=("TkDefaultFont", 15)
+            card, text="", bg=self.SURFACE, fg=self.GREEN, font=self._font(15)
         )
         self.review_reading_label.pack(pady=4)
         self.review_meaning_label = tk.Label(
-            card, text="", bg=self.SURFACE, fg=self.INK, font=("TkDefaultFont", 16)
+            card, text="", bg=self.SURFACE, fg=self.INK, font=self._font(16)
         )
         self.review_meaning_label.pack(pady=4)
         self.review_notes_label = tk.Label(
-            card, text="", bg=self.SURFACE, fg=self.MUTED, font=("TkDefaultFont", 10), wraplength=600
+            card, text="", bg=self.SURFACE, fg=self.MUTED, font=self._font(10), wraplength=600
         )
         self.review_notes_label.pack(pady=(6, 14))
         self.reveal_button = self._flat_button(card, "", self._toggle_reveal)

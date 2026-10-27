@@ -61,14 +61,14 @@ class RevisionPageMixin:
             settings, "Answer", ("選項", "輸入"), self.revision_input, self._retarget_revision
         )
         self.revision_stats_label = tk.Label(
-            settings, text="", bg=self.BACKGROUND, fg=self.MUTED, font=("TkDefaultFont", 10)
+            settings, text="", bg=self.BACKGROUND, fg=self.MUTED, font=self._font(10)
         )
         self.revision_stats_label.pack(side="right")
 
         footer = tk.Frame(self.content, bg=self.BACKGROUND)
         footer.pack(side="bottom", fill="x", pady=(12, 0))
         self.revision_weight_label = tk.Label(
-            footer, text="", bg=self.BACKGROUND, fg=self.MUTED, font=("TkDefaultFont", 9)
+            footer, text="", bg=self.BACKGROUND, fg=self.MUTED, font=self._font(9)
         )
         self.revision_weight_label.pack(side="left")
         reset = self._flat_button(footer, "Reset weights", self._reset_revision_weights, small=True)
@@ -78,11 +78,11 @@ class RevisionPageMixin:
         self.revision_card.pack(fill="both", expand=True)
         card = self.revision_card
         self.revision_prompt = tk.Label(
-            card, text="", bg=self.SURFACE, fg=self.INK, font=("TkDefaultFont", 34, "bold")
+            card, text="", bg=self.SURFACE, fg=self.INK, font=self._font(34, "bold")
         )
         self.revision_prompt.pack(pady=(4, 2))
         self.revision_tip_label = tk.Label(
-            card, text="", bg=self.SURFACE, fg=self.GREEN, font=("TkDefaultFont", 15), wraplength=600
+            card, text="", bg=self.SURFACE, fg=self.GREEN, font=self._font(15), wraplength=600
         )
         self.revision_tip_label.pack(pady=(0, 2))
         self.revision_tip_button = self._flat_button(card, "Tip  (T)", self._revision_tip, small=True)
@@ -94,7 +94,7 @@ class RevisionPageMixin:
         self.revision_buttons_frame.columnconfigure(1, weight=1, uniform="choice")
 
         self.revision_feedback = tk.Label(
-            card, text="", bg=self.SURFACE, fg=self.MUTED, wraplength=600, font=("TkDefaultFont", 11)
+            card, text="", bg=self.SURFACE, fg=self.MUTED, wraplength=600, font=self._font(11)
         )
         self.revision_feedback.pack(pady=(16, 6))
         self.revision_actions = tk.Frame(card, bg=self.SURFACE)
@@ -214,7 +214,7 @@ class RevisionPageMixin:
         row.grid(row=0, column=0, columnspan=2, sticky="ew", padx=6, pady=6)
         entry = tk.Entry(
             row,
-            font=("TkDefaultFont", 16),
+            font=self._font(16),
             relief="flat",
             bg=self.TILE,
             fg=self.INK,

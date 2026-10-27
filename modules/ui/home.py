@@ -20,14 +20,14 @@ class HomePageMixin:
             text=f"{len(self.words)} words saved",
             bg=self.SURFACE,
             fg=self.INK,
-            font=("TkDefaultFont", 12, "bold"),
+            font=self._font(12, "bold"),
         ).pack(side="left")
         tk.Label(
             summary,
             text=f"{todays_words} added today",
             bg=self.SURFACE,
             fg=self.GREEN,
-            font=("TkDefaultFont", 10, "bold"),
+            font=self._font(10, "bold"),
         ).pack(side="right")
 
         toolbar = tk.Frame(self.content, bg=self.BACKGROUND)

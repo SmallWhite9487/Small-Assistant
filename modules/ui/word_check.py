@@ -28,7 +28,7 @@ class WordCheckMixin:
             text=count_text,
             bg=self.BACKGROUND,
             fg=self.MUTED,
-            font=("TkDefaultFont", 9),
+            font=self._font(9),
         ).pack(anchor="w", pady=(0, 6))
 
         status = tk.Label(
@@ -36,7 +36,7 @@ class WordCheckMixin:
             text="",
             bg=self.BACKGROUND,
             fg=self.MUTED,
-            font=("TkDefaultFont", 9),
+            font=self._font(9),
             wraplength=650,
             justify="left",
         )
@@ -108,7 +108,7 @@ class WordCheckMixin:
                     text=word["word"],
                     bg=self.SURFACE,
                     fg=self.INK,
-                    font=("TkDefaultFont", 13, "bold"),
+                    font=self._font(13, "bold"),
                 ).pack(anchor="w")
 
                 changed = False
