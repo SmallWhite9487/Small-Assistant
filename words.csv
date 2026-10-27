@@ -511,7 +511,7 @@ b0f47998-0119-4c28-acdd-cc0cacff4eda,いつ,いつ,when,,False,2026-10-26
 07242640-6039-4ba9-8794-40ff73b6f2b0,電車,でんしゃ,train,,False,2026-10-26
 7582457d-f3fc-41bf-aad3-f18ed2421eee,タクシー,タクシー,taxi,,False,2026-10-26
 ae8b88a2-967f-472b-87bf-019a3d14f8ec,歩いて,あるいて,on foot,,False,2026-10-26
-07533ba8-d935-4321-b38a-700ca832f01c,はし,はし,chopsticks/bridge,,False,2026-10-26
+07533ba8-d935-4321-b38a-700ca832f01c,箸,はし,chopsticks/bridge,,False,2026-10-26
 ad7aff29-cea6-4d80-a6e0-437481354675,スプーン,スプーン,spoon,,False,2026-10-26
 690d9811-8d2e-45f5-ae46-3b5b27753963,ナイフ,ナイフ,knife,,False,2026-10-26
 4544218f-8d5e-4db5-943b-849b7afdaa71,鋏,はさみ,scissors,,False,2026-10-26
@@ -629,3 +629,6 @@ e65f0a14-0e4a-4c18-a0b1-a0a435990cac,お皿,おさら,plate / dish,,False,2026-1
 06f2e379-897a-4477-93ff-741a0f94c817,正しい,ただしい,correct / right,,False,2026-10-27
 0ba727b3-c9e9-42a3-ba0f-d3e8aef34154,デスクワーク,デスクワーク,desk work,,False,2026-10-27
 fe082116-611c-4599-9275-62d200f3272d,ごろ,ごろ,around (time); about,,False,2026-10-27
+ac8348b9-2898-4fa9-ae8d-dc1b4d2c84b1,だけ,だけ,only; just,,False,2026-10-27
+caa1c807-0765-43e9-ab7d-cae569b8266b,列車,れっしゃ,train,,False,2026-10-27
+80966e32-12a2-4587-bfe5-e1eed358c013,展示,てんじ,exhibition; display,,False,2026-10-27
