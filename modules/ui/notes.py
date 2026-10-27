@@ -43,9 +43,11 @@ class NotesPageMixin:
             bg=self.SURFACE, fg=self.INK, highlightthickness=0, font=("TkDefaultFont", 11),
             selectbackground="#dcebe2", selectforeground=self.GREEN,
         )
-        self.note_list.pack(fill="y", expand=True)
+        ttk.Button(left, text="＋  New note", command=self._new_note).pack(
+            side="bottom", fill="x", pady=(10, 0)
+        )
+        self.note_list.pack(fill="both", expand=True)
         self.note_list.bind("<<ListboxSelect>>", self._open_selected_note)
-        ttk.Button(left, text="＋  New note", command=self._new_note).pack(fill="x", pady=(10, 0))
 
         card = tk.Frame(body, bg=self.SURFACE, padx=18, pady=14)
         card.pack(side="left", fill="both", expand=True)
@@ -59,8 +61,18 @@ class NotesPageMixin:
 
         self._build_note_toolbar(card)
 
+        actions = tk.Frame(card, bg=self.SURFACE)
+        actions.pack(side="bottom", fill="x", pady=(10, 0))
+        ttk.Button(actions, text="Save", style="Accent.TButton", command=self._save_note).pack(
+            side="left"
+        )
+        ttk.Button(actions, text="Delete", command=self._delete_note).pack(side="left", padx=(8, 0))
+        self.note_status = tk.Label(
+            actions, text="", bg=self.SURFACE, fg=self.MUTED, font=("TkDefaultFont", 9)
+        )
+        self.note_status.pack(side="right")
         text_frame = tk.Frame(card, bg=self.SURFACE)
-        text_frame.pack(fill="both", expand=True, pady=(8, 10))
+        text_frame.pack(fill="both", expand=True, pady=(8, 0))
         self.note_text = tk.Text(
             text_frame, wrap="word", undo=True, bg=self.SURFACE, fg=self.INK, relief="flat",
             padx=2, pady=6, font=("TkDefaultFont", 12), highlightthickness=0,
@@ -79,16 +91,6 @@ class NotesPageMixin:
         for sequence in ("<Command-i>", "<Control-i>"):
             self.note_text.bind(sequence, lambda _e: (self._wrap_selection("*"), "break")[1])
 
-        actions = tk.Frame(card, bg=self.SURFACE)
-        actions.pack(fill="x")
-        ttk.Button(actions, text="Save", style="Accent.TButton", command=self._save_note).pack(
-            side="left"
-        )
-        ttk.Button(actions, text="Delete", command=self._delete_note).pack(side="left", padx=(8, 0))
-        self.note_status = tk.Label(
-            actions, text="", bg=self.SURFACE, fg=self.MUTED, font=("TkDefaultFont", 9)
-        )
-        self.note_status.pack(side="right")
         self._refresh_note_list()
 
     def _build_note_toolbar(self, parent: tk.Misc) -> None:
