@@ -1,7 +1,5 @@
 import json
 import os
-import re
-import unicodedata
 from urllib.request import Request, urlopen
 
 from google import genai
@@ -123,82 +121,41 @@ class AIService:
         return response.text.strip()
 
     @classmethod
-    def reading_segments(cls, sentence: str, provider: str) -> list[tuple[str, str]]:
+    def composition_feedback(
+        cls, words: list[str], text: str, provider: str
+    ) -> dict[str, str]:
         schema: dict[str, object] = {
             "type": "object",
             "properties": {
-                "segments": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "surface": {"type": "string"},
-                            "kana": {"type": "string"},
-                        },
-                        "required": ["surface", "kana"],
-                        "additionalProperties": False,
-                    },
-                }
+                "corrected": {"type": "string"},
+                "evaluation": {"type": "string"},
             },
-            "required": ["segments"],
+            "required": ["corrected", "evaluation"],
             "additionalProperties": False,
         }
-        prompt = json.dumps({"sentence": sentence}, ensure_ascii=False)
+        prompt = json.dumps({"required_words": words, "composition": text}, ensure_ascii=False)
         system_instruction = (
-            "Split the Japanese sentence into natural word-sized chunks for a learner "
-            "to speak aloud. For every chunk, return its exact surface text and its "
-            "reading written in hiragana. Keep particles as their own chunks. Use the "
-            "contextual reading for dates and numbers. Preserve every input character "
-            "in order, including punctuation and spaces; do not add, omit, translate, "
-            "or correct text. For punctuation or spaces, use that same mark as kana. "
-            "Return only a JSON object with a segments array."
+            "You mark a Japanese learner's short composition that must use every word "
+            "in required_words (inflected forms are fine). Return a JSON object with "
+            "'corrected': the composition rewritten with grammar and wording fixed, "
+            "keeping the learner's meaning and all required words, and "
+            "'evaluation': a brief evaluation in English covering grammar, naturalness "
+            "and use of the required words, listing the main mistakes and why."
         )
         response = cls.generate_response(
-            prompt,
-            system_instruction,
-            provider,
-            json_mode=True,
-            json_format=schema,
+            prompt, system_instruction, provider, json_mode=True, json_format=schema
         )
         try:
             result = json.loads(response)
         except json.JSONDecodeError as error:
-            raise ValueError("The AI returned invalid kana data. Please try again.") from error
-        if not isinstance(result, dict) or not isinstance(result.get("segments"), list):
-            raise ValueError("The AI returned an invalid segmentation. Please try again.")
-
-        segments = []
-        for segment in result["segments"]:
-            if not isinstance(segment, dict):
-                raise ValueError("The AI returned an invalid word segment.")
-            surface = segment.get("surface")
-            kana = segment.get("kana")
-            if not isinstance(surface, str) or not surface or not isinstance(kana, str):
-                raise ValueError("The AI returned an incomplete word segment.")
-            segments.append((surface, kana))
-
-        normalized_input = unicodedata.normalize("NFKC", sentence)
-        normalized_output = unicodedata.normalize(
-            "NFKC", "".join(surface for surface, _kana in segments)
-        )
-        if not segments or normalized_output != normalized_input:
-            raise ValueError("The AI did not preserve the full sentence. Please try again.")
-        if any(re.search(r"[一-龯々a-zA-Z0-9]", kana) for _surface, kana in segments):
-            raise ValueError("The AI returned a reading that is not fully in kana.")
-        return segments
-
-    @classmethod
-    def grammar_feedback(cls, sentence: str, provider: str = "local") -> str:
-        system_instruction = (
-            "You are a grammar correction tool. Output only the user's "
-            "sentence with grammar and wording corrected. Do not explain, "
-            "add headings, quotation marks, markdown, alternatives, "
-            "translations, or commentary. Preserve the original language, "
-            "meaning, tone, and formatting. Do not add ideas or details. "
-            "If the sentence is already correct, return it unchanged. "
-            "If it is ambiguous, make the smallest correction possible."
-        )
-        return cls.generate_response(sentence, system_instruction, provider)
+            raise ValueError("The AI returned invalid data. Please try again.") from error
+        if (
+            not isinstance(result, dict)
+            or not isinstance(result.get("corrected"), str)
+            or not isinstance(result.get("evaluation"), str)
+        ):
+            raise ValueError("The AI returned an incomplete result. Please try again.")
+        return {"corrected": result["corrected"], "evaluation": result["evaluation"]}
 
     @classmethod
     def word_suggestions(

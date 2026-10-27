@@ -63,10 +63,7 @@ class ShellMixin:
             sidebar, text="✐   Notes", command=self.show_notes
         ).pack(fill="x", pady=(8, 0))
         ttk.Button(
-            sidebar, text="✎   Grammar check", command=self.show_grammar_check
-        ).pack(fill="x", pady=(8, 0))
-        ttk.Button(
-            sidebar, text="あ   Kana reader", command=self.show_kana_reader
+            sidebar, text="✍   Composition", command=self.show_composition
         ).pack(fill="x", pady=(8, 0))
         ttk.Button(
             sidebar, text="✓   Check word info", command=self.show_word_check

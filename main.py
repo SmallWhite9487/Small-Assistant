@@ -9,9 +9,8 @@ from modules.ai_service import AIService
 from modules.notes import NoteStore
 from modules.storage import VocabularyStore
 from modules.ui import (
-    GrammarCheckMixin,
     HomePageMixin,
-    KanaReaderMixin,
+    CompositionMixin,
     NotesPageMixin,
     ReviewPageMixin,
     RevisionPageMixin,
@@ -28,8 +27,7 @@ class SmallAssistant(
     ReviewPageMixin,
     RevisionPageMixin,
     NotesPageMixin,
-    KanaReaderMixin,
-    GrammarCheckMixin,
+    CompositionMixin,
     WordCheckMixin,
 ):
     """Main process: owns the window, the word data, storage and the AI service.

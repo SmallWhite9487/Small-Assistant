@@ -1,7 +1,6 @@
 id,word,reading,meaning,notes,check_ai,added_on
 f60a3d41-c40d-45aa-a358-9841bd534a3f,漢字,かんじ,Chinese characters,,False,2026-10-08
-d8a77ad8-4785-4a04-88b2-73277fb3e862,おやすみ,おやすみ,break,,False,2026-10-08
-2f9211b2-17d1-4510-a00b-754793d243d1,休み,やすみ,break / rest,,False,2026-10-08
+d8a77ad8-4785-4a04-88b2-73277fb3e862,お休み,おやすみ,break,,False,2026-10-08
 224a85d1-e1ac-4664-94ac-88b894d2bbe6,変える,かえる,change,,False,2026-10-08
 0494b0fd-0480-47e3-a127-4cf9d1384e93,担任,たんにん,homeroom teacher / person in charge,,False,2026-10-08
 04238659-704e-47ea-8a64-f3bed3a758f4,エレベーター,えれべーたー,elevator,,False,2026-10-13
@@ -433,7 +432,6 @@ b4488cbb-27ce-48a6-944c-353649585922,長,ながい,long,,False,2026-10-26
 1247c05c-bf76-4304-b811-f9aef46c08b7,南,みなみ,south,,False,2026-10-26
 e8bd5e10-5524-48af-a98b-ac81cb1d7f6e,北,きた,north,,False,2026-10-26
 05ab9c59-7551-4b46-847b-a02319f5ea24,前,まえ,"before, front",,False,2026-10-26
-ee3a6f0e-f3f5-4ef8-ab30-daa654f99084,後,あと,"after, behind",,False,2026-10-26
 6cd0a373-d279-4430-bc7d-f28d2d899822,左,ひだり,left,,False,2026-10-26
 ca59cbeb-2bce-4218-b794-a34e04d48047,上,うえ,"above, up",,False,2026-10-26
 cef8cabb-8fba-4bb6-8849-cba2a8fd5a6a,中,なか,"inside, middle",,False,2026-10-26
@@ -589,3 +587,34 @@ ccf01ae6-71ac-48d7-ae85-f570c1eb69b4,区役所,くやくしょ,ward office,,Fals
 8376f7d0-d4c5-4939-88c6-310cfe994d14,ドイツ,どいつ,Germany,,False,2026-10-26
 672bfcfa-f280-465b-81bc-1f3fb42bee6c,出身,しゅっしん,place of origin; hometown,,False,2026-10-26
 067e1dbb-7905-4e29-a363-f2f5d27eebf9,者,もの,person,,False,2026-10-26
+a043f040-14b7-4076-9c3b-24f8bfeeb1be,色々な,いろいろな,various,,False,2026-10-27
+5f6d4f20-5ea7-4425-83f6-cf7402aa0142,色,いろ,color,,False,2026-10-27
+f3f422a6-663e-40f0-bcb0-6317f274d561,形,かたち,shape,,False,2026-10-27
+e927295c-2c52-4365-adc6-fbfee3903e3c,特,とく,special,,False,2026-10-27
+66b9630c-8c23-4d9c-9656-5d6e34da4ebf,特別,とくべつ,special,,False,2026-10-27
+24ae5f66-218c-44d8-812e-15b03cfcee7f,文化,ぶんか,culture,,False,2026-10-27
+42391f38-a2c1-401f-ac00-6ea3848aabe6,自動,じどう,automatic,,False,2026-10-27
+fbf5c582-88c3-4053-ae36-df271f022e66,標準,ひょうじゅん,standard,,False,2026-10-27
+98f7c761-d754-41cb-8e12-0257bd6e4e8a,近代,きんだい,modern times,,False,2026-10-27
+e67d9e0f-284d-4913-bd41-e7755661b8bd,経験,けいけん,experience,,False,2026-10-27
+45a1dc02-ca8d-4ccf-8fde-95d004cf4826,豊富,ほうふ,abundant,,False,2026-10-27
+4081a256-7afb-42ae-9a66-498ff819d6dd,起源,きげん,origin,,False,2026-10-27
+71ac710c-9dc0-429a-993d-e71e1210b522,明治,めいじ,Meiji era,,False,2026-10-27
+5ea0dc12-0f4d-4217-a1a4-d5eb7dc5ee7c,東洋,とうよう,the Orient,,False,2026-10-27
+ffea3de8-71e7-48b9-9cdf-46e1866bb2bc,西洋,せいよう,the West,,False,2026-10-27
+f302dcea-e098-4f97-bcea-2ef6bc046193,家具,かぐ,furniture,,False,2026-10-27
+5ccf840e-3d25-4ffb-b5d2-8e2496f251c0,新しい,あたらしい,new,,False,2026-10-27
+d3279aac-907a-4f0d-916e-26c1e721940c,組み合わせ,くみあわせ,combination,,False,2026-10-27
+41f5352a-3181-4248-8eca-abc9ec276efb,選びます,えらびます,to choose,,False,2026-10-27
+d18513a2-bbd9-4c8c-868c-a94a59ad9923,和食,わしょく,Japanese food,,False,2026-10-27
+84685d11-b306-4903-9b02-a9887a1c7855,洋食,ようしょく,Western food,,False,2026-10-27
+94b6b80b-bd80-4f38-bfb6-aba2a63f7a26,林,はやし,woods; forest,,False,2026-10-27
+58412e0e-35df-4514-a3af-165c40a77c66,森,もり,forest,,False,2026-10-27
+552bb715-c860-4ecd-ae9b-78a7eaa57324,森林,しんりん,forest,,False,2026-10-27
+3bae7a8e-e4d4-4c3c-8d4b-b5cc4924c82d,例,れい,example; custom,,False,2026-10-27
+086af1d9-e7d8-4549-b097-b05a2947b7bb,畑,はたけ,field; farm; garden,,False,2026-10-27
+9555dc46-d859-47c3-9ed4-fe88673292b4,振り仮名,ふりがな,Small kana printed next to a kanji to indicate its pronunciation,,False,2026-10-27
+04c9a9f0-e3c8-4b29-aa8f-8db20ad8b17a,持ちます,もちます,To hold; to carry,,False,2026-10-27
+b0f7f75e-a067-4e0f-a474-0799af2c1120,お持ち帰り,おもちかえり,Takeout; take-away,,False,2026-10-27
+e5a99415-fe0d-4445-8bb1-91fc7f5480d0,動物園,どうぶつえん,Zoo,,False,2026-10-27
+c6f2c92d-dd50-4cc3-abad-9c7e1813d49e,動物,どうぶつ,Animal,,False,2026-10-27
