@@ -13,7 +13,7 @@ class RevisionPageMixin:
     """
 
     CHOICE_COUNT = 4
-    AUTO_ADVANCE_MS = 700
+    AUTO_ADVANCE_MS = 1500
     RIGHT_BG = "#bfe3cd"
     WRONG_BG = "#f0c4be"
 
@@ -324,9 +324,11 @@ class RevisionPageMixin:
         word = self.revision_word
         field = self._answer_field()
         if self.revision_entry is not None:
-            correct = self._normalize_kana(chosen) == self._normalize_kana(
-                self._expected_answer(word)
-            )
+            typed = self._normalize_kana(chosen)
+            correct = typed in {
+                self._normalize_kana(self._expected_answer(word)),
+                self._normalize_kana(word["word"]),
+            }
         else:
             correct = chosen == word[field]
         counted_correct = correct and self.revision_tips < 2
@@ -359,6 +361,10 @@ class RevisionPageMixin:
         self._update_revision_status()
 
         if counted_correct:
+            self.revision_feedback.config(
+                text=f"Correct!  {word['word']}（{word['reading']}） = {word['meaning']}",
+                fg=self.GREEN,
+            )
             token = self.revision_token
             self.ui.after(self.AUTO_ADVANCE_MS, lambda: self._auto_advance(token))
             return
