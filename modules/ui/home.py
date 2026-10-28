@@ -44,16 +44,9 @@ class HomePageMixin:
         ).pack(side="right", padx=(12, 0))
         actions = tk.Frame(self.content, bg=self.BACKGROUND)
         actions.pack(side="bottom", fill="x", pady=(12, 0))
-        ttk.Button(actions, text="Edit selected", command=self.edit_selected).pack(
-            side="left"
-        )
-        ttk.Button(actions, text="Delete selected", command=self.delete_selected).pack(
-            side="left", padx=(8, 0)
-        )
+        ttk.Button(actions, text="Delete", command=self.delete_selected).pack(side="left")
         ttk.Button(
-            actions,
-            text="Check flagged words",
-            command=self.show_word_check,
+            actions, text="Check flagged words", command=self.show_word_check
         ).pack(side="left", padx=(8, 0))
         ttk.Button(
             actions,
@@ -61,6 +54,9 @@ class HomePageMixin:
             style="Accent.TButton",
             command=lambda: self.show_review(False),
         ).pack(side="right")
+        ttk.Button(
+            actions, text="⇄  Conjugate", command=self.conjugate_selected
+        ).pack(side="right", padx=(0, 8))
 
         table_frame = tk.Frame(self.content, bg=self.SURFACE)
         table_frame.pack(fill="both", expand=True)
@@ -137,6 +133,12 @@ class HomePageMixin:
             messagebox.showinfo("Select a word", "Choose a word from the list first.", parent=self.ui)
             return None
         return next((word for word in self.words if word["id"] == selected[0]), None)
+
+    def conjugate_selected(self) -> None:
+        selected = self.word_table.selection()
+        word = next((w for w in self.words if selected and w["id"] == selected[0]), None)
+        if word:
+            self.open_conjugation_for(word["word"])
 
     def edit_selected(self) -> None:
         word = self._selected_word()

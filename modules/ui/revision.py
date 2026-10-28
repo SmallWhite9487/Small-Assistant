@@ -85,8 +85,15 @@ class RevisionPageMixin:
             card, text="", bg=self.SURFACE, fg=self.GREEN, font=self._font(15), wraplength=600
         )
         self.revision_tip_label.pack(pady=(0, 2))
-        self.revision_tip_button = self._flat_button(card, "Tip  (T)", self._revision_tip, small=True)
-        self.revision_tip_button.pack(pady=(6, 0))
+        tools = tk.Frame(card, bg=self.SURFACE)
+        tools.pack(pady=(6, 0))
+        self.revision_tip_button = self._flat_button(tools, "Tip  (T)", self._revision_tip, small=True)
+        self.revision_tip_button.pack(side="left")
+        self.revision_conjugate_button = self._flat_button(
+            tools, "⇄  Conjugation",
+            lambda: self.revision_word and self.open_conjugation_for(self.revision_word["word"]),
+            small=True,
+        )
 
         self.revision_buttons_frame = tk.Frame(card, bg=self.SURFACE)
         self.revision_buttons_frame.pack(fill="x", pady=(30, 0))
@@ -172,6 +179,9 @@ class RevisionPageMixin:
         self._set_enabled(self.revision_tip_button, True)
         self.revision_undo = None
         self.revision_override.pack_forget()
+        self.revision_conjugate_button.pack_forget()
+        if self._conjugation_mode(word["word"]) is not None:
+            self.revision_conjugate_button.pack(side="left", padx=(8, 0))
 
         for child in self.revision_buttons_frame.winfo_children():
             child.destroy()

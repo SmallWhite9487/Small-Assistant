@@ -136,11 +136,12 @@ class AIService:
         prompt = json.dumps({"required_words": words, "composition": text}, ensure_ascii=False)
         system_instruction = (
             "You mark a Japanese learner's short composition that must use every word "
-            "in required_words (inflected forms are fine). Return a JSON object with "
+            "in required_words (inflected or conjugated forms are fine). Check each "
+            "required word was used correctly and name any that are missing. Return a JSON object with "
             "'corrected': the composition rewritten with grammar and wording fixed, "
             "keeping the learner's meaning and all required words, and "
             "'evaluation': a brief evaluation in English covering grammar, naturalness "
-            "and use of the required words, listing the main mistakes and why."
+            "and use of every required word (say which words were missing or misused), listing the main mistakes and why."
         )
         response = cls.generate_response(
             prompt, system_instruction, provider, json_mode=True, json_format=schema

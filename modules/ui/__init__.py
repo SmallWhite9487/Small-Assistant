@@ -1,3 +1,4 @@
+from .conjugation import ConjugationMixin
 from .form import WordFormMixin
 from .home import HomePageMixin
 from .composition import CompositionMixin
@@ -10,6 +11,7 @@ from .word_check import WordCheckMixin
 __all__ = [
     "HomePageMixin",
     "CompositionMixin",
+    "ConjugationMixin",
     "NotesPageMixin",
     "ReviewPageMixin",
     "RevisionPageMixin",

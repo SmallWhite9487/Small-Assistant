@@ -115,6 +115,11 @@ class ReviewPageMixin:
         self.review_notes_label.pack(pady=(6, 14))
         self.reveal_button = self._flat_button(card, "", self._toggle_reveal)
         self.reveal_button.pack(pady=(6, 4))
+        self.review_conjugate_button = self._flat_button(
+            card, "⇄  Conjugation", lambda: self.open_conjugation_for(
+                self.review_words[self.review_index]["word"]
+            ), small=True,
+        )
         self._render_review_card()
 
     def _set_review_scope(self, value: int) -> None:
@@ -141,6 +146,10 @@ class ReviewPageMixin:
         self.review_notes_label.config(text=word["notes"] if revealed and word["notes"] else "")
         self.reveal_button.config(text="Hide answer  (Space)" if revealed else "Show answer  (Space)")
         self._draw_review_progress()
+        if self._conjugation_mode(word["word"]) is None:
+            self.review_conjugate_button.pack_forget()
+        elif not self.review_conjugate_button.winfo_ismapped():
+            self.review_conjugate_button.pack(pady=(4, 0))
 
     def _toggle_reveal(self) -> None:
         if not self.review_words:

@@ -11,6 +11,7 @@ from modules.storage import VocabularyStore
 from modules.ui import (
     HomePageMixin,
     CompositionMixin,
+    ConjugationMixin,
     NotesPageMixin,
     ReviewPageMixin,
     RevisionPageMixin,
@@ -28,6 +29,7 @@ class SmallAssistant(
     RevisionPageMixin,
     NotesPageMixin,
     CompositionMixin,
+    ConjugationMixin,
     WordCheckMixin,
 ):
     """Main process: owns the window, the word data, storage and the AI service.

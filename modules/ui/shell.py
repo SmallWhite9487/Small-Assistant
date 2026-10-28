@@ -56,7 +56,7 @@ class ShellMixin:
             justify="left",
             bg="#e6ede7",
             fg=self.GREEN,
-            font=self._font(17, "bold"),
+            font=self._font(16, "bold"),
         ).pack(anchor="w", pady=(0, 34))
         ttk.Button(sidebar, text="⌂   Home", command=self.show_home).pack(
             fill="x", pady=(0, 8)
@@ -72,6 +72,9 @@ class ShellMixin:
         ).pack(fill="x", pady=(8, 0))
         ttk.Button(
             sidebar, text="✍   Composition", command=self.show_composition
+        ).pack(fill="x", pady=(8, 0))
+        ttk.Button(
+            sidebar, text="⇄   Conjugation", command=self.show_conjugation
         ).pack(fill="x", pady=(8, 0))
         ttk.Button(
             sidebar, text="✓   Check word info", command=self.show_word_check
