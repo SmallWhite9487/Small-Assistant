@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow">Tools</p>
+    <h1 class="page-title">Check word information</h1>
+    <p class="page-sub">Let the AI verify kanji, kana reading and meaning for every word marked for checking.</p>
+  </div>
+  <div class="head-actions">
+    <button class="btn" id="apply-all" type="button" disabled>Apply all AI changes</button>
+    <button class="btn primary" id="run-check" type="button">
+      <svg class="icon"><use href="#i-check"/></svg> Check flagged words
+    </button>
+  </div>
+</div>
+
+<section class="card">
+  <div class="card-head">
+    <div>
+      <h2 class="card-title">AI service</h2>
+      <p class="card-sub">Local Ollama is used by default; Online API reads the keys in your <code>.env</code>.</p>
+    </div>
+    <span class="badge warn" id="flag-count">—</span>
+  </div>
+  <div class="provider-row">
+    <div class="segmented" id="provider-group">
+      <button class="seg-btn active" type="button" data-provider="local">Local (Ollama)</button>
+      <button class="seg-btn" type="button" data-provider="online">Online API</button>
+    </div>
+  </div>
+  <p class="hint" id="check-status" style="margin-top:12px"></p>
+</section>
+
+<section class="card" id="queue-card" style="margin-top:16px">
+  <div class="card-head">
+    <div>
+      <h2 class="card-title">Queued words</h2>
+      <p class="card-sub">Toggle “AI check” on the word list to add or remove a word.</p>
+    </div>
+  </div>
+  <div class="check-list" id="check-queue"></div>
+</section>
+
+<div class="check-results" id="check-results" style="margin-top:16px"></div>
+
+<div class="empty" id="check-empty" hidden>
+  <span class="empty-icon"><svg class="icon"><use href="#i-check"/></svg></span>
+  <h3>No words are marked for checking</h3>
+  <p>Turn on the AI check switch for a word, or edit a word and tick the option.</p>
+  <a class="btn primary" href="/">Go to your words</a>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/word_check.js') }}"></script>
+{% endblock %}

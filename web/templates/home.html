@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow">Vocabulary</p>
+    <h1 class="page-title">Your words</h1>
+    <p class="page-sub">Collect new vocabulary and come back to it each day. Everything is stored in your local <code>words.csv</code>.</p>
+  </div>
+  <div class="head-actions">
+    <a class="btn ghost" href="/review?scope=today">
+      <svg class="icon"><use href="#i-cards"/></svg> Review today
+    </a>
+    <button class="btn primary" id="add-word" type="button">
+      <svg class="icon"><use href="#i-plus"/></svg> Add word
+    </button>
+  </div>
+</div>
+
+<div class="stat-grid">
+  <div class="stat">
+    <span class="stat-icon"><svg class="icon"><use href="#i-note"/></svg></span>
+    <div><div class="stat-value" id="stat-total">—</div><div class="stat-label">words saved</div></div>
+  </div>
+  <div class="stat">
+    <span class="stat-icon neutral"><svg class="icon"><use href="#i-sparkle"/></svg></span>
+    <div><div class="stat-value" id="stat-today">—</div><div class="stat-label">added today</div></div>
+  </div>
+  <div class="stat">
+    <span class="stat-icon warn"><svg class="icon"><use href="#i-check"/></svg></span>
+    <div><div class="stat-value" id="stat-flagged">—</div><div class="stat-label">waiting for AI check</div></div>
+  </div>
+</div>
+
+<div class="toolbar">
+  <label class="search-box">
+    <svg class="icon"><use href="#i-search"/></svg>
+    <input class="input" id="search" type="search" placeholder="Search words…" autocomplete="off">
+  </label>
+  <div class="segmented" id="filter-group">
+    <button class="seg-btn active" type="button" data-filter="all">All</button>
+    <button class="seg-btn" type="button" data-filter="flagged">AI queue</button>
+  </div>
+  <span class="spacer"></span>
+  <a class="btn ghost sm" href="/word-check">
+    <svg class="icon"><use href="#i-check"/></svg> Check flagged
+  </a>
+</div>
+
+<div class="table-card">
+  <div class="table-scroll" id="table-scroll">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Japanese</th>
+          <th>Reading</th>
+          <th>Meaning</th>
+          <th>Added</th>
+          <th class="center">AI check</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="word-rows"></tbody>
+    </table>
+  </div>
+  <div class="empty" id="word-empty" hidden>
+    <span class="empty-icon"><svg class="icon"><use href="#i-search"/></svg></span>
+    <h3 id="empty-title">No words yet</h3>
+    <p id="empty-copy">Add your first Japanese word and it will appear here.</p>
+    <button class="btn primary" id="empty-add" type="button"><svg class="icon"><use href="#i-plus"/></svg> Add a word</button>
+  </div>
+  <div class="table-foot">
+    <span id="table-count">Loading…</span>
+    <span><kbd>/</kbd> to search</span>
+  </div>
+</div>
+
+<dialog class="dialog" id="word-dialog">
+  <form class="dialog-card wide" id="word-form" novalidate>
+    <button class="icon-btn dialog-close" id="word-cancel-x" type="button" aria-label="Close">
+      <svg class="icon"><use href="#i-close"/></svg>
+    </button>
+    <h2 id="word-dialog-title">Add a word</h2>
+    <p id="word-dialog-sub">Save the spelling, how to read it, and what it means.</p>
+    <div class="form-grid" style="margin-top:20px">
+      <div class="field">
+        <label class="label" for="w-word">Japanese word *</label>
+        <input class="input" id="w-word" maxlength="200" required autocomplete="off">
+      </div>
+      <div class="field">
+        <label class="label" for="w-reading">Kana reading</label>
+        <input class="input" id="w-reading" maxlength="200" autocomplete="off">
+      </div>
+      <div class="field span-2">
+        <label class="label" for="w-meaning">Meaning *</label>
+        <input class="input" id="w-meaning" maxlength="500" required autocomplete="off">
+      </div>
+      <div class="field span-2">
+        <label class="label" for="w-notes">Notes <span class="hint">(optional)</span></label>
+        <textarea class="textarea" id="w-notes" maxlength="4000" rows="3"></textarea>
+      </div>
+      <div class="switch-row span-2">
+        <button class="switch on" id="w-check" type="button" role="switch" aria-checked="true" aria-label="Check this word with AI"></button>
+        <div class="switch-text">
+          <strong>Check this word with AI</strong>
+          <span>Adds it to the queue on the “Check words” page.</span>
+        </div>
+      </div>
+    </div>
+    <div class="dialog-actions">
+      <button class="btn ghost" id="word-cancel" type="button">Cancel</button>
+      <button class="btn primary" id="word-save" type="submit">Save word</button>
+    </div>
+  </form>
+</dialog>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+{% endblock %}

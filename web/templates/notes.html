@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-head compact">
+  <div>
+    <p class="eyebrow">Create</p>
+    <h1 class="page-title">Notes</h1>
+    <p class="page-sub">Write in Markdown. Format with the toolbar or type the syntax yourself, then switch to Preview.</p>
+  </div>
+  <div class="head-actions">
+    <button class="btn primary" id="new-note" type="button">
+      <svg class="icon"><use href="#i-plus"/></svg> New note
+    </button>
+  </div>
+</div>
+
+<div class="notes-layout">
+  <section class="note-list-card" aria-label="Saved notes">
+    <div class="note-list-head">
+      <span class="card-title">Saved notes</span>
+      <span class="badge" id="note-count">0</span>
+    </div>
+    <div class="note-list" id="note-list"></div>
+  </section>
+
+  <section class="note-editor-card" aria-label="Note editor">
+    <div class="note-title-row">
+      <input class="note-title" id="note-title" type="text" maxlength="120" placeholder="Untitled note" autocomplete="off">
+    </div>
+
+    <div class="note-toolbar" id="note-toolbar">
+      <button class="tool-btn" type="button" data-tool="bold" title="Bold (⌘B)"><strong>B</strong></button>
+      <button class="tool-btn" type="button" data-tool="italic" title="Italic (⌘I)"><em>I</em></button>
+      <button class="tool-btn" type="button" data-tool="strike" title="Strikethrough"><span style="text-decoration:line-through">S</span></button>
+      <button class="tool-btn" type="button" data-tool="code" title="Inline code">&lt;/&gt;</button>
+      <span class="tool-sep"></span>
+      <button class="tool-btn" type="button" data-tool="h1" title="Heading 1">H1</button>
+      <button class="tool-btn" type="button" data-tool="h2" title="Heading 2">H2</button>
+      <button class="tool-btn" type="button" data-tool="h3" title="Heading 3">H3</button>
+      <span class="tool-sep"></span>
+      <button class="tool-btn" type="button" data-tool="bullet" title="Bullet list">•</button>
+      <button class="tool-btn" type="button" data-tool="ordered" title="Numbered list">1.</button>
+      <button class="tool-btn" type="button" data-tool="task" title="Task list">☐</button>
+      <button class="tool-btn" type="button" data-tool="quote" title="Quote">❝</button>
+      <span class="tool-sep"></span>
+      <button class="tool-btn" type="button" data-tool="link" title="Link">
+        <svg class="icon"><use href="#i-link"/></svg>
+      </button>
+      <button class="tool-btn" type="button" data-tool="rule" title="Divider">―</button>
+      <span class="note-status" id="note-status"></span>
+      <div class="segmented" id="note-mode">
+        <button class="seg-btn active" type="button" data-mode="write">Write</button>
+        <button class="seg-btn" type="button" data-mode="preview">Preview</button>
+      </div>
+    </div>
+
+    <div class="note-body">
+      <textarea class="note-textarea" id="note-text" placeholder="Start writing… # Heading, **bold**, - [ ] task"></textarea>
+      <div class="note-preview md" id="note-preview" hidden></div>
+    </div>
+
+    <div class="note-foot">
+      <span class="hint"><kbd>⌘</kbd>/<kbd>Ctrl</kbd> + <kbd>S</kbd> to save</span>
+      <span class="spacer"></span>
+      <button class="btn ghost sm" id="note-delete" type="button">
+        <svg class="icon"><use href="#i-trash"/></svg> Delete
+      </button>
+      <button class="btn primary sm" id="note-save" type="button">
+        <svg class="icon"><use href="#i-save"/></svg> Save
+      </button>
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/notes.js') }}"></script>
+{% endblock %}

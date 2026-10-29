@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow">Study</p>
+    <h1 class="page-title">Review</h1>
+    <p class="page-sub">Flip through your words, today’s or everything you saved. Click the card or press <kbd>Space</kbd> to reveal the answer.</p>
+  </div>
+</div>
+
+<div class="review-shell">
+  <div class="review-toolbar">
+    <div class="segmented-row">
+      <span class="side-label">Scope</span>
+      <div class="segmented" id="scope-group">
+        <button class="seg-btn active" type="button" data-scope="today">Today</button>
+        <button class="seg-btn" type="button" data-scope="all">All</button>
+      </div>
+    </div>
+    <div class="segmented-row">
+      <span class="side-label">Order</span>
+      <div class="segmented" id="order-group">
+        <button class="seg-btn active" type="button" data-order="random">Random</button>
+        <button class="seg-btn" type="button" data-order="original">Original</button>
+      </div>
+    </div>
+    <span class="counter" id="review-counter"></span>
+  </div>
+
+  <div class="progress review-progress"><span id="review-progress"></span></div>
+
+  <div id="review-view" hidden>
+    <div class="flash-card" id="flash-card" role="button" tabindex="0" aria-label="Flash card. Click or press Space to reveal.">
+      <div class="flash-word" id="flash-word"></div>
+      <div class="flash-reading reveal" id="flash-reading"></div>
+      <div class="flash-meaning reveal" id="flash-meaning"></div>
+      <div class="flash-notes reveal" id="flash-notes"></div>
+      <div class="flash-hint">
+        <span id="flash-hint-text">Click or press</span> <kbd>Space</kbd> <span>to reveal</span>
+      </div>
+      <a class="btn sm ghost reveal" id="flash-conjugate" href="#" style="margin-top:18px">
+        <svg class="icon"><use href="#i-swap"/></svg> Conjugation
+      </a>
+    </div>
+
+    <div class="review-nav">
+      <button class="btn" id="review-prev" type="button">
+        <svg class="icon"><use href="#i-left"/></svg> Previous
+      </button>
+      <button class="btn primary" id="review-next" type="button">
+        Next <svg class="icon"><use href="#i-right"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="empty" id="review-empty" hidden>
+    <span class="empty-icon"><svg class="icon"><use href="#i-cards"/></svg></span>
+    <h3 id="review-empty-title">No words added today</h3>
+    <p id="review-empty-copy">Words you add today will appear here for review.</p>
+    <button class="btn primary" id="review-empty-action" type="button">Review all words instead</button>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/review.js') }}"></script>
+{% endblock %}

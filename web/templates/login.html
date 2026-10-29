@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3f6f1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Sumou Josyu">
+  <link rel="manifest" href="{{ url_for('static', filename='manifest.webmanifest') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='icon-180.png') }}">
+  <meta name="color-scheme" content="light dark">
+  <meta name="robots" content="noindex">
+  <title>Sign in · Sumou Josyu</title>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('sa-theme'); } catch (error) {}
+      var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      var tc = document.querySelector('meta[name=theme-color]');
+      if (tc) tc.setAttribute('content', dark ? '#0d1512' : '#f3f6f1');
+    })();
+  </script>
+  <style>
+    body { display: grid; place-items: center; min-height: 100vh; min-height: 100dvh; margin: 0; }
+    .login-card { width: min(380px, 92vw); padding: 32px; border-radius: 16px;
+      background: var(--surface, #fff); border: 1px solid var(--border, #d7e2da);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .08); }
+    .login-card h1 { margin: 12px 0 4px; font-size: 1.4rem; }
+    .login-card p { margin: 0 0 20px; opacity: .7; }
+    .login-card input[type=password] { width: 100%; box-sizing: border-box; padding: 12px 14px;
+      font: inherit; border-radius: 10px; border: 1px solid var(--border, #d7e2da);
+      background: transparent; color: inherit; }
+    .login-card button { width: 100%; margin-top: 14px; padding: 12px; font: inherit; font-weight: 600;
+      border: 0; border-radius: 10px; cursor: pointer; background: var(--accent); color: var(--accent-ink); }
+    .login-card button:hover { background: var(--accent-hover); }
+    .login-error { margin-top: 12px; color: #c0392b; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <form class="login-card" method="post" action="{{ url_for('login') }}" autocomplete="off">
+    <span class="brand-mark">助</span>
+    <h1>Sumou Josyu</h1>
+    <p>Enter your access key to continue.</p>
+    <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+    <input type="hidden" name="next" value="{{ next_url }}">
+    <input type="password" name="key" placeholder="Access key" autofocus required aria-label="Access key">
+    {% if error %}<div class="login-error" role="alert">{{ error }}</div>{% endif %}
+    <button type="submit">Sign in</button>
+  </form>
+</body>
+</html>

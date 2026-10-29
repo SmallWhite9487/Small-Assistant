@@ -1,46 +1,13 @@
 import tkinter as tk
 
-from ..conjugation import ADJECTIVE_FORMS, FORMS, conjugate, conjugate_adjective
-
-
-FORM_HELP = {
-    "ます形": "Polite form. Used in everyday polite speech.\n食べます = (I) eat",
-    "ない形": "Negative form. Says the action does not happen.\n食べない = (I) don't eat",
-    "た形": "Past form. Says the action happened.\n食べた = (I) ate",
-    "て形": "Connecting form. Joins actions, makes requests (〜てください) and continuous (〜ている).\n食べて = eat and...",
-    "可能形": "Potential form. Means can / be able to do.\n食べられる = can eat",
-    "意志形": "Volitional form. Means let's do / I will do.\n食べよう = let's eat",
-    "命令形": "Imperative form. A blunt command.\n食べろ = Eat!",
-    "条件形": "Conditional (ば) form. Means if / provided that.\n食べれば = if (you) eat",
-    "受身形": "Passive form. The subject has the action done to them.\n食べられる = be eaten",
-    "使役形": "Causative form. Make or let someone do it.\n食べさせる = make/let eat",
-}
-
-
-ADJECTIVE_HELP = {
-    "丁寧形": "Polite form with です.\n高いです = it is expensive",
-    "否定形": "Negative form. Says it is not so.\n高くない / 静かじゃない = is not",
-    "過去形": "Past form. Says it was so.\n高かった / 静かだった = was",
-    "過去否定": "Past negative. Says it was not so.\n高くなかった = was not",
-    "て形": "Connecting form. Joins descriptions.\n高くて安い… / 静かで… = and",
-    "副詞形": "Adverb form. Describes how an action is done.\n高く / 静かに = highly / quietly",
-    "条件形": "Conditional. Means if / provided that.\n高ければ / 静かなら = if it is",
-    "たら形": "Conditional (たら). Means if / when it becomes so.\n高かったら = if it is expensive",
-    "名詞化": "Turns the adjective into a noun for degree.\n高さ = height",
-    "推量形": "Conjecture. Means probably.\n高いだろう = it is probably expensive",
-}
-
-BASE_HELP = "Dictionary form: the original, unconjugated form you look up in a dictionary."
-
-ADJECTIVE_GROUPS = (
-    ("Everyday", ("丁寧形", "否定形", "過去形", "過去否定")),
-    ("Connecting", ("て形", "副詞形", "条件形", "たら形")),
-    ("Other", ("名詞化", "推量形")),
-)
-VERB_GROUPS = (
-    ("Everyday", ("ます形", "ない形", "た形", "て形")),
-    ("Meaning & intent", ("可能形", "意志形", "命令形", "条件形")),
-    ("Voice", ("受身形", "使役形")),
+from ..conjugation import (
+    ADJECTIVE_GROUPS,
+    ADJECTIVE_HELP,
+    BASE_HELP,
+    FORM_HELP,
+    VERB_GROUPS,
+    conjugate,
+    conjugate_adjective,
 )
 
 

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow">Create</p>
+    <h1 class="page-title">Composition</h1>
+    <p class="page-sub">Write a short piece using every drawn word, then let the AI correct it and review your grammar.</p>
+  </div>
+</div>
+
+<div class="comp-split">
+  <div class="comp-left">
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <h2 class="card-title">Your words</h2>
+          <p class="card-sub">Click a word to swap it for another one from your list.</p>
+        </div>
+      </div>
+      <div class="draw-row">
+        <div class="segmented" id="count-group">
+          <button class="seg-btn active" type="button" data-count="5">5 words</button>
+          <button class="seg-btn" type="button" data-count="10">10 words</button>
+        </div>
+        <button class="btn" id="draw-words" type="button">
+          <svg class="icon"><use href="#i-refresh"/></svg> Draw words
+        </button>
+        <span class="placeholder-text" id="draw-note"></span>
+      </div>
+      <div class="chip-list" id="chips" style="margin-top:16px">
+        <span class="placeholder-text">Press “Draw words” to get started.</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <h2 class="card-title">Your composition</h2>
+          <p class="card-sub">Use every word above, in any conjugated form.</p>
+        </div>
+        <span class="badge" id="char-count">0 characters</span>
+      </div>
+      <textarea class="textarea composition-input" id="comp-text" placeholder="日本語で作文を書いてください…"></textarea>
+      <div class="draw-row" style="margin-top:14px">
+        <div class="provider-row">
+          <span class="side-label">AI service</span>
+          <div class="segmented" id="provider-group">
+            <button class="seg-btn active" type="button" data-provider="local">Local (Ollama)</button>
+            <button class="seg-btn" type="button" data-provider="online">Online API</button>
+          </div>
+        </div>
+        <span style="flex:1"></span>
+        <button class="btn primary" id="submit-composition" type="button">
+          <svg class="icon"><use href="#i-sparkle"/></svg> Submit for marking
+        </button>
+      </div>
+      <p class="comp-status" id="comp-status" style="margin-top:10px"></p>
+    </section>
+  </div>
+
+  <aside class="comp-right">
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <h2 class="card-title">Feedback</h2>
+          <p class="card-sub">A corrected version and a short evaluation.</p>
+        </div>
+      </div>
+      <div class="feedback-box" id="feedback">
+        <span class="placeholder-text">Your corrected composition and evaluation will appear here.</span>
+      </div>
+    </section>
+  </aside>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/composition.js') }}"></script>
+{% endblock %}

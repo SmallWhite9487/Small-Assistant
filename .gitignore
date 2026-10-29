@@ -226,3 +226,5 @@ __pycache__/
 venv/
 .DS_Store
 push.command
+# Per-device web review weights
+web/user_weights/

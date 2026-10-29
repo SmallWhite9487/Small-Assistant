@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3f6f1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Sumou Josyu">
+  <link rel="manifest" href="{{ url_for('static', filename='manifest.webmanifest') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='icon-180.png') }}">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A personal Japanese-learning companion for vocabulary, review, notes, composition and conjugation.">
+  <title>{% if page_title %}{{ page_title }} · {% endif %}Sumou Josyu</title>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('sa-theme'); } catch (error) { /* storage may be blocked */ }
+      var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      var tc = document.querySelector('meta[name=theme-color]');
+      if (tc) tc.setAttribute('content', dark ? '#0d1512' : '#f3f6f1');
+    })();
+  </script>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon-sprite" aria-hidden="true">
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V21h13V9.5"/><path d="M9.5 21v-6h5v6"/></symbol>
+    <symbol id="i-cards" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="15" rx="2"/><path d="M8 3h11a2 2 0 0 1 2 2v12"/><path d="M6.5 11h6M6.5 15h4"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M5 3.5h10.5L20 8v12.5H5z"/><path d="M15 3.5V8h4.5"/><path d="M8.5 12h7M8.5 15.5h7M8.5 19h4.5"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20.5h9"/><path d="M16.5 3.6a2.2 2.2 0 0 1 3.1 3.1L7 19.3l-4.2 1.2 1.2-4.2Z"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h13l-3.5-3.5"/><path d="M20 16H7l3.5 3.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4-4"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M9.5 7V4h5v3"/><path d="m6.5 7 .9 14h9.2l.9-14"/><path d="M10 11v6M14 11v6"/></symbol>
+    <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M12 20.5h9"/><path d="M16.5 3.6a2.2 2.2 0 0 1 3.1 3.1L7 19.3l-4.2 1.2 1.2-4.2Z"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m14.5 5-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m9.5 5 7 7-7 7"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.8A8.8 8.8 0 0 1 9.2 3.5 9 9 0 1 0 20.5 14.8Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11.5" height="11.5" rx="2"/><path d="M5 15V5.5A2.5 2.5 0 0 1 7.5 3H17"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3.5 13.7 8.3 18.5 10l-4.8 1.7L12 16.5l-1.7-4.8L5.5 10l4.8-1.7Z"/><path d="m19 16 .7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7Z"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 21c3.6 0 6-2.4 6-5.6 0-4.6-4.5-6.6-4.5-10.4-2 1.2-3.2 3-3.2 5.3 0 .9.3 1.7.8 2.4-1.5-.2-2.6-1.4-2.6-3.1-.9 1.2-1.5 2.9-1.5 4.6C7 18 9.2 21 12 21Z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-6M22 20H2"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12s3.8-6.5 9.5-6.5S21.5 12 21.5 12 17.7 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M5 3.5h11l4 4V20.5H5z"/><path d="M8.5 3.5V9h7V3.5"/><path d="M8.5 20.5v-6h7v6"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13.5a4.5 4.5 0 0 0 6.4 0l2.1-2.1a4.5 4.5 0 0 0-6.4-6.4l-1.1 1.1"/><path d="M14 10.5a4.5 4.5 0 0 0-6.4 0l-2.1 2.1a4.5 4.5 0 1 0 6.4 6.4l1.1-1.1"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 5v5h-5"/><path d="M19.2 14a7.5 7.5 0 1 1-1.9-7.6L20 10"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15M14 6.5l5.5 5.5L14 17.5"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <span class="brand-mark">助</span>
+        <span class="brand-text">
+          <strong>Sumou Josyu</strong>
+          <small>Small-Assistant</small>
+        </span>
+      </a>
+
+      <nav class="nav">
+        <p class="nav-label">Study</p>
+        <a class="nav-link {{ 'active' if page == 'home' }}" href="/">
+          <svg class="icon"><use href="#i-home"/></svg><span>Your words</span>
+        </a>
+        <a class="nav-link {{ 'active' if page == 'review' }}" href="/review">
+          <svg class="icon"><use href="#i-cards"/></svg><span>Review</span>
+        </a>
+        <a class="nav-link {{ 'active' if page == 'revision' }}" href="/revision">
+          <svg class="icon"><use href="#i-target"/></svg><span>Revision</span>
+        </a>
+
+        <p class="nav-label">Create</p>
+        <a class="nav-link {{ 'active' if page == 'notes' }}" href="/notes">
+          <svg class="icon"><use href="#i-note"/></svg><span>Notes</span>
+        </a>
+        <a class="nav-link {{ 'active' if page == 'composition' }}" href="/composition">
+          <svg class="icon"><use href="#i-pen"/></svg><span>Composition</span>
+        </a>
+
+        <p class="nav-label">Tools</p>
+        <a class="nav-link {{ 'active' if page == 'conjugation' }}" href="/conjugation">
+          <svg class="icon"><use href="#i-swap"/></svg><span>Conjugation</span>
+        </a>
+        <a class="nav-link {{ 'active' if page == 'word_check' }}" href="/word-check">
+          <svg class="icon"><use href="#i-check"/></svg><span>Check words</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <form method="post" action="{{ url_for('logout') }}">
+          <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+          <button class="theme-toggle" type="submit">Sign out</button>
+        </form>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch colour theme">
+          <svg class="icon icon-sun"><use href="#i-sun"/></svg>
+          <svg class="icon icon-moon"><use href="#i-moon"/></svg>
+          <span class="theme-label">Theme</span>
+        </button>
+        <p>Your personal<br>Japanese learning helper.</p>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebar-backdrop" hidden></div>
+
+    <main class="main">
+      <header class="mobile-bar">
+        <button class="icon-btn" id="menu-toggle" type="button" aria-label="Open navigation">
+          <svg class="icon"><use href="#i-menu"/></svg>
+        </button>
+        <span class="mobile-title">Sumou Josyu</span>
+        <a class="icon-btn" href="/conjugation" aria-label="Conjugation">
+          <svg class="icon"><use href="#i-swap"/></svg>
+        </a>
+      </header>
+
+      <div class="page">
+        {% block content %}{% endblock %}
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-wrap" id="toasts" role="status" aria-live="polite"></div>
+
+  <dialog class="dialog" id="confirm-dialog">
+    <form method="dialog" class="dialog-card">
+      <h2 id="confirm-title">Are you sure?</h2>
+      <p id="confirm-message"></p>
+      <div class="dialog-actions">
+        <button value="cancel" class="btn ghost" id="confirm-cancel" type="submit">Cancel</button>
+        <button value="confirm" class="btn danger" id="confirm-ok" type="submit">Confirm</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

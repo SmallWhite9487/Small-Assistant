@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow">Study</p>
+    <h1 class="page-title">Revision</h1>
+    <p class="page-sub">Pick or type the right answer. Words you miss come back more often, weighted by your history.</p>
+  </div>
+</div>
+
+<div class="quiz-shell">
+  <div class="quiz-toolbar" id="quiz-toolbar">
+    <div class="segmented-row">
+      <span class="side-label">Show</span>
+      <div class="segmented" id="show-group">
+        <button class="seg-btn active" type="button" data-show="word">原文</button>
+        <button class="seg-btn" type="button" data-show="reading">読み</button>
+      </div>
+    </div>
+    <div class="segmented-row">
+      <span class="side-label">Guess</span>
+      <div class="segmented" id="guess-group">
+        <button class="seg-btn active" type="button" data-guess="meaning">意思</button>
+        <button class="seg-btn" type="button" data-guess="word">原文</button>
+      </div>
+    </div>
+    <div class="segmented-row">
+      <span class="side-label">Answer</span>
+      <div class="segmented" id="answer-group">
+        <button class="seg-btn active" type="button" data-answer="choices">選項</button>
+        <button class="seg-btn" type="button" data-answer="typing">輸入</button>
+      </div>
+    </div>
+    <div class="stats">
+      <span class="badge" id="stat-answered">0 answered</span>
+      <span class="badge green" id="stat-accuracy">– accuracy</span>
+      <span class="badge warn" id="stat-streak">0 streak</span>
+    </div>
+  </div>
+
+  <div class="quiz-card" id="quiz-card" tabindex="-1">
+    <div class="quiz-prompt" id="quiz-prompt">—</div>
+    <div class="quiz-tip" id="quiz-tip"></div>
+
+    <div class="quiz-tools">
+      <button class="btn sm" id="tip-btn" type="button">Tip <span class="hint">(T)</span></button>
+      <a class="btn sm ghost" id="quiz-conjugate" href="#">
+        <svg class="icon"><use href="#i-swap"/></svg> Conjugation
+      </a>
+    </div>
+
+    <div class="quiz-options" id="quiz-options"></div>
+
+    <div class="quiz-input-row" id="quiz-input-row" hidden>
+      <input class="input" id="quiz-entry" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the reading…">
+      <button class="btn primary" id="quiz-check" type="button">Check <kbd>Enter</kbd></button>
+    </div>
+
+    <div class="quiz-feedback" id="quiz-feedback"></div>
+
+    <div class="quiz-actions" id="quiz-actions" hidden>
+      <button class="btn sm" id="quiz-override" type="button" hidden>I was right</button>
+      <button class="btn primary" id="quiz-next" type="button">Next <kbd>Space</kbd></button>
+    </div>
+  </div>
+
+  <div class="quiz-foot">
+    <span class="weight" id="quiz-weight"></span>
+    <button class="btn ghost sm" id="reset-weights" type="button">
+      <svg class="icon"><use href="#i-refresh"/></svg> Reset weights
+    </button>
+  </div>
+
+  <div class="empty" id="revision-empty" hidden>
+    <span class="empty-icon"><svg class="icon"><use href="#i-target"/></svg></span>
+    <h3>Add at least two words</h3>
+    <p>Weighted revision needs a couple of words so it can build answer choices.</p>
+    <a class="btn primary" href="/">Go to your words</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/revision.js') }}"></script>
+{% endblock %}
