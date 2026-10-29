@@ -993,7 +993,7 @@ kbd {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-height: 104px;
+  min-height: 128px;
   padding: 14px 15px;
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -1007,48 +1007,7 @@ kbd {
 .conv-tile.base { background: var(--surface-2); }
 .conv-tile-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .conv-name { color: var(--muted); font-size: 11.5px; font-weight: 700; letter-spacing: .04em; }
-.conv-info {
-  display: grid;
-  place-items: center;
-  width: 19px;
-  height: 19px;
-  border: 0;
-  border-radius: 50%;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-size: 10.5px;
-  font-weight: 800;
-  cursor: help;
-}
-.conv-pop {
-  position: absolute;
-  top: 40px;
-  left: 8px;
-  right: 8px;
-  z-index: 20;
-  padding: 9px 12px;
-  border: 1px solid var(--line-strong);
-  border-radius: 12px;
-  background: var(--surface);
-  color: var(--ink-soft);
-  box-shadow: var(--shadow);
-  font-size: 12.5px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1.5;
-  text-align: left;
-  white-space: normal;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-4px);
-  transition: opacity .15s, transform .15s var(--ease), visibility .15s;
-  pointer-events: none;
-}
-.conv-info.open .conv-pop, .conv-info:focus-visible .conv-pop { opacity: 1; visibility: visible; transform: none; }
-@media (hover: hover) {
-  .conv-info:hover .conv-pop { opacity: 1; visibility: visible; transform: none; }
-}
-.conv-tile:has(.conv-info.open), .conv-tile:has(.conv-info:hover) { z-index: 5; }
+.conv-help { margin-top: auto; padding-top: 8px; border-top: 1px dashed var(--line); color: var(--muted); font-size: 12px; line-height: 1.5; }
 .conv-value { font-size: clamp(17px, 2vw, 22px); font-weight: 700; letter-spacing: -.01em; line-height: 1.3; overflow-wrap: anywhere; }
 .conv-tile.is-copied { border-color: var(--accent); }
 .conv-tile.is-copied .conv-value { color: var(--accent); }

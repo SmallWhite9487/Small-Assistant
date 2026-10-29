@@ -56,11 +56,6 @@
     });
   }
 
-  function closePops() {
-    document.querySelectorAll(".conv-info.open").forEach((el) => el.classList.remove("open"));
-  }
-  document.addEventListener("click", closePops);
-
   function buildTile(form) {
     const tile = document.createElement("button");
     tile.type = "button";
@@ -71,37 +66,18 @@
     const name = document.createElement("span");
     name.className = "conv-name";
     name.textContent = form.name;
-    const info = document.createElement("span");
-    info.className = "conv-info";
-    info.textContent = "i";
-    info.setAttribute("role", "button");
-    info.setAttribute("tabindex", "0");
-    info.setAttribute("aria-label", form.help || form.name);
-    if (form.help) {
-      const pop = document.createElement("span");
-      pop.className = "conv-pop";
-      pop.setAttribute("role", "tooltip");
-      pop.textContent = form.help;
-      info.append(pop);
-      const toggle = (event) => {
-        event.stopPropagation();
-        event.preventDefault();
-        const open = !info.classList.contains("open");
-        closePops();
-        info.classList.toggle("open", open);
-      };
-      info.addEventListener("click", toggle);
-      info.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") toggle(event);
-        if (event.key === "Escape") info.classList.remove("open");
-      });
-    }
-    head.append(name, info);
+    head.append(name);
 
     const value = document.createElement("span");
     value.className = "conv-value";
     value.textContent = form.value || "—";
     tile.append(head, value);
+    if (form.help) {
+      const help = document.createElement("span");
+      help.className = "conv-help";
+      help.textContent = form.help;
+      tile.append(help);
+    }
     tile.addEventListener("click", () => copyTile(tile, form.value));
     return tile;
   }

@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import hashlib
 import hmac
+import logging
 import os
 import re
 import secrets
@@ -36,6 +37,7 @@ from flask import (
     url_for,
 )
 from werkzeug.exceptions import HTTPException
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 WEB_DIR = Path(__file__).resolve().parent
 ROOT = WEB_DIR.parent
@@ -55,6 +57,16 @@ from services import (  # noqa: E402
 load_dotenv(ROOT / ".env")
 
 app = Flask(__name__)
+
+# Behind a reverse proxy / tunnel every request appears to come from the proxy.
+# WEB_PROXY_HOPS is how many trusted proxies sit in front of the app (0 = none,
+# so spoofed X-Forwarded-For headers are ignored).
+PROXY_HOPS = max(0, int(os.getenv("WEB_PROXY_HOPS", "0") or 0))
+if PROXY_HOPS:
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_for=PROXY_HOPS, x_proto=PROXY_HOPS, x_host=PROXY_HOPS)
+
+if not app.logger.handlers or app.logger.level == logging.NOTSET:
+    app.logger.setLevel(logging.INFO)
 app.json.ensure_ascii = False
 app.json.sort_keys = False
 app.config["MAX_CONTENT_LENGTH"] = 2 * 1024 * 1024
@@ -144,6 +156,7 @@ def login():
             return redirect(next_url)
         else:
             failed_logins.setdefault(client, []).append(time.time())
+            app.logger.warning("Failed sign-in from %s", client)
             error = "Incorrect access key."
     return render_template("login.html", error=error, next_url=next_url), (401 if error else 200)
 
@@ -354,6 +367,15 @@ def handle_unexpected(error: Exception):
     if request.path.startswith("/api/"):
         return jsonify(error="Something went wrong on the server."), 500
     return render_template("404.html", page="", page_title="Not found"), 500
+
+
+@app.after_request
+def access_log(response):
+    if request.endpoint != "static":
+        app.logger.info(
+            "%s %s %s -> %s", request.remote_addr or "unknown", request.method, request.path, response.status_code
+        )
+    return response
 
 
 @app.before_request
