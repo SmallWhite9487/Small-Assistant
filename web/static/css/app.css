@@ -860,6 +860,7 @@ kbd {
 }
 .tool-btn:hover { background: var(--surface-3); color: var(--ink); }
 .tool-btn .icon { width: 16px; height: 16px; }
+.tool-btn.active { background: var(--accent-soft); color: var(--accent); }
 .tool-sep { width: 1px; height: 20px; margin: 0 5px; background: var(--line); }
 .note-status { margin-left: auto; color: var(--muted); font-size: 11.5px; padding-right: 4px; }
 .note-status.dirty { color: var(--warn); }
@@ -926,6 +927,19 @@ kbd {
 .md li.task { list-style: none; margin-left: -1.2em; display: flex; align-items: flex-start; gap: 8px; }
 .md li.task input { margin-top: .42em; accent-color: var(--accent); }
 .md del { color: var(--muted); }
+.note-rich { outline: none; cursor: text; caret-color: var(--accent); overflow-wrap: anywhere; }
+.note-rich:empty::before, .note-rich > p:only-child:has(> br:only-child)::before { content: attr(data-placeholder); color: var(--muted); pointer-events: none; }
+.note-rich > p:only-child:has(> br:only-child)::before { position: absolute; }
+.note-rich li.task { display: flex; align-items: flex-start; gap: 8px; }
+.note-rich li.task > input { flex: 0 0 auto; cursor: pointer; }
+.note-rich li.task > .task-text { flex: 1; min-width: 0; }
+.note-rich li.task > input:checked + .task-text { color: var(--muted); text-decoration: line-through; }
+.md li > ul, .md li > ol { margin: .2em 0; }
+.note-rich pre { white-space: pre-wrap; }
+.note-rich a { cursor: pointer; }
+.note-rich[hidden], .note-textarea[hidden] { display: none; }
+.md li.task input { pointer-events: auto; }
+
 
 /* ---- Composition -------------------------------------------------------- */
 

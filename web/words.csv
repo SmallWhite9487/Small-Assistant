@@ -712,15 +712,27 @@ a9afbc77-de0b-4f75-929a-26fe4e362b3d,掛かります,かかります,to take (ti
 cee9f229-7b57-4d5b-ad5a-8fff723c7a6e,暖かい,あたたかい,warm,,False,2026-10-29
 a6a2f0ef-955b-4552-9adc-a5c97c914ce9,重い,おもい,heavy,,False,2026-10-29
 dd61cccd-9283-4c22-9cb6-de37b05f1e14,軽い,かるい,light,,False,2026-10-29
-ac67a7bb-2283-4fbd-a0dc-02177948357c,曇り,,”,,True,2026-10-29
-fa38c00a-3ba4-44f9-919a-45df042c24db,雪,,”,,True,2026-10-29
-5899f84c-e4cf-40d2-ac81-6d2bbacbe894,雨,,”,,True,2026-10-29
-732d1df1-c37b-4aa5-8662-66fb9b2cad7b,空港,,”,,True,2026-10-29
-81eeab41-a2e4-4638-bfb8-9ea968ba2213,海,,”,,True,2026-10-29
-c5cfb30e-859b-40c6-8fa1-39c4ea5de6e3,祭り,,”,,True,2026-10-29
-a8341474-8160-495e-97ac-b63fba507fc0,すき焼き,,”,,True,2026-10-29
-dd5375aa-7766-44f6-881e-f6d16fc28fdd,刺身,,”,,True,2026-10-29
-c438ec47-18c0-4772-8a5c-f71610f98291,紅葉,,”,,True,2026-10-29
-7c347abb-338b-41ff-9663-0f354ffcb1f3,生花,,”,,True,2026-10-29
-97de54e9-7191-4abe-affa-f63c1962f6e5,週末,,”,,True,2026-10-29
-e49655ee-56af-4327-91af-2da59ca687e7,涼しい,,”,,True,2026-10-29
+ac67a7bb-2283-4fbd-a0dc-02177948357c,曇り,くもり,cloudy weather,,False,2026-10-29
+fa38c00a-3ba4-44f9-919a-45df042c24db,雪,ゆき,snow,,False,2026-10-29
+5899f84c-e4cf-40d2-ac81-6d2bbacbe894,雨,あめ,rain,,False,2026-10-29
+732d1df1-c37b-4aa5-8662-66fb9b2cad7b,空港,くうこう,airport,,False,2026-10-29
+81eeab41-a2e4-4638-bfb8-9ea968ba2213,海,うみ,sea,,False,2026-10-29
+c5cfb30e-859b-40c6-8fa1-39c4ea5de6e3,祭り,まつり,festival,,False,2026-10-29
+a8341474-8160-495e-97ac-b63fba507fc0,すき焼き,すきやき,sukiyaki,,False,2026-10-29
+dd5375aa-7766-44f6-881e-f6d16fc28fdd,刺身,さしみ,sashimi,,False,2026-10-29
+c438ec47-18c0-4772-8a5c-f71610f98291,紅葉,こうよう,autumn leaves,,False,2026-10-29
+7c347abb-338b-41ff-9663-0f354ffcb1f3,生花,いけばな,flower arrangement,,False,2026-10-29
+97de54e9-7191-4abe-affa-f63c1962f6e5,週末,しゅうまつ,weekend,,False,2026-10-29
+e49655ee-56af-4327-91af-2da59ca687e7,涼しい,すずしい,cool,,False,2026-10-29
+24bac36d-b248-4057-a4f8-8da4198e0af9,数え方,かぞえかた,how to count,,False,2026-10-30
+7dbb3486-ab67-4bce-87b2-87f0ee8cf52d,兎,うさぎ,rabbit,,False,2026-10-30
+4454b100-d3af-4e9f-a45c-ee4c04fea2d8,普通,ふつう,normal; ordinary,,False,2026-10-30
+a7f7aaae-32a8-44db-b657-0730caee6552,全能,ぜんのう,almighty; omnipotent,,False,2026-10-30
+2d91ed59-f523-47eb-a2e4-baba2e7cbc2f,小型,こがた,small size,,False,2026-10-30
+25e12390-bb26-4f9b-aa30-a151f0db23f0,中型,ちゅうがた,medium size,,False,2026-10-30
+11bedcd3-6284-4524-958d-6677528ffb2e,大型,おおがた,large size,,False,2026-10-30
+de87d71d-c268-4c2a-abfd-5bb74ddaeab2,出身地,しゅっしんち,place of birth; hometown,,False,2026-10-30
+9774ccdb-13bd-4279-8e3f-d80ae7e27d24,最適,さいてき,optimum; best; most suitable,,False,2026-10-30
+f5eba3fe-2754-4699-942b-dbf6c22ff26d,季節,きせつ,season,,False,2026-10-30
+191cba31-0829-4e41-8628-ab5282c35b30,氷,こおり,ice,,False,2026-10-30
+0f1fecf8-d5c0-4955-806d-e26b2b9df0ab,弁当,べんとう,boxed lunch; bento,,False,2026-10-30

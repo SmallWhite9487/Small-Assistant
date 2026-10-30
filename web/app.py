@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import hashlib
 import hmac
+import ipaddress
 import logging
 import os
 import re
@@ -64,6 +65,45 @@ app = Flask(__name__)
 PROXY_HOPS = max(0, int(os.getenv("WEB_PROXY_HOPS", "0") or 0))
 if PROXY_HOPS:
     app.wsgi_app = ProxyFix(app.wsgi_app, x_for=PROXY_HOPS, x_proto=PROXY_HOPS, x_host=PROXY_HOPS)
+
+
+
+class CloudflareRealIP:
+    """Use Cloudflare's CF-Connecting-IP when the request really came through
+    a local cloudflared tunnel.
+
+    cloudflared connects from the same machine, so the socket peer is loopback.
+    Cloudflare overwrites the header on the public side, so visitors cannot
+    spoof it; the loopback check stops other remote peers from doing so.
+    """
+
+    HEADERS = ("HTTP_CF_CONNECTING_IP", "HTTP_TRUE_CLIENT_IP")
+
+    def __init__(self, wsgi_app):
+        self.wsgi_app = wsgi_app
+
+    def __call__(self, environ, start_response):
+        try:
+            peer = ipaddress.ip_address(environ.get("REMOTE_ADDR", ""))
+        except ValueError:
+            peer = None
+        if peer is not None and peer.is_loopback:
+            for key in self.HEADERS:
+                try:
+                    real = ipaddress.ip_address(environ.get(key, "").strip())
+                except ValueError:
+                    continue
+                environ["werkzeug.proxy_fix.orig"] = {"REMOTE_ADDR": environ["REMOTE_ADDR"]}
+                environ["REMOTE_ADDR"] = str(real)
+                break
+        return self.wsgi_app(environ, start_response)
+
+
+if os.getenv("WEB_TRUST_CLOUDFLARE", "1") != "0":
+    app.wsgi_app = CloudflareRealIP(app.wsgi_app)
+
+# Werkzeug's own request line would still print the tunnel's address.
+logging.getLogger("werkzeug").setLevel(logging.WARNING)
 
 if not app.logger.handlers or app.logger.level == logging.NOTSET:
     app.logger.setLevel(logging.INFO)

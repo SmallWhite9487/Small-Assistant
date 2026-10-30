@@ -5,7 +5,7 @@
   <div>
     <p class="eyebrow">Create</p>
     <h1 class="page-title">Notes</h1>
-    <p class="page-sub">Write in Markdown. Format with the toolbar or type the syntax yourself, then switch to Preview.</p>
+    <p class="page-sub">Format as you write, with the toolbar or Markdown shortcuts like # , - , 1. , **bold**. Notes are saved as Markdown.</p>
   </div>
   <div class="head-actions">
     <button class="btn primary" id="new-note" type="button">
@@ -49,14 +49,14 @@
       <button class="tool-btn" type="button" data-tool="rule" title="Divider">―</button>
       <span class="note-status" id="note-status"></span>
       <div class="segmented" id="note-mode">
-        <button class="seg-btn active" type="button" data-mode="write">Write</button>
-        <button class="seg-btn" type="button" data-mode="preview">Preview</button>
+        <button class="seg-btn active" type="button" data-mode="rich">Rich</button>
+        <button class="seg-btn" type="button" data-mode="source">Markdown</button>
       </div>
     </div>
 
     <div class="note-body">
-      <textarea class="note-textarea" id="note-text" placeholder="Start writing… # Heading, **bold**, - [ ] task"></textarea>
-      <div class="note-preview md" id="note-preview" hidden></div>
+      <textarea class="note-textarea" id="note-text" spellcheck="false" hidden></textarea>
+      <div class="note-preview md note-rich" id="note-editor" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Note content" data-placeholder="Start writing…"></div>
     </div>
 
     <div class="note-foot">
