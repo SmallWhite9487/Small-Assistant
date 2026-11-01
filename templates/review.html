@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow"><span data-i18n="review.eyebrow">Study</span></p>
+    <h1 class="page-title"><span data-i18n="review.title">Review</span></h1>
+    <p class="page-sub"><span data-i18n="review.subtitle">Review your vocabulary, then grade how well you remembered it. Click the card or press</span> <kbd>Space</kbd> <span data-i18n="review.to_reveal_answer">to reveal the answer.</span></p>
+  </div>
+</div>
+
+<div class="review-shell">
+  <div class="review-toolbar">
+    <div class="segmented-row">
+      <span class="side-label" data-i18n="review.scope">Scope</span>
+      <div class="segmented" id="scope-group">
+        <button class="seg-btn active" type="button" data-scope="all" data-i18n="home.all">All</button>
+        <button class="seg-btn" type="button" data-scope="today" data-i18n="review.added_today">Added today</button>
+      </div>
+    </div>
+    <div class="segmented-row">
+      <span class="side-label" data-i18n="review.order">Order</span>
+      <div class="segmented" id="order-group">
+        <button class="seg-btn active" type="button" data-order="random" data-i18n="review.random">Random</button>
+        <button class="seg-btn" type="button" data-order="original" data-i18n="review.original">Original</button>
+      </div>
+    </div>
+    <span class="counter" id="review-counter"></span>
+  </div>
+  <div id="review-pos-filter"></div>
+
+  <div class="progress review-progress"><span id="review-progress"></span></div>
+
+  <div id="review-view" hidden>
+    <div class="flash-card" id="flash-card" role="button" tabindex="0" aria-label="Flash card. Click or press Space to reveal." data-i18n-aria-label="review.flashcard_aria">
+      <div class="flash-word" id="flash-word"></div>
+      <div class="flash-reading reveal" id="flash-reading"></div>
+      <div class="flash-meaning reveal"><span id="flash-meaning"></span> <button class="meaning-translate" id="flash-translate" type="button" title="Translate visible meanings" data-i18n-title="home.translate_meanings">A/文</button><span class="meaning-translation" id="flash-translation" hidden></span></div>
+      <div class="flash-pos reveal" id="flash-pos"></div>
+      <div class="flash-notes reveal" id="flash-notes"></div>
+      <div class="flash-hint">
+        <span id="flash-hint-text" data-i18n="review.click_or_press">Click or press</span> <kbd>Space</kbd> <span data-i18n="review.to_reveal">to reveal</span>
+      </div>
+      <div class="review-audio reveal">
+        <button class="btn sm" id="speak-word" type="button">🔊 <span data-i18n="review.word_audio">Word</span></button>
+        <button class="btn sm" id="speak-slow" type="button">🔊 <span data-i18n="review.slow_audio">Slow</span></button>
+      </div>
+      <a class="btn sm ghost reveal" id="flash-conjugate" href="#" style="margin-top:18px">
+        <svg class="icon"><use href="#i-swap"/></svg> <span data-i18n="review.conjugation">Conjugation</span>
+      </a>
+    </div>
+
+    <div class="review-nav">
+      <button class="btn" id="review-prev" type="button">
+        <svg class="icon"><use href="#i-left"/></svg> <span data-i18n="review.previous">Previous</span>
+      </button>
+      <button class="btn primary" id="review-next" type="button">
+        <span data-i18n="review.next">Next</span> <svg class="icon"><use href="#i-right"/></svg>
+      </button>
+    </div>
+    <div class="review-grade reveal" id="review-grade">
+      <span data-i18n="review.how_was_it">How was it?</span>
+      <button class="btn sm danger" type="button" data-rating="again" data-i18n="rating.again">Again</button>
+      <button class="btn sm" type="button" data-rating="hard" data-i18n="rating.hard">Hard</button>
+      <button class="btn sm primary" type="button" data-rating="good" data-i18n="rating.good">Good</button>
+      <button class="btn sm ghost" type="button" data-rating="easy" data-i18n="rating.easy">Easy</button>
+    </div>
+  </div>
+
+  <div class="empty" id="review-empty" hidden>
+    <span class="empty-icon"><svg class="icon"><use href="#i-cards"/></svg></span>
+    <h3 id="review-empty-title" data-i18n="review.no_words_today">No words added today</h3>
+    <p id="review-empty-copy" data-i18n="review.no_words_today_help">Words you add today will appear here for review.</p>
+    <button class="btn primary" id="review-empty-action" type="button" data-i18n="review.review_all">Review all words instead</button>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/review.js') }}"></script>
+{% endblock %}

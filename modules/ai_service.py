@@ -9,6 +9,8 @@ from google.genai import types
 class AIService:
     """All AI calls: provider access plus the prompts for each feature."""
 
+    WORD_CHECK_BATCH_SIZE = 50
+
     @staticmethod
     def generate_response(
         prompt: str,
@@ -62,9 +64,17 @@ class AIService:
                             "word": {"type": "string"},
                             "reading": {"type": "string"},
                             "meaning": {"type": "string"},
+                            "part_of_speech": {"type": "string"},
                             "reason": {"type": "string"},
                         },
-                        "required": ["id", "word", "reading", "meaning", "reason"],
+                        "required": [
+                            "id",
+                            "word",
+                            "reading",
+                            "meaning",
+                            "part_of_speech",
+                            "reason",
+                        ],
                         "additionalProperties": False,
                     },
                 }
@@ -122,7 +132,7 @@ class AIService:
 
     @classmethod
     def composition_feedback(
-        cls, words: list[str], text: str, provider: str
+        cls, words: list[str], text: str, provider: str, language: str = "English"
     ) -> dict[str, str]:
         schema: dict[str, object] = {
             "type": "object",
@@ -140,7 +150,9 @@ class AIService:
             "required word was used correctly and name any that are missing. Return a JSON object with "
             "'corrected': the composition rewritten with grammar and wording fixed, "
             "keeping the learner's meaning and all required words, and "
-            "'evaluation': a brief evaluation in English covering grammar, naturalness "
+            "'evaluation': a brief evaluation written in "
+            + language
+            + " covering grammar, naturalness "
             "and use of every required word (say which words were missing or misused), listing the main mistakes and why."
         )
         response = cls.generate_response(
@@ -170,23 +182,52 @@ class AIService:
                     "word": word["word"],
                     "reading": word["reading"],
                     "meaning": word["meaning"],
+                    "part_of_speech": word.get("part_of_speech", ""),
                 }
                 for word in words
             ],
             ensure_ascii=False,
         )
         system_instruction = (
-            "Check each Japanese vocabulary record for accurate kanji/kana spelling, "
-            "kana reading, and meaning or translation. Preserve the language and "
-            "style of each existing meaning; do not translate it into another language. "
-            "Keep valid entries unchanged and do not guess when a name or context is "
-            "ambiguous. Return only a JSON array with one object per input and exactly "
-            "these string fields: id, word, reading, meaning, reason. Preserve each id "
+            "Check each Japanese vocabulary record for accurate spelling, kana reading, "
+            "meaning or translation, and primary part of speech. Preserve the language "
+            "and style of each existing meaning; do not translate it into another language. "
+            "Use a concise English part_of_speech tag such as n, v, adj, or adv. Keep "
+            "valid entries unchanged and do not guess when a name or context is ambiguous. "
+            "Return only a JSON array with one object per input and exactly these string "
+            "fields: id, word, reading, meaning, part_of_speech, reason. Preserve each id "
             "exactly. The reason should briefly say what needs correction, or say "
             "'Looks correct.'"
         )
+        schema: dict[str, object] = {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "word": {"type": "string"},
+                    "reading": {"type": "string"},
+                    "meaning": {"type": "string"},
+                    "part_of_speech": {"type": "string"},
+                    "reason": {"type": "string"},
+                },
+                "required": [
+                    "id",
+                    "word",
+                    "reading",
+                    "meaning",
+                    "part_of_speech",
+                    "reason",
+                ],
+                "additionalProperties": False,
+            },
+        }
         response = cls.generate_response(
-            prompt, system_instruction, provider, json_mode=True
+            prompt,
+            system_instruction,
+            provider,
+            json_mode=True,
+            json_format=schema,
         )
         try:
             suggestions = json.loads(response)
@@ -207,7 +248,7 @@ class AIService:
             original = original_by_id[word_id]
             parsed_by_id[word_id] = {
                 key: suggestion.get(key, original.get(key, ""))
-                for key in ("word", "reading", "meaning")
+                for key in ("word", "reading", "meaning", "part_of_speech")
             } | {"id": word_id, "reason": suggestion.get("reason", "")}
             if any(not isinstance(value, str) for value in parsed_by_id[word_id].values()):
                 raise ValueError("The AI returned invalid text in a word-check result.")
@@ -215,3 +256,16 @@ class AIService:
         if parsed_by_id.keys() != original_by_id.keys():
             raise ValueError("The AI did not return a result for every selected word.")
         return [parsed_by_id[word["id"]] for word in words]
+
+    @classmethod
+    def word_suggestions_batched(
+        cls, words: list[dict[str, str]], provider: str
+    ) -> list[dict[str, str]]:
+        suggestions: list[dict[str, str]] = []
+        for start in range(0, len(words), cls.WORD_CHECK_BATCH_SIZE):
+            suggestions.extend(
+                cls.word_suggestions(
+                    words[start : start + cls.WORD_CHECK_BATCH_SIZE], provider
+                )
+            )
+        return suggestions

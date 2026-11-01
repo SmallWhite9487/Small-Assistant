@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-head compact">
+  <div>
+    <p class="eyebrow"><span data-i18n="notes.eyebrow">Create</span></p>
+    <h1 class="page-title"><span data-i18n="notes.title">Notes</span></h1>
+    <p class="page-sub"><span data-i18n="notes.subtitle">Format as you write, with the toolbar or Markdown shortcuts. Notes are saved as Markdown.</span></p>
+  </div>
+  <div class="head-actions">
+    <button class="btn primary" id="new-note" type="button">
+      <svg class="icon"><use href="#i-plus"/></svg> <span data-i18n="notes.new">New note</span>
+    </button>
+  </div>
+</div>
+
+<div class="notes-layout">
+  <section class="note-list-card" aria-label="Saved notes" data-i18n-aria-label="notes.saved_aria">
+    <div class="note-list-head">
+      <span class="card-title" data-i18n="notes.saved">Saved notes</span>
+      <span class="badge" id="note-count">0</span>
+    </div>
+    <div class="note-list" id="note-list"></div>
+  </section>
+
+  <section class="note-editor-card" aria-label="Note editor" data-i18n-aria-label="notes.editor_aria">
+    <div class="note-title-row">
+      <input class="note-title" id="note-title" type="text" maxlength="120" placeholder="Untitled note" data-i18n-placeholder="notes.untitled" autocomplete="off">
+    </div>
+
+    <div class="note-toolbar" id="note-toolbar">
+      <button class="tool-btn" type="button" data-tool="bold" title="Bold (Cmd+B)" data-i18n-title="notes.bold"><strong>B</strong></button>
+      <button class="tool-btn" type="button" data-tool="italic" title="Italic (Cmd+I)" data-i18n-title="notes.italic"><em>I</em></button>
+      <button class="tool-btn" type="button" data-tool="strike" title="Strikethrough" data-i18n-title="notes.strike"><span style="text-decoration:line-through">S</span></button>
+      <button class="tool-btn" type="button" data-tool="code" title="Inline code" data-i18n-title="notes.code">&lt;/&gt;</button>
+      <span class="tool-sep"></span>
+      <button class="tool-btn" type="button" data-tool="h1" title="Heading 1" data-i18n-title="notes.heading1">H1</button>
+      <button class="tool-btn" type="button" data-tool="h2" title="Heading 2" data-i18n-title="notes.heading2">H2</button>
+      <button class="tool-btn" type="button" data-tool="h3" title="Heading 3" data-i18n-title="notes.heading3">H3</button>
+      <span class="tool-sep"></span>
+      <button class="tool-btn" type="button" data-tool="bullet" title="Bullet list" data-i18n-title="notes.bullet">•</button>
+      <button class="tool-btn" type="button" data-tool="ordered" title="Numbered list" data-i18n-title="notes.ordered">1.</button>
+      <button class="tool-btn" type="button" data-tool="task" title="Task list" data-i18n-title="notes.task">☐</button>
+      <button class="tool-btn" type="button" data-tool="quote" title="Quote" data-i18n-title="notes.quote">❝</button>
+      <span class="tool-sep"></span>
+      <button class="tool-btn" type="button" data-tool="link" title="Link" data-i18n-title="notes.link">
+        <svg class="icon"><use href="#i-link"/></svg>
+      </button>
+      <button class="tool-btn" type="button" data-tool="rule" title="Divider" data-i18n-title="notes.divider">―</button>
+      <span class="note-status" id="note-status"></span>
+      <div class="segmented" id="note-mode">
+        <button class="seg-btn active" type="button" data-mode="rich" data-i18n="notes.rich">Rich</button>
+        <button class="seg-btn" type="button" data-mode="source" data-i18n="notes.markdown">Markdown</button>
+      </div>
+    </div>
+
+    <div class="note-body">
+      <textarea class="note-textarea" id="note-text" spellcheck="false" hidden></textarea>
+      <div class="note-preview md note-rich" id="note-editor" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Note content" data-i18n-aria-label="notes.content_aria" data-placeholder="Start writing..." data-i18n-data-placeholder="notes.start_writing"></div>
+    </div>
+
+    <div class="note-foot">
+      <span class="hint"><kbd>⌘</kbd>/<kbd>Ctrl</kbd> + <kbd>S</kbd> <span data-i18n="notes.to_save">to save</span></span>
+      <span class="spacer"></span>
+      <button class="btn ghost sm" id="note-delete" type="button">
+        <svg class="icon"><use href="#i-trash"/></svg> <span data-i18n="notes.delete">Delete</span>
+      </button>
+      <button class="btn primary sm" id="note-save" type="button">
+        <svg class="icon"><use href="#i-save"/></svg> <span data-i18n="notes.save">Save</span>
+      </button>
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/notes.js') }}"></script>
+{% endblock %}

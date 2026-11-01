@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow"><span data-i18n="check.eyebrow">Tools</span></p>
+    <h1 class="page-title"><span data-i18n="check.title">Check word information</span></h1>
+    <p class="page-sub"><span data-i18n="check.subtitle">Let the AI verify spelling, reading, meaning and part of speech for flagged words, or recheck every saved word.</span></p>
+  </div>
+  <div class="head-actions">
+    <button class="btn" id="apply-all" type="button" disabled data-i18n="check.apply_all">Apply all AI changes</button>
+    <button class="btn primary" id="run-check" type="button">
+      <svg class="icon"><use href="#i-check"/></svg> <span data-i18n="check.check_flagged">Check flagged words</span>
+    </button>
+  </div>
+</div>
+
+<section class="card">
+  <div class="card-head">
+    <div>
+      <h2 class="card-title" data-i18n="ai.service">AI service</h2>
+      <p class="card-sub"><span data-i18n="check.service_help">Local Ollama is used by default; Online API reads the keys in your</span> <code>.env</code>.</p>
+    </div>
+    <span class="badge warn" id="flag-count">—</span>
+  </div>
+  <div class="provider-row">
+    <div class="segmented" id="provider-group">
+      <button class="seg-btn active" type="button" data-provider="local" data-i18n="ai.local">Local (Ollama)</button>
+      <button class="seg-btn" type="button" data-provider="online" data-i18n="ai.online">Online API</button>
+    </div>
+  </div>
+  <p class="hint" id="check-status" style="margin-top:12px"></p>
+</section>
+
+<section class="card" id="queue-card" style="margin-top:16px">
+  <div class="card-head">
+    <div>
+      <h2 class="card-title" data-i18n="check.queued">Queued words</h2>
+      <p class="card-sub" data-i18n="check.queue_help">Toggle “AI check” on the word list to add or remove a word.</p>
+    </div>
+  </div>
+  <div class="check-list" id="check-queue"></div>
+</section>
+
+<div class="check-results" id="check-results" style="margin-top:16px"></div>
+
+<div class="empty" id="check-empty" hidden>
+  <span class="empty-icon"><svg class="icon"><use href="#i-check"/></svg></span>
+  <h3 data-i18n="check.none">No words are marked for checking</h3>
+  <p data-i18n="check.none_help">Turn on the AI check switch for a word, or edit a word and tick the option.</p>
+  <a class="btn primary" href="/" data-i18n="revision.go_words">Go to your words</a>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/word_check.js') }}"></script>
+{% endblock %}

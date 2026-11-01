@@ -2,7 +2,16 @@ import csv
 from pathlib import Path
 
 DATA_FILE = Path(__file__).resolve().parent.parent / "words.csv"
-CSV_FIELDS = ("id", "word", "reading", "meaning", "notes", "check_ai", "added_on")
+CSV_FIELDS = (
+    "id",
+    "word",
+    "reading",
+    "meaning",
+    "part_of_speech",
+    "notes",
+    "check_ai",
+    "added_on",
+)
 
 
 class VocabularyStore:

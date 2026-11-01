@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow"><span data-i18n="revision.eyebrow">Study</span></p>
+    <h1 class="page-title"><span data-i18n="revision.title">Revision</span></h1>
+    <p class="page-sub"><span data-i18n="revision.subtitle">Pick or type the right answer. Harder words are selected more often.</span></p>
+  </div>
+</div>
+
+<div class="quiz-shell">
+  <div class="quiz-toolbar" id="quiz-toolbar">
+    <div class="segmented-row">
+      <span class="side-label" data-i18n="revision.show">Show</span>
+      <div class="segmented" id="show-group">
+        <button class="seg-btn active" type="button" data-show="word" data-i18n="revision.word">Word</button>
+        <button class="seg-btn" type="button" data-show="reading" data-i18n="revision.reading">Reading</button>
+      </div>
+    </div>
+    <div class="segmented-row">
+      <span class="side-label" data-i18n="revision.guess">Guess</span>
+      <div class="segmented" id="guess-group">
+        <button class="seg-btn active" type="button" data-guess="meaning" data-i18n="revision.meaning">Meaning</button>
+        <button class="seg-btn" type="button" data-guess="word" data-i18n="revision.word">Word</button>
+      </div>
+    </div>
+    <div class="segmented-row">
+      <span class="side-label" data-i18n="revision.answer">Answer</span>
+      <div class="segmented" id="answer-group">
+        <button class="seg-btn active" type="button" data-answer="choices" data-i18n="revision.choices">Choices</button>
+        <button class="seg-btn" type="button" data-answer="typing" data-i18n="revision.typing">Typing</button>
+      </div>
+    </div>
+    <div class="stats">
+      <span class="badge" id="stat-answered">0 answered</span>
+      <span class="badge green" id="stat-accuracy">- accuracy</span>
+      <span class="badge warn" id="stat-streak">0 streak</span>
+    </div>
+  </div>
+  <div id="revision-pos-filter"></div>
+
+  <div class="quiz-card" id="quiz-card" tabindex="-1">
+    <div class="quiz-prompt" id="quiz-prompt">—</div>
+    <div class="quiz-tip" id="quiz-tip"></div>
+    <div class="meaning-translation" id="quiz-translation" hidden></div>
+
+    <div class="quiz-tools">
+      <button class="btn sm" id="tip-btn" type="button"><span data-i18n="revision.tip">Tip</span> <span class="hint">(T)</span></button>
+      <button class="btn sm meaning-translate" id="quiz-translate" type="button" title="Translate visible meanings" data-i18n-title="home.translate_meanings">A/文</button>
+      <a class="btn sm ghost" id="quiz-conjugate" href="#">
+        <svg class="icon"><use href="#i-swap"/></svg> <span data-i18n="review.conjugation">Conjugation</span>
+      </a>
+    </div>
+
+    <div class="quiz-options" id="quiz-options"></div>
+
+    <div class="quiz-input-row" id="quiz-input-row" hidden>
+      <input class="input" id="quiz-entry" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the reading..." data-i18n-placeholder="revision.type_reading">
+      <button class="btn primary" id="quiz-check" type="button"><span data-i18n="revision.check">Check</span> <kbd>Enter</kbd></button>
+    </div>
+
+    <div class="quiz-feedback" id="quiz-feedback"></div>
+
+    <div class="quiz-actions" id="quiz-actions" hidden>
+      <button class="btn sm" id="quiz-override" type="button" hidden data-i18n="revision.i_was_right">I was right</button>
+      <div class="revision-grade" id="revision-grade">
+        <span data-i18n="review.how_was_it">How was it?</span>
+        <button class="btn sm danger" type="button" data-rating="again" data-i18n="rating.again">Again</button>
+        <button class="btn sm" type="button" data-rating="hard" data-i18n="rating.hard">Hard</button>
+        <button class="btn sm primary" type="button" data-rating="good" data-i18n="rating.good">Good</button>
+        <button class="btn sm ghost" type="button" data-rating="easy" data-i18n="rating.easy">Easy</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-foot" id="quiz-foot">
+    <span class="weight" id="quiz-weight"></span>
+    <button class="btn ghost sm" id="reset-weights" type="button">
+      <svg class="icon"><use href="#i-refresh"/></svg> <span data-i18n="revision.reset_data">Reset learning data</span>
+    </button>
+  </div>
+
+  <div class="empty" id="revision-empty" hidden>
+    <span class="empty-icon"><svg class="icon"><use href="#i-target"/></svg></span>
+    <h3 id="revision-empty-title" data-i18n="revision.need_two">Add at least two matching words</h3>
+    <p data-i18n="revision.need_two_help">Revision needs at least two words matching the selected part-of-speech filters.</p>
+    <a class="btn primary" href="/" data-i18n="revision.go_words">Go to your words</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/revision.js') }}"></script>
+{% endblock %}

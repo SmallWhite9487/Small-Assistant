@@ -1,6 +1,5 @@
 # Small-Assistant
 
-Small-Assistant is a desktop Japanese-learning companion built with Python and
-Tkinter. It keeps a personal vocabulary list in a local CSV file and provides
-tools to practise and improve Japanese.
-
+Small-Assistant is a Japanese-learning companion. It keeps a personal vocabulary
+list and provides review, quizzes, notes, composition feedback,
+conjugation and AI word checking in a web interface.

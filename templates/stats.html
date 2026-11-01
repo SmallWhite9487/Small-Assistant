@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow" data-i18n="stats.progress">Progress</p>
+    <h1 class="page-title" data-i18n="stats.title">Learning statistics</h1>
+    <p class="page-sub" data-i18n="stats.subtitle">Your vocabulary review summary for this device.</p>
+  </div>
+</div>
+<div class="stat-grid">
+  <div class="stat"><span class="stat-icon"><svg class="icon"><use href="#i-cards"/></svg></span><div><div class="stat-value" id="stats-total">—</div><div class="stat-label" data-i18n="stats.total_words">total words</div></div></div>
+  <div class="stat"><span class="stat-icon neutral"><svg class="icon"><use href="#i-chart"/></svg></span><div><div class="stat-value" id="stats-reviewed">—</div><div class="stat-label" data-i18n="stats.reviewed_words">reviewed words</div></div></div>
+  <div class="stat"><span class="stat-icon warn"><svg class="icon"><use href="#i-flame"/></svg></span><div><div class="stat-value" id="stats-average-duration">—</div><div class="stat-label" data-i18n="stats.average_answer_time">average answer time</div></div></div>
+</div>
+<section class="card">
+  <div class="card-head"><div><h2 class="card-title" data-i18n="stats.latest_ratings">Latest review ratings</h2><p class="card-sub" data-i18n="stats.ratings_help">Each row shows the number of words and average answer time for that rating.</p></div></div>
+  <div class="stats-bars" id="rating-bars"></div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/stats.js') }}"></script>
+{% endblock %}

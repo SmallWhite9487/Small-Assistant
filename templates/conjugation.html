@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow" data-i18n="nav.tools">Tools</p>
+    <h1 class="page-title" data-i18n="conjugation.title">Conjugation</h1>
+    <p class="page-sub" data-i18n="conjugation.subtitle">Type a word in any form. Switch between verbs and adjectives / nouns, then click a tile to copy it.</p>
+  </div>
+  <div class="head-actions">
+    <div class="segmented" id="mode-group">
+      <button class="seg-btn active" type="button" data-mode="verb" data-i18n="conjugation.verb">Verb</button>
+      <button class="seg-btn" type="button" data-mode="adjective" data-i18n="conjugation.adjective_noun">Adjective / noun</button>
+    </div>
+  </div>
+</div>
+
+<div class="conv-search">
+  <svg class="icon"><use href="#i-search"/></svg>
+  <input class="conv-input" id="conv-input" type="text" placeholder="食べる、書く、高い…" data-i18n-placeholder="conjugation.placeholder" autocomplete="off" autocapitalize="off" spellcheck="false">
+</div>
+
+<div class="conv-meta" id="conv-meta"></div>
+<div id="conv-groups"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/conjugation.js') }}"></script>
+{% endblock %}
