@@ -6,7 +6,7 @@
     words: [],
     drawn: [],
     count: 5,
-    provider: "local",
+    provider: "online",
     feedback: null,
     pending: false,
   };
@@ -183,7 +183,7 @@
     try { saved = JSON.parse(sessionStorage.getItem(KEY) || "null"); } catch (error) { saved = null; }
     if (saved) {
       if (saved.count === 5 || saved.count === 10) state.count = saved.count;
-      if (saved.provider === "local" || saved.provider === "online") state.provider = saved.provider;
+      
       if (typeof saved.text === "string") $("comp-text").value = saved.text;
       if (saved.feedback && typeof saved.feedback.corrected === "string" && typeof saved.feedback.evaluation === "string") {
         state.feedback = saved.feedback;

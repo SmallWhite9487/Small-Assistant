@@ -271,7 +271,7 @@
   "check.subtitle": "AI가 표시된 단어의 철자, 읽기, 뜻, 품사를 검증하게 하거나 저장된 모든 단어를 다시 검사합니다.",
   "check.apply_all": "모든 AI 변경 적용",
   "check.check_flagged": "표시된 단어 검사",
-  "check.service_help": "기본으로 로컬 Ollama를 사용하며, 온라인 API는 다음의 키를 읽습니다:",
+  "check.service_help": "온라인 API를 사용하며 키는 다음에서 읽습니다:",
   "check.queued": "대기 중인 단어",
   "check.queue_help": "단어 목록에서 “AI 검사”를 켜거나 꺼서 단어를 추가하거나 제거하세요.",
   "check.none": "검사할 단어가 표시되지 않았습니다",

@@ -10,7 +10,6 @@
     order: "random",
     posFilter: null,
     revealedAt: 0,
-    showTranslation: false,
   };
 
   const $ = (id) => document.getElementById(id);
@@ -104,7 +103,6 @@
     $("flash-word").textContent = word.word;
     $("flash-reading").textContent = word.reading || "—";
     $("flash-meaning").textContent = word.meaning;
-    paintTranslation(word);
     $("flash-pos").textContent = word.part_of_speech ? "#." + word.part_of_speech : "";
     $("flash-pos").hidden = !word.part_of_speech;
     $("flash-notes").textContent = word.notes || "";
@@ -122,21 +120,6 @@
 
     $("review-counter").textContent = SA.t("review.position", { current: state.index + 1, total: state.queue.length });
     $("review-progress").style.width = ((state.index + 1) / state.queue.length * 100) + "%";
-  }
-
-  async function paintTranslation(word) {
-    const target = $("flash-translation");
-    target.hidden = !state.showTranslation;
-    $("flash-translate").classList.toggle("active", state.showTranslation);
-    if (!state.showTranslation) return;
-    target.textContent = "…";
-    try {
-      const text = await SA.translateMeaning(word);
-      if (state.queue[state.index] === word) target.textContent = text;
-    } catch (error) {
-      if (state.queue[state.index] === word) target.textContent = "";
-      SA.toast(error.message, "error");
-    }
   }
 
   function toggleReveal() {
@@ -233,15 +216,6 @@
     toggleReveal();
   });
 
-  $("flash-translate").addEventListener("click", (event) => {
-    event.stopPropagation();
-    if ((SA.language() === "en" || SA.language() === "dev")) {
-      SA.toast(SA.t("home.choose_translation_language"));
-      return;
-    }
-    state.showTranslation = !state.showTranslation;
-    render();
-  });
   $("review-prev").addEventListener("click", () => move(-1));
   $("review-next").addEventListener("click", () => move(1));
   $("speak-word").addEventListener("click", (event) => {

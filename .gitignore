@@ -226,5 +226,7 @@ __pycache__/
 venv/
 .DS_Store
 push.command
-# Per-device review weights (legacy)
+# Per-user learning data and per-device review weights (legacy)
+user_data/
 user_weights/
+weights.csv

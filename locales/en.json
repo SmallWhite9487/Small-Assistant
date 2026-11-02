@@ -271,7 +271,7 @@
   "check.subtitle": "Let the AI verify spelling, reading, meaning and part of speech for flagged words, or recheck every saved word.",
   "check.apply_all": "Apply all AI changes",
   "check.check_flagged": "Check flagged words",
-  "check.service_help": "Local Ollama is used by default; Online API reads the keys in your",
+  "check.service_help": "Uses the online API; the keys are read from your",
   "check.queued": "Queued words",
   "check.queue_help": "Toggle “AI check” on the word list to add or remove a word.",
   "check.none": "No words are marked for checking",

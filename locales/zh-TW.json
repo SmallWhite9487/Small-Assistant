@@ -271,7 +271,7 @@
   "check.subtitle": "讓 AI 驗證已標記單字的拼寫、讀音、意思和詞性，或重新檢查所有已儲存單字。",
   "check.apply_all": "套用全部 AI 變更",
   "check.check_flagged": "檢查已標記單字",
-  "check.service_help": "預設使用本機 Ollama；線上 API 會讀取你的",
+  "check.service_help": "使用線上 API，金鑰讀取自你的",
   "check.queued": "佇列中的單字",
   "check.queue_help": "在單字表中切換「AI 檢查」即可加入或移除單字。",
   "check.none": "沒有標記待檢查的單字",

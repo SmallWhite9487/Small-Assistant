@@ -21,7 +21,6 @@
     questionStartedAt: 0,
     answerDuration: 0,
     answerCorrect: false,
-    showTranslation: false,
   };
 
   const $ = (id) => document.getElementById(id);
@@ -239,7 +238,6 @@
     renderPrompt();
     clearAnswers();
     $("quiz-tip").textContent = "";
-    refreshTranslation();
     const tipButton = $("tip-btn");
     tipButton.disabled = false;
     tipButton.innerHTML = SA.t("revision.tip") + ' <span class="hint">(T)</span>';
@@ -271,30 +269,10 @@
     return state.tips >= 1 && (state.answer === "typing" || state.guess === "word");
   }
 
-  async function refreshTranslation() {
-    const target = $("quiz-translation");
-    $("quiz-translate").classList.toggle("active", state.showTranslation);
-    const word = state.word;
-    if (!state.showTranslation || !meaningVisible()) {
-      target.hidden = true;
-      return;
-    }
-    target.hidden = false;
-    target.textContent = "…";
-    try {
-      const text = await SA.translateMeaning(word);
-      if (state.word === word) target.textContent = text;
-    } catch (error) {
-      if (state.word === word) target.hidden = true;
-      SA.toast(error.message, "error");
-    }
-  }
-
   function showTip() {
     if (state.answered || state.tips >= 2 || !state.word) return;
     const word = state.word;
     state.tips += 1;
-    window.setTimeout(refreshTranslation, 0);
     const typing = state.answer === "typing";
     const guessingWord = state.guess === "word" && !typing;
     const hint = typing ? "" : "  (T)";
@@ -373,7 +351,6 @@
     }
     $("quiz-actions").hidden = false;
     $("quiz-override").hidden = !(typing && !correct && state.tips < 2);
-    refreshTranslation();
   }
 
   function submitTyped() {
@@ -471,14 +448,6 @@
   });
 
   $("tip-btn").addEventListener("click", showTip);
-  $("quiz-translate").addEventListener("click", () => {
-    if ((SA.language() === "en" || SA.language() === "dev")) {
-      SA.toast(SA.t("home.choose_translation_language"));
-      return;
-    }
-    state.showTranslation = !state.showTranslation;
-    refreshTranslation();
-  });
   $("quiz-override").addEventListener("click", override);
   $("revision-grade").addEventListener("click", (event) => {
     const button = event.target.closest("[data-rating]");

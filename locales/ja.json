@@ -271,7 +271,7 @@
   "check.subtitle": "AIでチェック対象の単語の表記、読み、意味、品詞を確認するか、保存済みのすべての単語を再チェックできます。",
   "check.apply_all": "AIによる変更をすべて適用",
   "check.check_flagged": "チェック対象の単語を確認",
-  "check.service_help": "通常はローカルのOllamaを使用します。オンラインAPIは次の場所にあるキーを読み込みます：",
+  "check.service_help": "オンライン API を使用し、キーは次のファイルから読み込まれます:",
   "check.queued": "チェック待ちの単語",
   "check.queue_help": "単語一覧で「AIチェック」を切り替えると、単語を追加または削除できます。",
   "check.none": "チェック対象の単語はありません",

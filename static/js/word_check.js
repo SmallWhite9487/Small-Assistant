@@ -13,7 +13,7 @@
     words: [],
     suggestions: [],
     applied: new Set(),
-    provider: "local",
+    provider: "online",
     pending: false,
     allMode: new URLSearchParams(location.search).get("all") === "1",
     completedIds: new Set(),
