@@ -81,7 +81,7 @@
       const meaning = document.createElement("span");
       meaning.textContent = word.meaning;
       meaningCell.append(meaning);
-      if (state.showTranslations && SA.language() !== "en") {
+      if (state.showTranslations && SA.language() !== "en" && SA.language() !== "dev") {
         const translated = document.createElement("span");
         translated.className = "meaning-translation";
         translated.dataset.wordId = word.id;
@@ -271,7 +271,7 @@
   });
 
   $("translate-meanings").addEventListener("click", () => {
-    if (SA.language() === "en") {
+    if ((SA.language() === "en" || SA.language() === "dev")) {
       SA.toast(SA.t("home.choose_translation_language"));
       return;
     }
@@ -285,8 +285,9 @@
     const targets = Array.from(document.querySelectorAll(".meaning-translation[data-word-id]"));
     const words = new Map(state.words.map((word) => [word.id, word]));
     let index = 0;
+    let failed = false;
     async function worker() {
-      while (index < targets.length) {
+      while (index < targets.length && !failed) {
         const target = targets[index];
         index += 1;
         const word = words.get(target.dataset.wordId);
@@ -295,7 +296,8 @@
           target.textContent = await SA.translateMeaning(word);
         } catch (error) {
           target.textContent = "—";
-          SA.toast(error.message, "error");
+          if (!failed) SA.toast(error.message, "error");
+          failed = true;
         }
       }
     }

@@ -7,10 +7,14 @@
   function initialLanguage() {
     try {
       const saved = localStorage.getItem("sa-language");
-      if (saved && ["en", "zh-TW", "ko"].includes(saved)) return saved;
+      if (saved && ["en", "zh-TW", "zh-CN", "ko", "ja", "dev"].includes(saved)) return saved;
     } catch (error) { /* storage may be blocked */ }
     const browser = navigator.language || "en";
-    return browser.toLowerCase().startsWith("ko") ? "ko" : browser.toLowerCase().startsWith("zh") ? "zh-TW" : "en";
+    const lang = browser.toLowerCase();
+    if (lang.startsWith("ko")) return "ko";
+    if (lang.startsWith("ja")) return "ja";
+    if (lang.startsWith("zh")) return /hant|tw|hk|mo/.test(lang) ? "zh-TW" : "zh-CN";
+    return "en";
   }
   let language = initialLanguage();
   SA.language = () => language;
@@ -43,7 +47,7 @@
     });
   };
   SA.translateMeaning = async function (word) {
-    if (language === "en") return "";
+    if (language === "en" || language === "dev") return "";
     const key = "sa.meaning." + language + "." + word.id;
     try {
       const cached = localStorage.getItem(key);

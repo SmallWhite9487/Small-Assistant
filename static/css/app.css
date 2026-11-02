@@ -1287,3 +1287,6 @@ button, a, .switch, .conv-tile, .note-item { -webkit-tap-highlight-color: transp
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
 }
+
+.mt-note { display: none; margin-left: 6px; max-width: 14em; font-size: 9px; line-height: 1.15; font-weight: 400; color: var(--muted); vertical-align: middle; white-space: normal; }
+.meaning-translate.active + .mt-note { display: inline-block; }

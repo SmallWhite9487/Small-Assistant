@@ -235,7 +235,7 @@
 
   $("flash-translate").addEventListener("click", (event) => {
     event.stopPropagation();
-    if (SA.language() === "en") {
+    if ((SA.language() === "en" || SA.language() === "dev")) {
       SA.toast(SA.t("home.choose_translation_language"));
       return;
     }

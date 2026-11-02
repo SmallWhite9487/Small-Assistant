@@ -153,7 +153,7 @@
   "home.saving_changes": "儲存中…",
   "home.adding": "新增中…",
   "home.saved_changes": "已儲存 {word} 的變更",
-  "home.choose_translation_language": "請選擇繁體中文或韓文以翻譯意思。",
+  "home.choose_translation_language": "請選擇英文以外的語言來翻譯意思。",
   "review.eyebrow": "學習",
   "review.title": "複習",
   "review.subtitle": "複習單字，然後評分你記得多牢。點擊卡片或按",
@@ -328,5 +328,6 @@
   "conjugation.help.adj.条件形": "條件形。表示如果／只要。\n高ければ / 静かなら = 如果…",
   "conjugation.help.adj.たら形": "條件（たら）。表示如果／當變成這樣時。\n高かったら = 如果很貴的話",
   "conjugation.help.adj.名詞化": "把形容詞變成表示程度的名詞。\n高さ = 高度",
-  "conjugation.help.adj.推量形": "推測形。表示大概。\n高いだろう = 大概很貴"
+  "conjugation.help.adj.推量形": "推測形。表示大概。\n高いだろう = 大概很貴",
+  "home.machine_translation_note": "機器翻譯，不保證品質"
 }

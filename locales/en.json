@@ -153,7 +153,7 @@
   "home.saving_changes": "Saving…",
   "home.adding": "Adding…",
   "home.saved_changes": "Saved changes to {word}",
-  "home.choose_translation_language": "Choose Traditional Chinese or Korean to translate meanings.",
+  "home.choose_translation_language": "Choose a non-English language to translate meanings.",
   "review.eyebrow": "Study",
   "review.title": "Review",
   "review.subtitle": "Review your vocabulary, then grade how well you remembered it. Click the card or press",
@@ -328,5 +328,6 @@
   "conjugation.help.adj.条件形": "Conditional. Means if / provided that.\n高ければ / 静かなら = if it is",
   "conjugation.help.adj.たら形": "Conditional (たら). Means if / when it becomes so.\n高かったら = if it is expensive",
   "conjugation.help.adj.名詞化": "Turns the adjective into a noun for degree.\n高さ = height",
-  "conjugation.help.adj.推量形": "Conjecture. Means probably.\n高いだろう = it is probably expensive"
+  "conjugation.help.adj.推量形": "Conjecture. Means probably.\n高いだろう = it is probably expensive",
+  "home.machine_translation_note": "Machine-translated, may be inaccurate"
 }

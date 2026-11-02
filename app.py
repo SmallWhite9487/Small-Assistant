@@ -106,6 +106,11 @@ class CloudflareRealIP:
 if os.getenv("WEB_TRUST_CLOUDFLARE", "1") != "0":
     app.wsgi_app = CloudflareRealIP(app.wsgi_app)
 
+app.logger.setLevel(logging.INFO)
+if not logging.getLogger().handlers and not app.logger.handlers:
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
+logging.getLogger("small_assistant").setLevel(logging.INFO)
+
 # Werkzeug's own request line would still print the tunnel's address.
 logging.getLogger("werkzeug").setLevel(logging.WARNING)
 
@@ -291,7 +296,10 @@ def body() -> dict:
 
 @app.get("/api/locales/<language>")
 def api_locale(language: str):
-    if language not in {"en", "zh-TW", "ko"}:
+    if language == "dev":
+        with (LOCALES_DIR / "en.json").open(encoding="utf-8") as file:
+            return jsonify(translations={key: key for key in app.json.loads(file.read())})
+    if language not in {"en", "zh-TW", "zh-CN", "ko", "ja"}:
         raise ApiError("Unsupported language.", 404)
     try:
         with (LOCALES_DIR / f"{language}.json").open(encoding="utf-8") as file:
@@ -512,11 +520,24 @@ def api_note_delete(name: str):
 
 @app.errorhandler(ApiError)
 def handle_api_error(error: ApiError):
+    cause = error.__cause__
+    app.logger.log(
+        logging.ERROR if error.status >= 500 else logging.WARNING,
+        "%s %s -> %s: %s%s",
+        request.method,
+        request.path,
+        error.status,
+        error.message,
+        f" (caused by {cause!r})" if cause else "",
+        exc_info=(type(cause), cause, cause.__traceback__) if cause and error.status >= 500 else None,
+    )
     return jsonify(error=error.message), error.status
 
 
 @app.errorhandler(HTTPException)
 def handle_http_error(error: HTTPException):
+    if (error.code or 500) >= 500 or error.code in {400, 403, 405, 413}:
+        app.logger.warning("%s %s -> %s %s", request.method, request.path, error.code, error.description)
     if request.path.startswith("/api/"):
         return jsonify(error=error.description), error.code or 500
     return render_template("404.html", page="", page_title="Not found"), error.code or 404

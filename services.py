@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import csv
 import json
+import time
 import os
 import re
 import secrets
@@ -18,6 +19,20 @@ import threading
 import uuid
 from urllib.parse import urlencode
 from urllib.request import urlopen
+import logging
+import ssl
+
+try:
+    import certifi
+except ImportError:
+    certifi = None
+
+log = logging.getLogger("small_assistant")
+
+
+def ssl_context() -> ssl.SSLContext:
+    """Use certifi's CA bundle when present; python.org builds on macOS ship none."""
+    return ssl.create_default_context(cafile=certifi.where() if certifi else None)
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -300,7 +315,7 @@ class AIChecker:
         if not isinstance(text, str) or not text.strip():
             raise ApiError("Write something first.")
         provider = cls.provider(data)
-        language = {"zh-TW": "Traditional Chinese (繁體中文)", "ko": "Korean (한국어)"}.get(data.get("language"), "English")
+        language = {"zh-TW": "Traditional Chinese (繁體中文)", "zh-CN": "Simplified Chinese (简体中文)", "ko": "Korean (한국어)", "ja": "Japanese (日本語)"}.get(data.get("language"), "English")
         try:
             return AIService.composition_feedback([w.strip() for w in words], text.strip(), provider, language)
         except ValueError as error:
@@ -309,26 +324,100 @@ class AIChecker:
             raise ApiError(f"The AI service could not be reached: {error}", 502) from error
 
 class MachineTranslationService:
-    """Translate display-only meanings without changing vocabulary data."""
+    """Translate display-only meanings without changing vocabulary data.
 
-    TARGETS = {"zh-TW", "ko"}
+    Providers: "argos" (local offline models, works on Windows and macOS) and
+    "google" (the free web endpoint). On Windows the web endpoint is only used
+    when WEB_WINDOWS_BUILTIN_TRANSLATION=true; elsewhere it is a fallback.
+    """
+
+    TARGETS = {"zh-TW", "zh-CN", "ko", "ja"}
+    ARGOS_CODES = {"zh-TW": "zt", "zh-CN": "zh", "ko": "ko", "ja": "ja"}
+    cache: dict[tuple[str, str], str] = {}
+    blocked_until = 0.0
+    argos_lock = threading.Lock()
+    argos_failed: str | None = None
+
+    @staticmethod
+    def providers() -> list[str]:
+        if sys.platform == "win32":
+            if os.getenv("WEB_WINDOWS_BUILTIN_TRANSLATION", "true").strip().lower() in {"1", "true", "yes", "on"}:
+                return ["google", "argos"]
+            return ["argos"]
+        return ["argos", "google"]
 
     @classmethod
     def meaning(cls, meaning: object, language: object) -> str:
         if not isinstance(meaning, str) or not meaning.strip():
             raise ApiError("Meaning is required.")
         if language not in cls.TARGETS:
-            raise ApiError("Translation is only available for Traditional Chinese or Korean.")
-        query = urlencode({"client": "gtx", "sl": "en", "tl": language, "dt": "t", "q": meaning.strip()})
+            raise ApiError("Translation is not available for that language.")
+        text = meaning.strip()
+        key = (language, text)
+        if key in cls.cache:
+            return cls.cache[key]
+        errors: list[ApiError] = []
+        for provider in cls.providers():
+            try:
+                translation = getattr(cls, f"_{provider}")(text, language)
+            except ApiError as error:
+                errors.append(error)
+                log.warning("Translation provider %s failed: %s", provider, error.message)
+                continue
+            if translation:
+                cls.cache[key] = translation
+                return translation
+        raise errors[-1] if errors else ApiError("Machine translation returned an empty result.", 502)
+
+    @classmethod
+    def _argos(cls, text: str, language: str) -> str:
+        if cls.argos_failed:
+            raise ApiError(cls.argos_failed, 502)
+        target = cls.ARGOS_CODES[language]
+        with cls.argos_lock:
+            try:
+                if certifi:
+                    os.environ.setdefault("SSL_CERT_FILE", certifi.where())
+                import argostranslate.package as argos_package
+                import argostranslate.translate as argos_translate
+
+                def installed() -> bool:
+                    return any(
+                        lang.code == "en" and any(t.to_lang.code == target for t in lang.translations_from)
+                        for lang in argos_translate.get_installed_languages()
+                    )
+
+                if not installed():
+                    log.info("Downloading Argos language pack en -> %s (first use only)", target)
+                    argos_package.update_package_index()
+                    package = next(
+                        p for p in argos_package.get_available_packages()
+                        if p.from_code == "en" and p.to_code == target
+                    )
+                    argos_package.install_from_path(package.download())
+                return argos_translate.translate(text, "en", target).strip()
+            except ImportError as error:
+                cls.argos_failed = "Offline translation needs: pip install argostranslate"
+                log.error("%s (%s)", cls.argos_failed, error)
+                raise ApiError(cls.argos_failed, 502) from error
+            except Exception as error:
+                log.error("Argos translation failed: %s", error, exc_info=True)
+                raise ApiError(f"Offline translation failed: {error}", 502) from error
+
+    @classmethod
+    def _google(cls, text: str, language: str) -> str:
+        if time.time() < cls.blocked_until:
+            raise ApiError("Translation service is rate limited; try again in a minute.", 429)
+        query = urlencode({"client": "gtx", "sl": "en", "tl": language, "dt": "t", "q": text})
         try:
-            with urlopen(f"https://translate.googleapis.com/translate_a/single?{query}", timeout=15) as response:
+            with urlopen(f"https://translate.googleapis.com/translate_a/single?{query}", timeout=15, context=ssl_context()) as response:
                 data = json.load(response)
-            translation = "".join(item[0] for item in data[0] if item and item[0]).strip()
+            return "".join(item[0] for item in data[0] if item and item[0]).strip()
         except (OSError, ValueError, IndexError, TypeError) as error:
+            if getattr(error, "code", None) == 429:
+                cls.blocked_until = time.time() + 60
+                raise ApiError("Translation service is rate limited; try again in a minute.", 429) from error
             raise ApiError(f"Machine translation could not be completed: {error}", 502) from error
-        if not translation:
-            raise ApiError("Machine translation returned an empty result.", 502)
-        return translation
 
 
 class ConjugationService:

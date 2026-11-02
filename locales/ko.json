@@ -153,7 +153,7 @@
   "home.saving_changes": "저장 중…",
   "home.adding": "추가 중…",
   "home.saved_changes": "{word} 변경 사항 저장됨",
-  "home.choose_translation_language": "뜻을 번역하려면 번체 중국어 또는 한국어를 선택하세요.",
+  "home.choose_translation_language": "의미를 번역하려면 영어 외의 언어를 선택하세요.",
   "review.eyebrow": "학습",
   "review.title": "복습",
   "review.subtitle": "단어를 복습한 뒤 얼마나 기억했는지 평가하세요. 카드를 클릭하거나",
@@ -328,5 +328,6 @@
   "conjugation.help.adj.条件形": "조건형. 만약 / ~하면이라는 뜻입니다.\n高ければ / 静かなら = ~라면",
   "conjugation.help.adj.たら形": "조건(たら). 만약 / ~하게 되면이라는 뜻입니다.\n高かったら = 비쌌다면",
   "conjugation.help.adj.名詞化": "형용사를 정도를 나타내는 명사로 바꿉니다.\n高さ = 높이",
-  "conjugation.help.adj.推量形": "추량형. 아마 ~일 것이라는 뜻입니다.\n高いだろう = 아마 비쌀 것이다"
+  "conjugation.help.adj.推量形": "추량형. 아마 ~일 것이라는 뜻입니다.\n高いだろう = 아마 비쌀 것이다",
+  "home.machine_translation_note": "기계 번역이며 품질은 보장되지 않습니다"
 }
