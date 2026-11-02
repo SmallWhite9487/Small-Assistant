@@ -7,6 +7,7 @@ data at the repository root (``words.csv``, ``Notes/`` and ``user_data/``).
 from __future__ import annotations
 
 import csv
+from datetime import date
 import json
 import time
 import os
@@ -127,8 +128,8 @@ class WordService:
     def create(self, data: dict) -> dict[str, str]:
         word = _text(data, "word", 200)
         meaning = _text(data, "meaning", 500)
-        if not word or not meaning:
-            raise ApiError("Enter a Japanese word and its meaning.")
+        if not word:
+            raise ApiError("Enter a Japanese word.")
         entry = {
             "id": str(uuid.uuid4()),
             "word": word,
@@ -148,8 +149,8 @@ class WordService:
     def update(self, word_id: str, data: dict) -> dict[str, str]:
         word = _text(data, "word", 200)
         meaning = _text(data, "meaning", 500)
-        if not word or not meaning:
-            raise ApiError("Enter a Japanese word and its meaning.")
+        if not word:
+            raise ApiError("Enter a Japanese word.")
         with self.lock:
             words = self.store.load()
             entry = next((item for item in words if item["id"] == word_id), None)

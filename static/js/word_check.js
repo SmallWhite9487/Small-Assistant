@@ -2,10 +2,10 @@
   "use strict";
 
   const FIELDS = [
-    ["word", SA.t("check.kanji_kana")],
-    ["reading", SA.t("home.reading")],
-    ["meaning", SA.t("home.meaning")],
-    ["part_of_speech", SA.t("word.part_of_speech")],
+    ["word", "check.kanji_kana"],
+    ["reading", "home.reading"],
+    ["meaning", "home.meaning"],
+    ["part_of_speech", "word.part_of_speech"],
   ];
   const BATCH_SIZE = 50;
 
@@ -155,7 +155,7 @@
       card.append(head);
 
       for (const [field, label] of FIELDS) {
-        card.append(diffRow(field, label, word, suggestion));
+        card.append(diffRow(field, SA.t(label), word, suggestion));
       }
 
       if (suggestion.reason) {

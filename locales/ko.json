@@ -149,7 +149,7 @@
   "home.edit_word_title": "단어 편집",
   "home.edit_word_help": "철자, 읽기, 뜻을 수정합니다. 추가한 날짜는 바뀌지 않습니다.",
   "home.save_changes": "변경 사항 저장",
-  "home.required_fields": "일본어 단어와 뜻을 입력하세요.",
+  "home.required_fields": "일본어 단어를 입력하세요.",
   "home.saving_changes": "저장 중…",
   "home.adding": "추가 중…",
   "home.saved_changes": "{word} 변경 사항 저장됨",

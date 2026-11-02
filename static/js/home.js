@@ -239,9 +239,9 @@
       notes: $("w-notes").value.trim(),
       check_ai: checkOn,
     };
-    if (!payload.word || !payload.meaning) {
+    if (!payload.word) {
       SA.toast(SA.t("home.required_fields"), "error");
-      (!payload.word ? $("w-word") : $("w-meaning")).focus();
+      $("w-word").focus();
       return;
     }
     const button = $("word-save");

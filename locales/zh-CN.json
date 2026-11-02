@@ -149,7 +149,7 @@
   "home.edit_word_title": "编辑单字",
   "home.edit_word_help": "更新拼写、读音或意思。添加日期不会改变。",
   "home.save_changes": "保存变更",
-  "home.required_fields": "请输入日语单字及其意思。",
+  "home.required_fields": "请输入日语单词。",
   "home.saving_changes": "保存中…",
   "home.adding": "添加中…",
   "home.saved_changes": "已保存 {word} 的变更",

@@ -149,7 +149,7 @@
   "home.edit_word_title": "Edit word",
   "home.edit_word_help": "Update the spelling, reading or meaning. The added date stays the same.",
   "home.save_changes": "Save changes",
-  "home.required_fields": "Enter a Japanese word and its meaning.",
+  "home.required_fields": "Enter a Japanese word.",
   "home.saving_changes": "Saving…",
   "home.adding": "Adding…",
   "home.saved_changes": "Saved changes to {word}",

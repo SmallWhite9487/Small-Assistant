@@ -149,7 +149,7 @@
   "home.edit_word_title": "単語を編集",
   "home.edit_word_help": "表記、読み、意味を更新します。追加日は変わりません。",
   "home.save_changes": "変更を保存",
-  "home.required_fields": "日本語の単語と意味を入力してください。",
+  "home.required_fields": "日本語の単語を入力してください。",
   "home.saving_changes": "保存中…",
   "home.adding": "追加中…",
   "home.saved_changes": "{word}の変更を保存しました",
