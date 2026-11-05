@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow"><span data-i18n="review.eyebrow">Study</span></p>
+    <h1 class="page-title"><span data-i18n="grammar.review_title">Grammar review</span></h1>
+    <p class="page-sub"><span data-i18n="grammar.review_subtitle">Recall the meaning and usage, then grade yourself. Click the card or press</span> <kbd>Space</kbd> <span data-i18n="review.to_reveal_answer">to reveal the answer.</span></p>
+  </div>
+  <div class="head-actions">
+    <a class="btn ghost" href="/grammar"><svg class="icon"><use href="#i-left"/></svg> <span data-i18n="grammar.back">Back to grammar</span></a>
+  </div>
+</div>
+
+<div class="review-shell">
+  <div class="review-toolbar">
+    <div class="segmented-row">
+      <span class="side-label" data-i18n="review.scope">Scope</span>
+      <div class="segmented" id="scope-group">
+        <button class="seg-btn active" type="button" data-scope="all" data-i18n="home.all">All</button>
+        <button class="seg-btn" type="button" data-scope="today" data-i18n="review.added_today">Added today</button>
+      </div>
+    </div>
+    <div class="segmented-row">
+      <span class="side-label" data-i18n="review.order">Order</span>
+      <div class="segmented" id="order-group">
+        <button class="seg-btn active" type="button" data-order="random" data-i18n="review.random">Random</button>
+        <button class="seg-btn" type="button" data-order="original" data-i18n="review.original">Original</button>
+      </div>
+    </div>
+    <select class="input" id="category-filter" aria-label="Category" data-i18n-aria-label="grammar.category"></select>
+    <span class="counter" id="review-counter"></span>
+  </div>
+
+  <div class="progress review-progress"><span id="review-progress"></span></div>
+
+  <div id="review-view" hidden>
+    <div class="flash-card" id="flash-card" role="button" tabindex="0" aria-label="Flash card. Click or press Space to reveal." data-i18n-aria-label="review.flashcard_aria">
+      <div class="flash-word" id="flash-pattern"></div>
+      <div class="flash-reading reveal" id="flash-connection"></div>
+      <div class="flash-meaning reveal"><span id="flash-meaning"></span></div>
+      <div class="flash-reading reveal" id="flash-example"></div>
+      <div class="flash-pos reveal" id="flash-category"></div>
+      <div class="flash-notes reveal" id="flash-notes"></div>
+      <div class="flash-hint">
+        <span id="flash-hint-text" data-i18n="review.click_or_press">Click or press</span> <kbd>Space</kbd> <span data-i18n="review.to_reveal">to reveal</span>
+      </div>
+      <div class="review-audio reveal">
+        <button class="btn sm" id="speak-example" type="button">🔊 <span data-i18n="grammar.speak_example">Example</span></button>
+      </div>
+    </div>
+
+    <div class="review-nav">
+      <button class="btn" id="review-prev" type="button">
+        <svg class="icon"><use href="#i-left"/></svg> <span data-i18n="review.previous">Previous</span>
+      </button>
+      <button class="btn primary" id="review-next" type="button">
+        <span data-i18n="review.next">Next</span> <svg class="icon"><use href="#i-right"/></svg>
+      </button>
+    </div>
+    <div class="review-grade reveal" id="review-grade">
+      <span data-i18n="review.how_was_it">How was it?</span>
+      <button class="btn sm danger" type="button" data-rating="again" data-i18n="rating.again">Again</button>
+      <button class="btn sm" type="button" data-rating="hard" data-i18n="rating.hard">Hard</button>
+      <button class="btn sm primary" type="button" data-rating="good" data-i18n="rating.good">Good</button>
+      <button class="btn sm ghost" type="button" data-rating="easy" data-i18n="rating.easy">Easy</button>
+    </div>
+  </div>
+
+  <div class="empty" id="review-empty" hidden>
+    <span class="empty-icon"><svg class="icon"><use href="#i-cards"/></svg></span>
+    <h3 data-i18n="grammar.review_empty">Nothing to review</h3>
+    <p data-i18n="grammar.review_empty_help">Add grammar points first, or change the scope and category.</p>
+    <a class="btn primary" href="/grammar" data-i18n="grammar.back">Back to grammar</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/grammar_review.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow"><span data-i18n="grammar.eyebrow">Grammar</span></p>
+    <h1 class="page-title"><span data-i18n="grammar.title">Grammar &amp; particles</span></h1>
+    <p class="page-sub" data-i18n="grammar.subtitle">Keep track of grammar points and particles, with how they connect and an example.</p>
+  </div>
+  <div class="head-actions">
+    <a class="btn ghost" href="/grammar/review">
+      <svg class="icon"><use href="#i-cards"/></svg> <span data-i18n="grammar.review">Review grammar</span>
+    </a>
+    <button class="btn primary" id="add-grammar" type="button">
+      <svg class="icon"><use href="#i-plus"/></svg> <span data-i18n="grammar.add">Add grammar</span>
+    </button>
+  </div>
+</div>
+
+<div class="stat-grid">
+  <div class="stat">
+    <span class="stat-icon"><svg class="icon"><use href="#i-note"/></svg></span>
+    <div><div class="stat-value" id="stat-total">—</div><div class="stat-label"><span data-i18n="grammar.saved">grammar points saved</span></div></div>
+  </div>
+  <div class="stat">
+    <span class="stat-icon neutral"><svg class="icon"><use href="#i-sparkle"/></svg></span>
+    <div><div class="stat-value" id="stat-today">—</div><div class="stat-label"><span data-i18n="home.added_today">added today</span></div></div>
+  </div>
+  <div class="stat">
+    <span class="stat-icon warn"><svg class="icon"><use href="#i-check"/></svg></span>
+    <div><div class="stat-value" id="stat-flagged">—</div><div class="stat-label"><span data-i18n="home.waiting_ai">waiting for AI check</span></div></div>
+  </div>
+</div>
+
+<div class="toolbar">
+  <label class="search-box">
+    <svg class="icon"><use href="#i-search"/></svg>
+    <input class="input" id="search" type="search" placeholder="Search grammar..." data-i18n-placeholder="grammar.search_placeholder" autocomplete="off">
+  </label>
+  <div class="segmented" id="filter-group">
+    <button class="seg-btn active" type="button" data-filter="all" data-i18n="home.all">All</button>
+    <button class="seg-btn" type="button" data-filter="flagged" data-i18n="home.ai_queue">AI queue</button>
+  </div>
+  <select class="input" id="category-filter" aria-label="Category" data-i18n-aria-label="grammar.category"></select>
+  <span class="spacer"></span>
+  <button class="btn ghost sm" id="ai-check" type="button">
+    <svg class="icon"><use href="#i-check"/></svg> <span data-i18n="grammar.check_flagged">Check flagged with AI</span>
+  </button>
+</div>
+
+<div class="table-card">
+  <div class="table-scroll" id="table-scroll">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th data-i18n="grammar.pattern">Grammar / particle</th>
+          <th data-i18n="grammar.connection">Connection</th>
+          <th class="meaning-head"><span data-i18n="home.meaning">Meaning</span> <button class="meaning-translate" id="translate-meanings" type="button" title="Translate visible meanings" data-i18n-title="home.translate_meanings">A/文</button><small class="mt-note" data-i18n="home.machine_translation_note">Machine translation, quality not guaranteed</small></th>
+          <th data-i18n="grammar.example">Example</th>
+          <th data-i18n="grammar.category">Category</th>
+          <th data-i18n="home.added">Added</th>
+          <th class="center" data-i18n="home.ai_check">AI check</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="grammar-rows"></tbody>
+    </table>
+  </div>
+  <div class="empty" id="grammar-empty" hidden>
+    <span class="empty-icon"><svg class="icon"><use href="#i-search"/></svg></span>
+    <h3 id="empty-title" data-i18n="grammar.none">No grammar points yet</h3>
+    <p id="empty-copy" data-i18n="grammar.none_help">Add your first grammar point or particle and it will appear here.</p>
+    <button class="btn primary" id="empty-add" type="button"><svg class="icon"><use href="#i-plus"/></svg> <span data-i18n="grammar.add">Add grammar</span></button>
+  </div>
+  <div class="table-foot">
+    <span id="table-count" data-i18n="home.loading">Loading...</span>
+    <span><kbd>/</kbd> <span data-i18n="home.to_search">to search</span></span>
+  </div>
+</div>
+
+<dialog class="dialog" id="grammar-dialog">
+  <form class="dialog-card wide" id="grammar-form" novalidate>
+    <button class="icon-btn dialog-close" id="grammar-cancel-x" type="button" aria-label="Close" data-i18n-aria-label="common.close">
+      <svg class="icon"><use href="#i-close"/></svg>
+    </button>
+    <h2 id="grammar-dialog-title" data-i18n="grammar.add">Add grammar</h2>
+    <div class="form-grid" style="margin-top:20px">
+      <div class="field">
+        <label class="label" for="g-pattern" data-i18n="grammar.pattern_required">Grammar / particle *</label>
+        <input class="input" id="g-pattern" maxlength="200" required autocomplete="off" placeholder="は / 〜ように">
+      </div>
+      <div class="field">
+        <label class="label" for="g-category"><span data-i18n="grammar.category">Category</span> <span class="hint" data-i18n="grammar.category_example">(e.g. particle, grammar, honorific)</span></label>
+        <input class="input" id="g-category" maxlength="40" autocomplete="off" list="g-category-list">
+        <datalist id="g-category-list"></datalist>
+      </div>
+      <div class="field span-2">
+        <label class="label" for="g-connection" data-i18n="grammar.connection">Connection</label>
+        <input class="input" id="g-connection" maxlength="300" autocomplete="off" placeholder="V辞書形 + ように">
+      </div>
+      <div class="field span-2">
+        <label class="label" for="g-meaning" data-i18n="home.meaning">Meaning</label>
+        <textarea class="textarea" id="g-meaning" maxlength="1000" rows="2"></textarea>
+      </div>
+      <div class="field span-2">
+        <label class="label" for="g-example" data-i18n="grammar.example">Example</label>
+        <textarea class="textarea" id="g-example" maxlength="1000" rows="2"></textarea>
+      </div>
+      <div class="field span-2">
+        <label class="label" for="g-notes"><span data-i18n="home.notes">Notes</span> <span class="hint" data-i18n="home.optional">(optional)</span></label>
+        <textarea class="textarea" id="g-notes" maxlength="4000" rows="3"></textarea>
+      </div>
+      <div class="switch-row span-2">
+        <button class="switch on" id="g-check" type="button" role="switch" aria-checked="true" aria-label="Check with AI" data-i18n-aria-label="grammar.check_ai_aria"></button>
+        <div class="switch-text">
+          <strong data-i18n="grammar.check_ai">Check this with AI</strong>
+          <span data-i18n="grammar.check_ai_help">Adds it to the AI queue.</span>
+        </div>
+      </div>
+    </div>
+    <div class="dialog-actions">
+      <button class="btn ghost" id="grammar-cancel" type="button" data-i18n="common.cancel">Cancel</button>
+      <button class="btn primary" id="grammar-save" type="submit" data-i18n="grammar.save">Save</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="dialog" id="ai-dialog">
+  <div class="dialog-card wide">
+    <button class="icon-btn dialog-close" id="ai-close-x" type="button" aria-label="Close" data-i18n-aria-label="common.close">
+      <svg class="icon"><use href="#i-close"/></svg>
+    </button>
+    <h2 data-i18n="grammar.ai_results">AI check results</h2>
+    <p data-i18n="grammar.ai_results_help">Tick the suggestions you want to apply.</p>
+    <div id="ai-results" style="margin-top:16px;max-height:60vh;overflow:auto"></div>
+    <div class="dialog-actions">
+      <button class="btn ghost" id="ai-cancel" type="button" data-i18n="common.cancel">Cancel</button>
+      <button class="btn primary" id="ai-apply" type="button" data-i18n="grammar.apply_selected">Apply selected</button>
+    </div>
+  </div>
+</dialog>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/grammar.js') }}"></script>
+{% endblock %}

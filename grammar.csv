@@ -1,0 +1,16 @@
+id,pattern,connection,meaning,example,category,notes,check_ai,added_on
+4dcf974e-edea-4824-8d88-f8ef70926c5b,〜ごろ,名詞 ＋ ごろ,Around a certain time or hour,毎朝七時ごろ起きます。,時間,,False,2026-11-04
+0591f90c-ea1b-4b87-b374-9c192a91a964,〜たい,動詞ます形 ＋ たい,To want to do something,私は冷たいビールが飲みたいです。,希望,,False,2026-11-04
+40e449d0-5925-412e-9b0f-dff306ed3388,〜は〜,名詞 ＋ は ＋ 名詞/形容詞/動詞,Topic marker indicating the theme of the sentence,私は学生です。,助詞,,False,2026-11-04
+233158a8-63a0-466b-8c50-bb4fcf9ee1d9,〜で〜,名詞 ＋ で ＋ 動詞,Indicates the location where an action takes place,図書館で本を読みます。,助詞,,False,2026-11-04
+d99c58b8-d40e-4db0-9a2f-3a3bbcc0120d,〜を〜,名詞 ＋ を ＋ 他動詞,Marks the direct object of an action,りんごを食べます。,助詞,,False,2026-11-04
+f8c4204c-0180-4263-b1c9-321705ddbe82,〜に〜,名詞＋に,"Indicates the target, destination, or point of arrival.",東京に行きます。,助詞,,False,2026-11-04
+64f3a2b6-a6aa-43f5-bab1-3ac8e2bc6d73,〜が〜,名詞 ＋ が ＋ 形容詞/動詞,Marks the grammatical subject of a sentence,日本語が上手です。,助詞,,False,2026-11-04
+ea697694-ef3b-4d5a-bfd1-fd86fcb09830,〜や〜,名詞 ＋ や ＋ 名詞,Used to list nouns non-exhaustively (such as... and...) flavoring,机の上に本やノートがあります。,助詞,,False,2026-11-04
+c74d1b1d-ec2b-49fc-b01c-2336881e8ffc,〜あります,名詞（無生物） ＋ が あります,There is / to have (for inanimate objects),ここに新しい本があります。,動詞,,False,2026-11-04
+887f33f9-9ab7-49eb-ac42-5484a8bb68fc,〜います,名詞（生物） ＋ が います,There is / to have (for animate beings like humans and animals),部屋に猫がいます。,動詞,,False,2026-11-04
+bd55dfb4-9283-451c-bd13-b259c98b5117,〜から,名詞 ＋ から,From (indicating starting point in time or place),学校から家まで歩きます。,助詞,,False,2026-11-04
+671045c8-e764-4485-84f6-d511dbec397b,〜まで,名詞 ＋ まで,Until / up to (indicating endpoint in time or place),金曜日まで仕事があります。,助詞,,False,2026-11-04
+1c3a0aa8-0cca-40d6-bc9c-60888120affc,〜の〜,名詞＋の＋名詞,"Indicates possession, attribution, or modification between two nouns.",これは私の本です。,助詞,,False,2026-11-04
+ee9c0322-41e3-4ff0-84cf-08a3dc678274,〜だけ,,,,,,True,2026-11-05
+5fbb7420-7905-4cf3-9e03-aa6e4f8e71e8,〜より,,,,,,True,2026-11-05

@@ -52,12 +52,13 @@ from services import (  # noqa: E402
     AIChecker,
     ApiError,
     ConjugationService,
+    GrammarService,
     MachineTranslationService,
     NoteService,
     UserDataService,
     WordService,
 )
-from modules.ai_service import AIService  # noqa: E402
+from modules.ai_service import AIService, AIServiceError  # noqa: E402
 
 load_dotenv(ROOT / ".env")
 
@@ -256,6 +257,7 @@ def logout():
 
 
 words = WordService()
+grammar = GrammarService()
 notes = NoteService()
 user_data = UserDataService()
 
@@ -268,6 +270,8 @@ PAGES = {
     "/composition": ("composition", "Composition"),
     "/conjugation": ("conjugation", "Conjugation"),
     "/word-check": ("word_check", "Check words"),
+    "/grammar": ("grammar", "Grammar"),
+    "/grammar/review": ("grammar_review", "Grammar review"),
 }
 
 
@@ -378,6 +382,10 @@ def api_words_apply():
     return jsonify(words=words.apply_corrections(changes))
 
 
+def known_item_ids() -> set[str]:
+    return {item["id"] for item in words.all()} | {item["id"] for item in grammar.all()}
+
+
 @app.get("/api/weights")
 def api_weights():
     ids = {word["id"] for word in words.all()}
@@ -386,7 +394,7 @@ def api_weights():
 
 @app.put("/api/weights/<word_id>")
 def api_weight_set(word_id: str):
-    if word_id not in {word["id"] for word in words.all()}:
+    if word_id not in known_item_ids():
         raise ApiError("Unknown word.", 404)
     value = user_data.set_weight(g.device_code, word_id, body().get("weight"))
     return jsonify(id=word_id, weight=value)
@@ -406,7 +414,7 @@ def api_study_stats():
 
 @app.post("/api/study/<word_id>/grade")
 def api_study_grade(word_id: str):
-    if word_id not in {word["id"] for word in words.all()}:
+    if word_id not in known_item_ids():
         raise ApiError("Unknown word.", 404)
     data = body()
     progress = user_data.grade(
@@ -417,6 +425,84 @@ def api_study_grade(word_id: str):
         data.get("duration"),
     )
     return jsonify(progress=progress)
+
+
+# ---- grammar -------------------------------------------------------------
+
+
+@app.get("/api/grammar")
+def api_grammar():
+    items = grammar.all()
+    today = date.today().isoformat()
+    return jsonify(
+        items=items,
+        stats={
+            "total": len(items),
+            "added_today": sum(1 for item in items if item["added_on"] == today),
+            "flagged": sum(1 for item in items if item["check_ai"] == "True"),
+        },
+    )
+
+
+@app.post("/api/grammar")
+def api_grammar_create():
+    return jsonify(item=grammar.create(body())), 201
+
+
+@app.put("/api/grammar/<item_id>")
+def api_grammar_update(item_id: str):
+    return jsonify(item=grammar.update(item_id, body()))
+
+
+@app.delete("/api/grammar/<item_id>")
+def api_grammar_delete(item_id: str):
+    grammar.delete(item_id)
+    return jsonify(ok=True)
+
+
+@app.patch("/api/grammar/<item_id>/check")
+def api_grammar_check_flag(item_id: str):
+    data = body()
+    if not isinstance(data.get("check_ai"), bool):
+        raise ApiError("check_ai must be true or false.")
+    return jsonify(item=grammar.set_check(item_id, data["check_ai"]))
+
+
+@app.post("/api/grammar/apply")
+def api_grammar_apply():
+    return jsonify(items=grammar.apply_corrections(body().get("changes")))
+
+
+@app.post("/api/ai/grammar-check")
+def api_ai_grammar_check():
+    data = body()
+    provider = AIChecker.provider(data)
+    ids = data.get("ids")
+    if ids is None:
+        queued = [item for item in grammar.all() if item["check_ai"] == "True"]
+    else:
+        if (
+            not isinstance(ids, list)
+            or not 1 <= len(ids) <= 20
+            or not all(isinstance(item_id, str) for item_id in ids)
+            or len(set(ids)) != len(ids)
+        ):
+            raise ApiError("ids must contain between 1 and 20 unique IDs.")
+        queued = [item for item in grammar.all() if item["id"] in set(ids)]
+        if len(queued) != len(ids):
+            raise ApiError("One of the requested grammar points no longer exists.", 409)
+    if not queued:
+        raise ApiError("No grammar points are marked for checking.")
+    queued = queued[:20]
+    try:
+        suggestions = AIService.grammar_suggestions(
+            queued, provider, AIChecker.language_name(data.get("language"))
+        )
+    except ValueError as error:
+        raise ApiError(str(error)) from error
+    except OSError as error:
+        raise ApiError(f"The AI service could not be reached: {error}", 502) from error
+    return jsonify(suggestions=suggestions, checked=len(suggestions))
 
 
 # ---- AI ------------------------------------------------------------------
@@ -455,7 +541,9 @@ def api_ai_check():
         for item in queued
     ]
     try:
-        suggestions = AIService.word_suggestions(snapshot, provider)
+        suggestions = AIService.word_suggestions(
+            snapshot, provider, AIChecker.language_name(data.get("language"))
+        )
     except ValueError as error:
         raise ApiError(str(error)) from error
     except OSError as error:
@@ -531,6 +619,12 @@ def handle_api_error(error: ApiError):
         f" (caused by {cause!r})" if cause else "",
         exc_info=(type(cause), cause, cause.__traceback__) if cause and error.status >= 500 else None,
     )
+    return jsonify(error=error.message), error.status
+
+
+@app.errorhandler(AIServiceError)
+def handle_ai_error(error: AIServiceError):
+    app.logger.error("%s %s -> %s: %s (caused by %r)", request.method, request.path, error.status, error.message, error.__cause__)
     return jsonify(error=error.message), error.status
 
 

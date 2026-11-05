@@ -15,7 +15,7 @@
       <div class="card-head">
         <div>
           <h2 class="card-title" data-i18n="composition.words">Your words</h2>
-          <p class="card-sub" data-i18n="composition.words_help">Click a word to swap it for another one from your list.</p>
+          <p class="card-sub" data-i18n="composition.words_help">Draw vocabulary and grammar points separately.</p>
         </div>
       </div>
       <div class="draw-row">
@@ -28,8 +28,19 @@
         </button>
         <span class="placeholder-text" id="draw-note"></span>
       </div>
-      <div class="chip-list" id="chips" style="margin-top:16px">
-        <span class="placeholder-text" data-i18n="composition.draw_prompt">Press “Draw words” to get started.</span>
+      <div class="composition-draw-groups" style="margin-top:16px">
+        <section class="composition-draw-group">
+          <h3 class="side-label" data-i18n="composition.word_group">Vocabulary</h3>
+          <div class="chip-list" id="word-chips">
+            <span class="placeholder-text" data-i18n="composition.draw_prompt">Press “Draw words” to get started.</span>
+          </div>
+        </section>
+        <section class="composition-draw-group">
+          <h3 class="side-label" data-i18n="composition.grammar_group">Grammar / particles</h3>
+          <div class="chip-list" id="grammar-chips">
+            <span class="placeholder-text" data-i18n="composition.draw_prompt">Press “Draw words” to get started.</span>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -37,7 +48,7 @@
       <div class="card-head">
         <div>
           <h2 class="card-title" data-i18n="composition.your_composition">Your composition</h2>
-          <p class="card-sub" data-i18n="composition.composition_help">Use every word above, in any conjugated form.</p>
+          <p class="card-sub" data-i18n="composition.composition_help">Use every word and grammar point above.</p>
         </div>
         <span class="badge" id="char-count">0 <span data-i18n="composition.characters">characters</span></span>
       </div>

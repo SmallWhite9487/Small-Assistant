@@ -75,6 +75,9 @@
         <a class="nav-link {{ 'active' if page == 'review' }}" href="/review">
           <svg class="icon"><use href="#i-cards"/></svg><span data-i18n="nav.review">Review</span>
         </a>
+        <a class="nav-link {{ 'active' if page in ('grammar', 'grammar_review') }}" href="/grammar">
+          <svg class="icon"><use href="#i-pen"/></svg><span data-i18n="nav.grammar">Grammar</span>
+        </a>
         <a class="nav-link {{ 'active' if page == 'revision' }}" href="/revision">
           <svg class="icon"><use href="#i-target"/></svg><span data-i18n="nav.revision">Revision</span>
         </a>

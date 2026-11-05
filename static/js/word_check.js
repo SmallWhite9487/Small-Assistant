@@ -234,6 +234,7 @@
           method: "POST",
           body: {
             provider: state.provider,
+            language: SA.language(),
             word_ids: batch.map((word) => word.id),
           },
         });

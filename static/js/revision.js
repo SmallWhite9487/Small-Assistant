@@ -182,8 +182,11 @@
     const correctValue = expectedValue(word);
     const options = [correctValue];
     const seen = new Set(options);
+    const partOfSpeech = (word.part_of_speech || "").trim().toLowerCase();
     const others = shuffle(eligibleWords()
-      .filter((item) => item.id !== word.id)
+      .filter((item) => item.id !== word.id
+        && partOfSpeech
+        && (item.part_of_speech || "").trim().toLowerCase() === partOfSpeech)
       .map((item) => item[field] || item.word));
     for (const value of others) {
       if (!seen.has(value)) {

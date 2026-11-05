@@ -740,3 +740,84 @@ f5eba3fe-2754-4699-942b-dbf6c22ff26d,季節,きせつ,season,n,,False,2026-10-30
 46f6cf6d-edd1-4c7f-b3ee-a5ff4ab822d8,食事,しょくじ,meal; dining,n,,False,2026-11-02
 ddaec229-d03d-4f18-81c5-2faca69aa4db,お腹,おなか,stomach; belly,n,,False,2026-11-02
 9d8b61d4-f1dc-4d0f-8064-ffda4263f539,空きます,すきます,to become empty; to become hungry,v,,False,2026-11-02
+3c82ccc6-d2b6-4162-b109-cdb2cfc6d9ea,散歩,さんぽ,"walk, stroll",n,,False,2026-11-02
+5f06277a-2d4b-4c4f-9ee1-398514c1d386,狭い,せまい,"narrow, small",adj,,False,2026-11-02
+536ffb02-e4ff-4473-b9de-8e10e3560935,神戸,こうべ,Kobe (city name),n,,False,2026-11-02
+b893282c-e3df-42aa-b636-30afffa9a7c0,疲れます,つかれます,to get tired,v,,False,2026-11-02
+fcfddf61-3ae7-47e6-86b4-fdcf4bdcf2a5,ご注文,ごちゅうもん,order,n,,False,2026-11-02
+b9dd26a3-b93a-4e8c-8e72-2c1d2c6990cf,定食,ていしょく,set meal,n,,False,2026-11-02
+59832f4b-42d7-4341-8734-ac6c2ae12e06,お待ち,おまち,waiting,n,,False,2026-11-02
+109caf0b-e6f8-46ec-9968-b564e5abf662,少々,しょうしょう,"a little, a few",adv,,False,2026-11-02
+b8fc0bf8-a5da-4d29-bc7f-8e50cc27d706,別々,べつべつ,separately,adv,,False,2026-11-02
+3a524298-d1fa-47dd-b80b-ff7fa9f2e917,遅い,おそい,"slow, late",adj,,False,2026-11-02
+62ec7237-76c9-4432-87a6-86d31f773349,遊びます,あそびます,to play,v,,False,2026-11-02
+a1a8f408-f8ad-43fb-99b7-4a0a45c70fb1,泳ぎます,およぎます,to swim,v,,False,2026-11-02
+0f08ae86-d7bb-4225-bdeb-e1437ee96ed8,迎えます,むかえます,"to welcome, to meet",v,,False,2026-11-02
+a49a55a3-fd32-42cc-9fa3-2cd1d4b18a97,結婚,けっこん,marriage,n,,False,2026-11-02
+e02dbb94-956c-4101-8e01-39d7a55625d4,買い物,かいもの,shopping,n,,False,2026-11-02
+7a81afd5-7f79-470d-9e4e-1f863a38e1ac,釣り,つり,fishing,n,,False,2026-11-02
+52129554-55f7-43ff-8bd2-8e7abd50151d,スキー,すきー,skiing,n,,False,2026-11-02
+89fbb4be-de89-4072-93ea-f6c0eb30f439,一般的な,いっぱんてきな,general; common,adj-na,,False,2026-11-02
+99611a44-10bb-4957-aa4c-c3b627afc267,読み方,よみかた,way of reading; how to read,n,,False,2026-11-02
+14d6a41c-34ee-4d3c-b313-acfebadd3161,文語,ぶんご,literary language; written language,n,,False,2026-11-02
+e2a582ac-20df-4b67-b42c-83af9e8fa731,総合,そうごう,synthesis; integration; comprehensive,n,,False,2026-11-02
+8c6a8e0c-cee1-45a7-aab9-7bd5ccbdc2a7,聴解,ちょうかい,listening comprehension,n,,False,2026-11-02
+9ec757f4-1239-44f0-80e5-f9fec30f57ce,読解,どっかい,reading comprehension,n,,False,2026-11-02
+cc7c8fe2-6cd9-4533-90e8-cb8ab2681bf1,会話,かいわ,conversation,n,,False,2026-11-02
+afe85b17-d5c0-4fb8-8e6d-82aff15a640a,作文,さくぶん,composition; writing,n,,False,2026-11-02
+74365847-3a7b-40ed-a5e7-e01c7cce14f3,発音,はつおん,pronunciation,n,,False,2026-11-02
+8a3313f4-0423-4433-8a23-6a0114cd5052,課題,かだい,task; assignment; issue,n,,False,2026-11-02
+1bf5420e-56c0-46c4-bfce-12ea36c9f6c7,出席率,しゅっせきりつ,attendance rate,n,,False,2026-11-02
+979d9923-c92c-451e-9352-470b374d3377,か月後,かげつご,months later,n,,False,2026-11-02
+8727b658-4a4a-40e2-8411-01b49966da4a,理想,りそう,ideal,n,,False,2026-11-02
+197003b4-df59-4fc1-ab70-8fe5da2812d4,今学期,こんがっき,this semester,n,,False,2026-11-02
+198e50b2-4600-45ba-a934-c401b423f6e8,登録,とうろく,registration,n,,False,2026-11-02
+f2b33a3d-7eaf-41ac-b117-dff50fb1b842,朝食,ちょうしょく,breakfast,n,,False,2026-11-04
+02e4c732-0a3f-42e4-8c77-40f3cd7efca0,寺,てら,temple,n,,False,2026-11-04
+5e6add7a-0e31-4b49-9933-94221a176fe5,洋服,ようふく,western-style clothes,n,,False,2026-11-04
+26aedde1-37a2-4b0b-b4bf-8c765e2bf446,たこ焼き,たこやき,octopus balls,n,,False,2026-11-04
+ccf5c751-8014-45ea-b257-635df7bab50b,湖,みずうみ,lake,n,,False,2026-11-04
+2c77beed-666e-4cd0-95a9-a5cf9a70fb71,風,かぜ,wind,n,,False,2026-11-04
+6dd49bb2-6ff6-4eb0-b771-9bc5ab95b33e,助けます,たすけます,to help,v,,False,2026-11-04
+db7419a8-dd8c-4220-ba2a-d2de8b11937a,薬,くすり,medicine,n,,False,2026-11-04
+dd3b3f7b-16f3-42ff-9fad-78da09022e1e,割り勘,わりかん,splitting the bill,n,,False,2026-11-04
+9c3c6aca-4cec-4983-9c65-c3e3447d49ee,奢る,おごる,"to treat (someone to a meal, etc.)",v,,False,2026-11-04
+984ae645-9fe8-4fc6-9919-c052e5d0f848,合計,ごうけい,total,n,,False,2026-11-04
+11c85fc4-c16b-4902-947d-dd50a95061d8,壊れます,こわれます,to break,v,,False,2026-11-04
+a1811fdc-036f-412e-b9aa-5aca04e7f61c,下り,くだり,downward (train/journey),n,,False,2026-11-05
+ef18df31-82d0-41cf-a130-1ed964c583b5,上り,のぼり,upward (train/journey),n,,False,2026-11-05
+ee8c7caa-b6d6-4e15-89c8-3ea43afc1967,世紀,せいき,century,n,,False,2026-11-05
+ab82d2e2-8d3e-45dd-b750-60db7caa12d5,本土,ほんど,mainland,n,,False,2026-11-05
+61886a85-0e43-4bb6-91d2-d5600814e95e,呼ばれます,よばれます,to be called,v,,False,2026-11-05
+e5de130b-908c-43cf-9a3b-84daf9dcdbe3,数千,すうせん,thousands,n,,False,2026-11-05
+1e2e88d3-7212-48bc-87ce-88c0d1c4e576,夜景,やけい,night view,n,,False,2026-11-05
+df693e55-aef9-49f4-be90-a4d35d26046f,敵意,てきい,hostility,n,,False,2026-11-05
+c6968bc8-5115-453d-9f01-59eb8d1f9a59,領土,りょうど,territory,n,,False,2026-11-05
+7a8555b1-7ed7-415a-854c-66ba33944233,存在,そんざい,existence,n,,False,2026-11-05
+3512b2c1-6729-4b20-9f73-0ffa78488e06,借り物,かりもの,borrowed thing,n,,False,2026-11-05
+92162778-373b-4346-bf45-1d891e992504,莫大,ばくだい,enormous,adj,,False,2026-11-05
+b25956cf-ddb0-4a4d-acf0-48f5fb84de1b,国際,こくさい,international,n,,False,2026-11-05
+70125d04-daff-44c2-a497-d00d6bb5d6a9,最大,さいだい,biggest,adj,,False,2026-11-05
+6b7402a9-6826-451e-a7d5-b1313a777e7a,敗れます,やぶれます,to be defeated,v,,False,2026-11-05
+8b2bdd24-8304-4661-ae28-4e9a6dbea6ea,降伏,こうふく,surrender,n,,False,2026-11-05
+43264574-92c9-4d7b-bb10-bc19acdca49f,占領,せんりょう,occupation,n,,False,2026-11-05
+d195414f-fcd2-48cc-95d5-0f8305fb8c10,再び,ふたたび,again,adv,,False,2026-11-05
+09a1fe7f-c433-4001-8d7b-006c1b1591ee,大量,たいりょう,large quantity,n,,False,2026-11-05
+698c334c-4295-4da9-9962-c6f8ab1a734d,難民,なんみん,refugee,n,,False,2026-11-05
+d4ff6432-aee7-447f-a7b4-1d2e3a3e0add,財産,ざいさん,property,n,,False,2026-11-05
+a16605d4-9b49-4bce-a0db-148e039bc950,流れます,ながれます,to flow,v,,False,2026-11-05
+b6539a11-7091-41f9-8267-8a66d84731e0,人口,じんこう,population,n,,False,2026-11-05
+352737f3-eb5d-445f-bff5-2f5a53d2dbd9,植民,しょくみん,colonization,n,,False,2026-11-05
+25b41079-3355-4f17-8ee0-f22d9de2b04f,滅亡,めつぼう,downfall,n,,False,2026-11-05
+d29e40e1-68a7-4234-9635-99fdd7d9c79c,独特,どくとく,unique,adj,,False,2026-11-05
+e53082da-e2da-47ff-9223-331411091d0f,犯罪,はんざい,crime,n,,False,2026-11-05
+d65c54aa-bf79-4f97-8fb0-9274382edea9,全土,ぜんど,whole country,n,,False,2026-11-05
+be7b13fe-fb84-48cb-8918-41fb4975939c,経済,けいざい,economy,n,,False,2026-11-05
+e2cfdbe5-31e5-4c0b-baad-944e6c395c7a,市民,しみん,citizen,n,,False,2026-11-05
+8fb5e377-d43e-492e-af49-eb743569c1f7,返還,へんかん,return,n,,False,2026-11-05
+3698f629-b301-4e06-981e-ad78a1f8dc84,現実,げんじつ,reality,n,,False,2026-11-05
+09cb5e65-1754-42e8-b9da-dfedc32ba748,開催,かいさい,holding (an event),n,,False,2026-11-05
+64e6d7cb-46d4-4900-8827-0791bf71ee73,経営,けいえい,management,n,,False,2026-11-05
+895a7943-4705-45c7-ac91-d1043633940e,政府,せいふ,government,n,,False,2026-11-05
+250aed98-7d45-4d50-8568-7e31e642344e,作戦,さくせん,operation,n,,False,2026-11-05
+c508ad90-7a70-4b70-bb9e-e7171413ec3c,黒社会,こくしゃかい,underworld,n,,False,2026-11-05

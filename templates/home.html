@@ -45,9 +45,10 @@
   <a class="btn ghost sm" href="/word-check?all=1" id="recheck-all">
     <svg class="icon"><use href="#i-refresh"/></svg> <span data-i18n="home.recheck_all">Recheck all words</span>
   </a>
-  <a class="btn ghost sm" href="/word-check">
-    <svg class="icon"><use href="#i-check"/></svg> <span data-i18n="home.check_flagged">Check flagged</span>
-  </a>
+  <button class="btn ghost sm" id="check-flagged" type="button">
+    <svg class="icon"><use href="#i-check"/></svg> <span id="check-flagged-label" data-i18n="home.check_flagged">Check flagged</span>
+    <span class="badge warn" id="home-flag-count">0</span>
+  </button>
 </div>
 <div class="toolbar">
   <div id="home-pos-filter"></div>
@@ -123,6 +124,22 @@
       <button class="btn primary" id="word-save" type="submit" data-i18n="home.save_word">Save word</button>
     </div>
   </form>
+</dialog>
+
+<dialog class="dialog" id="word-ai-dialog">
+  <div class="dialog-card wide">
+    <button class="icon-btn dialog-close" id="word-ai-close-x" type="button" aria-label="Close" data-i18n-aria-label="common.close">
+      <svg class="icon"><use href="#i-close"/></svg>
+    </button>
+    <h2 data-i18n="check.results_title">AI check results</h2>
+    <p id="word-ai-status" class="card-sub" data-i18n="check.results_help">Review the suggestions and select the changes to apply.</p>
+    <div class="check-results" id="word-ai-results" style="margin-top:16px;max-height:60vh;overflow:auto"></div>
+    <div class="dialog-actions">
+      <a class="btn ghost" href="/word-check" data-i18n="home.full_word_check">Open full check page</a>
+      <button class="btn ghost" id="word-ai-close" type="button" data-i18n="common.close">Close</button>
+      <button class="btn primary" id="word-ai-apply" type="button" disabled data-i18n="check.apply_selected">Apply selected</button>
+    </div>
+  </div>
 </dialog>
 {% endblock %}
 

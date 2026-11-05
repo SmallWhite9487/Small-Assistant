@@ -57,6 +57,7 @@ from modules.weights import MAX_WEIGHT, MIN_WEIGHT  # noqa: E402
 WEB_DIR = Path(__file__).resolve().parent
 WEB_WORDS = WEB_DIR / "words.csv"
 WEB_NOTES = WEB_DIR / "Notes"
+WEB_GRAMMAR = WEB_DIR / "grammar.csv"
 USER_WEIGHTS = WEB_DIR / "user_weights"
 USER_DATA = WEB_DIR / "user_data"
 DEVICE_CODE = re.compile(r"[A-Z0-9]{6}")
@@ -211,8 +212,8 @@ class WordService:
             word_id = _text(change, "id", 100)
             word = _text(change, "word", 200)
             meaning = _text(change, "meaning", 500)
-            if not word or not meaning:
-                raise ApiError("A correction was missing its word or meaning.")
+            if not word:
+                raise ApiError("A correction was missing its word.")
             if word_id in prepared:
                 raise ApiError("The same word was corrected twice.")
             prepared[word_id] = {
@@ -238,6 +239,145 @@ class WordService:
                 applied.append(dict(entry))
             _atomic_write(self.path, words)
             return applied
+
+
+GRAMMAR_FIELDS = [
+    "id",
+    "pattern",
+    "connection",
+    "meaning",
+    "example",
+    "category",
+    "notes",
+    "check_ai",
+    "added_on",
+]
+GRAMMAR_LIMITS = {
+    "pattern": 200,
+    "connection": 300,
+    "meaning": 1000,
+    "example": 1000,
+    "category": 40,
+    "notes": 4000,
+}
+
+
+class GrammarService:
+    """Serialised access to grammar.csv (grammar points and particles)."""
+
+    def __init__(self, path: Path | None = None) -> None:
+        self.path = path or WEB_GRAMMAR
+        self.lock = threading.RLock()
+
+    def _load(self) -> list[dict[str, str]]:
+        if not self.path.exists():
+            return []
+        with self.path.open(newline="", encoding="utf-8") as file:
+            return [
+                {field: (row.get(field) or "") for field in GRAMMAR_FIELDS}
+                | {"check_ai": "False" if row.get("check_ai") == "False" else "True"}
+                for row in csv.DictReader(file)
+                if row.get("id")
+            ]
+
+    def _save(self, items: list[dict[str, str]]) -> None:
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        handle, temporary = tempfile.mkstemp(prefix=f".{self.path.name}.", dir=self.path.parent)
+        try:
+            with os.fdopen(handle, "w", newline="", encoding="utf-8") as file:
+                writer = csv.DictWriter(file, fieldnames=GRAMMAR_FIELDS)
+                writer.writeheader()
+                writer.writerows({field: row.get(field, "") for field in GRAMMAR_FIELDS} for row in items)
+                file.flush()
+                os.fsync(file.fileno())
+            os.replace(temporary, self.path)
+        except BaseException:
+            Path(temporary).unlink(missing_ok=True)
+            raise
+
+    @staticmethod
+    def _fields(data: dict) -> dict[str, str]:
+        values = {key: _text(data, key, limit) for key, limit in GRAMMAR_LIMITS.items()}
+        if not values["pattern"]:
+            raise ApiError("Enter a grammar point or particle.")
+        return values
+
+    def all(self) -> list[dict[str, str]]:
+        with self.lock:
+            return self._load()
+
+    def create(self, data: dict) -> dict[str, str]:
+        entry = {
+            "id": str(uuid.uuid4()),
+            **self._fields(data),
+            "check_ai": _flag(data, "check_ai", True),
+            "added_on": date.today().isoformat(),
+        }
+        with self.lock:
+            items = self._load()
+            items.append(entry)
+            self._save(items)
+        return entry
+
+    def update(self, item_id: str, data: dict) -> dict[str, str]:
+        values = self._fields(data)
+        with self.lock:
+            items = self._load()
+            entry = next((item for item in items if item["id"] == item_id), None)
+            if entry is None:
+                raise ApiError("That grammar point no longer exists.", 404)
+            entry.update(values, check_ai=_flag(data, "check_ai", entry["check_ai"] == "True"))
+            self._save(items)
+            return dict(entry)
+
+    def delete(self, item_id: str) -> None:
+        with self.lock:
+            items = self._load()
+            remaining = [item for item in items if item["id"] != item_id]
+            if len(remaining) == len(items):
+                raise ApiError("That grammar point no longer exists.", 404)
+            self._save(remaining)
+
+    def set_check(self, item_id: str, enabled: bool) -> dict[str, str]:
+        with self.lock:
+            items = self._load()
+            entry = next((item for item in items if item["id"] == item_id), None)
+            if entry is None:
+                raise ApiError("That grammar point no longer exists.", 404)
+            entry["check_ai"] = "True" if enabled else "False"
+            self._save(items)
+            return dict(entry)
+
+    def apply_corrections(self, changes: object) -> list[dict[str, str]]:
+        """Apply AI corrections in one atomic save and clear their AI flags."""
+        if not isinstance(changes, list) or not changes:
+            raise ApiError("No corrections were supplied.")
+        prepared: dict[str, dict[str, str]] = {}
+        for change in changes:
+            if not isinstance(change, dict):
+                raise ApiError("A correction was malformed.")
+            item_id = _text(change, "id", 100)
+            values = self._fields(change)
+            if item_id in prepared:
+                raise ApiError("The same grammar point was corrected twice.")
+            prepared[item_id] = values
+        with self.lock:
+            items = self._load()
+            if not prepared.keys() <= {item["id"] for item in items}:
+                raise ApiError("One of the grammar points no longer exists.", 409)
+            for entry in items:
+                if entry["id"] in prepared:
+                    entry.update(prepared[entry["id"]], check_ai="False")
+            self._save(items)
+            return items
+
+    def clear_flags(self, ids: set[str]) -> None:
+        with self.lock:
+            items = self._load()
+            for entry in items:
+                if entry["id"] in ids:
+                    entry["check_ai"] = "False"
+            self._save(items)
 
 
 class NoteService:
@@ -300,6 +440,21 @@ class NoteService:
 class AIChecker:
     """Thin wrapper that turns module errors into ApiError messages."""
 
+    COMPOSITION_LANGUAGES = {
+        "en": "English",
+        "zh-TW": "Traditional Chinese (繁體中文)",
+        "zh-CN": "Simplified Chinese (简体中文)",
+        "ko": "Korean (한국어)",
+        "ja": "Japanese (日本語)",
+        "dev": "English",
+    }
+
+    @classmethod
+    def language_name(cls, code: object) -> str:
+        if not isinstance(code, str) or code not in cls.COMPOSITION_LANGUAGES:
+            return "English"
+        return cls.COMPOSITION_LANGUAGES[code]
+
     @staticmethod
     def provider(data: dict) -> str:
         provider = data.get("provider", "local")
@@ -310,15 +465,48 @@ class AIChecker:
     @classmethod
     def composition(cls, data: dict) -> dict[str, str]:
         words = data.get("words")
+        grammar_points = data.get("grammar_points", [])
         text = data.get("text")
         if not isinstance(words, list) or not words or not all(isinstance(w, str) for w in words):
             raise ApiError("Draw some words before submitting.")
+        if (
+            not isinstance(grammar_points, list)
+            or len(grammar_points) > 5
+            or not all(
+                isinstance(item, dict)
+                and isinstance(item.get("pattern"), str)
+                and item["pattern"].strip()
+                and all(
+                    isinstance(item.get(field, ""), str)
+                    for field in ("connection", "meaning")
+                )
+                for item in grammar_points
+            )
+        ):
+            raise ApiError("The drawn grammar points are invalid.")
+        expected_grammar_count = {5: 3, 10: 5}.get(len(words))
+        if grammar_points and (
+            expected_grammar_count is None
+            or len(grammar_points) != expected_grammar_count
+        ):
+            raise ApiError("The number of drawn grammar points does not match the word count.")
         if not isinstance(text, str) or not text.strip():
             raise ApiError("Write something first.")
         provider = cls.provider(data)
-        language = {"zh-TW": "Traditional Chinese (繁體中文)", "zh-CN": "Simplified Chinese (简体中文)", "ko": "Korean (한국어)", "ja": "Japanese (日本語)"}.get(data.get("language"), "English")
+        language_code = data.get("language")
+        if not isinstance(language_code, str):
+            raise ApiError("Unsupported feedback language.")
+        language = cls.COMPOSITION_LANGUAGES.get(language_code)
+        if language is None:
+            raise ApiError("Unsupported feedback language.")
         try:
-            return AIService.composition_feedback([w.strip() for w in words], text.strip(), provider, language)
+            return AIService.composition_feedback(
+                [w.strip() for w in words],
+                text.strip(),
+                provider,
+                language,
+                grammar_points=grammar_points,
+            )
         except ValueError as error:
             raise ApiError(str(error)) from error
         except OSError as error:
