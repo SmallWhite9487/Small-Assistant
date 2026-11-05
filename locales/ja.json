@@ -385,5 +385,22 @@
   "check.results_help": "提案を確認し、適用する変更を選択してください。",
   "check.select_word": "{word}の修正を選択",
   "check.apply_selected": "選択した修正を適用",
-  "home.full_word_check": "チェック専用ページを開く"
+  "home.full_word_check": "チェック専用ページを開く",
+  "nav.mini_tests": "ミニテスト",
+  "mini_tests.title": "ミニテスト",
+  "mini_tests.subtitle": "短い練習テストを選んでください。",
+  "mini_tests.collapse_hint": "クリックして展開／折りたたみ",
+  "counter_quiz.title": "助数詞クイズ",
+  "counter_quiz.practice": "ミニテスト",
+  "counter_quiz.practice_help": "読み方を答えてください。停止するまで問題が続きます。",
+  "counter_quiz.answer_mode": "回答方法",
+  "counter_quiz.stop": "停止",
+  "counter_quiz.reading_question": "どのように読みますか？",
+  "counter_quiz.type_reading": "ひらがなで読み方を入力...",
+  "counter_quiz.next": "次の問題",
+  "counter_quiz.start_help": "回答方法を選んで練習を始めましょう。",
+  "counter_quiz.start": "練習を始める",
+  "counter_quiz.score": "{total}問中 {correct}問正解",
+  "counter_quiz.correct": "正解！{answer}",
+  "counter_quiz.incorrect": "残念。正しい読み方は {answer} です。"
 }

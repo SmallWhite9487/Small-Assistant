@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <p class="eyebrow"><span data-i18n="nav.study">Study</span></p>
+    <h1 class="page-title" data-i18n="mini_tests.title">Mini tests</h1>
+    <p class="page-sub" data-i18n="mini_tests.subtitle">Choose a short practice quiz.</p>
+  </div>
+</div>
+
+<div class="counter-quiz-shell">
+  <details class="card mini-test-module" open>
+    <summary class="mini-test-summary">
+      <span class="mini-test-title" data-i18n="counter_quiz.title">Counter quiz</span>
+      <span class="hint" data-i18n="mini_tests.collapse_hint">Click to expand or collapse</span>
+    </summary>
+    <div class="counter-quiz-card">
+      <div class="card-head">
+        <div>
+          <h2 class="card-title" data-i18n="counter_quiz.practice">Quick practice</h2>
+          <p class="card-sub" data-i18n="counter_quiz.practice_help">Answer the reading. Questions continue until you stop.</p>
+        </div>
+        <span class="badge" id="counter-quiz-stats">0 / 0</span>
+      </div>
+
+      <div class="quiz-toolbar counter-quiz-toolbar">
+        <div class="segmented-row">
+          <span class="side-label" data-i18n="counter_quiz.answer_mode">Answer mode</span>
+          <div class="segmented" id="counter-answer-mode">
+            <button class="seg-btn active" type="button" data-mode="choices" data-i18n="revision.choices">Choices</button>
+            <button class="seg-btn" type="button" data-mode="typing" data-i18n="revision.typing">Typing</button>
+          </div>
+        </div>
+        <button class="btn ghost sm" id="counter-quiz-stop" type="button" hidden data-i18n="counter_quiz.stop">Stop</button>
+      </div>
+
+      <div class="counter-question" id="counter-question" hidden>
+        <p class="side-label" id="counter-question-label" data-i18n="counter_quiz.reading_question">How do you read this?</p>
+        <div class="counter-prompt" id="counter-prompt"></div>
+        <div class="quiz-options" id="counter-options"></div>
+        <div class="quiz-input-row" id="counter-input-row" hidden>
+          <input class="input" id="counter-entry" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the reading in hiragana..." data-i18n-placeholder="counter_quiz.type_reading">
+          <button class="btn primary" id="counter-check" type="button" data-i18n="revision.check">Check</button>
+        </div>
+        <p class="quiz-feedback" id="counter-feedback" aria-live="polite"></p>
+        <div class="counter-question-actions">
+          <button class="btn primary" id="counter-next" type="button" hidden data-i18n="counter_quiz.next">Next question</button>
+        </div>
+      </div>
+
+      <div class="counter-quiz-start" id="counter-quiz-start">
+        <p class="placeholder-text" data-i18n="counter_quiz.start_help">Choose an answer mode and start practicing.</p>
+        <button class="btn primary" id="counter-quiz-start-button" type="button" data-i18n="counter_quiz.start">Start practice</button>
+      </div>
+    </div>
+  </details>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/counter_quiz.js', v=2) }}"></script>
+{% endblock %}

@@ -385,5 +385,22 @@
   "check.results_help": "Review the suggestions and select the changes to apply.",
   "check.select_word": "Select corrections for {word}",
   "check.apply_selected": "Apply selected",
-  "home.full_word_check": "Open full check page"
+  "home.full_word_check": "Open full check page",
+  "nav.mini_tests": "Mini tests",
+  "mini_tests.title": "Mini tests",
+  "mini_tests.subtitle": "Choose a short practice quiz.",
+  "mini_tests.collapse_hint": "Click to expand or collapse",
+  "counter_quiz.title": "Counter quiz",
+  "counter_quiz.practice": "Quick practice",
+  "counter_quiz.practice_help": "Answer the reading. Questions continue until you stop.",
+  "counter_quiz.answer_mode": "Answer mode",
+  "counter_quiz.stop": "Stop",
+  "counter_quiz.reading_question": "How do you read this?",
+  "counter_quiz.type_reading": "Type the reading in hiragana...",
+  "counter_quiz.next": "Next question",
+  "counter_quiz.start_help": "Choose an answer mode and start practicing.",
+  "counter_quiz.start": "Start practice",
+  "counter_quiz.score": "{correct} correct / {total} answered",
+  "counter_quiz.correct": "Correct! {answer}",
+  "counter_quiz.incorrect": "Not quite. The reading is {answer}."
 }

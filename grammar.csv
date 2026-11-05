@@ -12,5 +12,5 @@ c74d1b1d-ec2b-49fc-b01c-2336881e8ffc,〜あります,名詞（無生物） ＋ �
 bd55dfb4-9283-451c-bd13-b259c98b5117,〜から,名詞 ＋ から,From (indicating starting point in time or place),学校から家まで歩きます。,助詞,,False,2026-11-04
 671045c8-e764-4485-84f6-d511dbec397b,〜まで,名詞 ＋ まで,Until / up to (indicating endpoint in time or place),金曜日まで仕事があります。,助詞,,False,2026-11-04
 1c3a0aa8-0cca-40d6-bc9c-60888120affc,〜の〜,名詞＋の＋名詞,"Indicates possession, attribution, or modification between two nouns.",これは私の本です。,助詞,,False,2026-11-04
-ee9c0322-41e3-4ff0-84cf-08a3dc678274,〜だけ,,,,,,True,2026-11-05
-5fbb7420-7905-4cf3-9e03-aa6e4f8e71e8,〜より,,,,,,True,2026-11-05
+ee9c0322-41e3-4ff0-84cf-08a3dc678274,〜だけ,名詞＋だけ / 動詞・形容詞の普通形＋だけ,"Indicates a limit or restriction, meaning 'only' or 'just'.",一つだけ質問してもいいですか。,助詞,,False,2026-11-05
+5fbb7420-7905-4cf3-9e03-aa6e4f8e71e8,〜より,名詞＋より,"Used for comparison, meaning 'than', or to indicate a starting point, meaning 'from'.",今日は昨日より暑いです。,助詞,,False,2026-11-05

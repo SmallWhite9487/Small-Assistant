@@ -265,6 +265,7 @@ PAGES = {
     "/": ("home", "Your words"),
     "/review": ("review", "Review"),
     "/revision": ("revision", "Revision"),
+    "/counter-quiz": ("counter_quiz", "Mini tests"),
     "/stats": ("stats", "Statistics"),
     "/notes": ("notes", "Notes"),
     "/composition": ("composition", "Composition"),

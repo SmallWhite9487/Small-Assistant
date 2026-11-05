@@ -385,5 +385,22 @@
   "check.results_help": "제안을 확인하고 적용할 변경 사항을 선택하세요.",
   "check.select_word": "{word} 수정 사항 선택",
   "check.apply_selected": "선택한 수정 적용",
-  "home.full_word_check": "전체 검사 페이지 열기"
+  "home.full_word_check": "전체 검사 페이지 열기",
+  "nav.mini_tests": "미니 테스트",
+  "mini_tests.title": "미니 테스트",
+  "mini_tests.subtitle": "짧은 연습 퀴즈를 선택하세요.",
+  "mini_tests.collapse_hint": "클릭하여 펼치기 / 접기",
+  "counter_quiz.title": "조수사 퀴즈",
+  "counter_quiz.practice": "미니 테스트",
+  "counter_quiz.practice_help": "읽는 법을 답하세요. 중지할 때까지 문제가 계속됩니다.",
+  "counter_quiz.answer_mode": "답변 방식",
+  "counter_quiz.stop": "중지",
+  "counter_quiz.reading_question": "이 숫자와 조수사는 어떻게 읽나요?",
+  "counter_quiz.type_reading": "히라가나로 읽는 법 입력...",
+  "counter_quiz.next": "다음 문제",
+  "counter_quiz.start_help": "답변 방식을 선택하고 연습을 시작하세요.",
+  "counter_quiz.start": "연습 시작",
+  "counter_quiz.score": "{total}문제 중 {correct}개 정답",
+  "counter_quiz.correct": "정답! {answer}",
+  "counter_quiz.incorrect": "아쉽습니다. 정답은 {answer}입니다."
 }

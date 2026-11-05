@@ -15,7 +15,7 @@
   <title>{% if page_title %}{{ page_title }} · {% endif %}Sumou Josyu</title>
   <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css', v=3) }}">
   <script>
     (function () {
       var saved = null;
@@ -80,6 +80,9 @@
         </a>
         <a class="nav-link {{ 'active' if page == 'revision' }}" href="/revision">
           <svg class="icon"><use href="#i-target"/></svg><span data-i18n="nav.revision">Revision</span>
+        </a>
+        <a class="nav-link {{ 'active' if page == 'counter_quiz' }}" href="/counter-quiz">
+          <svg class="icon"><use href="#i-cards"/></svg><span data-i18n="nav.mini_tests">Mini tests</span>
         </a>
         <a class="nav-link {{ 'active' if page == 'stats' }}" href="/stats">
           <svg class="icon"><use href="#i-chart"/></svg><span data-i18n="nav.statistics">Statistics</span>

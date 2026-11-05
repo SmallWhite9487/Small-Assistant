@@ -385,5 +385,22 @@
   "check.results_help": "查看建議，勾選要套用的變更。",
   "check.select_word": "選取「{word}」的修正",
   "check.apply_selected": "套用已選修正",
-  "home.full_word_check": "開啟完整檢查頁面"
+  "home.full_word_check": "開啟完整檢查頁面",
+  "nav.mini_tests": "小測驗",
+  "mini_tests.title": "小測驗",
+  "mini_tests.subtitle": "選擇一個小測驗開始練習。",
+  "mini_tests.collapse_hint": "點擊展開或收合",
+  "counter_quiz.title": "量詞讀音測驗",
+  "counter_quiz.practice": "小測驗",
+  "counter_quiz.practice_help": "請回答讀音；測驗會持續出題，直到你停止。",
+  "counter_quiz.answer_mode": "作答方式",
+  "counter_quiz.stop": "停止",
+  "counter_quiz.reading_question": "這個數字和量詞要怎麼讀？",
+  "counter_quiz.type_reading": "請輸入平假名讀音...",
+  "counter_quiz.next": "下一題",
+  "counter_quiz.start_help": "選擇作答方式後開始練習。",
+  "counter_quiz.start": "開始練習",
+  "counter_quiz.score": "答對 {correct}／已作答 {total}",
+  "counter_quiz.correct": "答對了！{answer}",
+  "counter_quiz.incorrect": "再試試。正確讀音是 {answer}。"
 }

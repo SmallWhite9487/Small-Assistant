@@ -385,5 +385,22 @@
   "check.results_help": "查看建议，勾选要应用的更改。",
   "check.select_word": "选择“{word}”的修正",
   "check.apply_selected": "应用已选修正",
-  "home.full_word_check": "打开完整检查页面"
+  "home.full_word_check": "打开完整检查页面",
+  "nav.mini_tests": "小测验",
+  "mini_tests.title": "小测验",
+  "mini_tests.subtitle": "选择一个小测验开始练习。",
+  "mini_tests.collapse_hint": "点击展开或收起",
+  "counter_quiz.title": "量词读音测验",
+  "counter_quiz.practice": "小测验",
+  "counter_quiz.practice_help": "请回答读音；测验会持续出题，直到你停止。",
+  "counter_quiz.answer_mode": "作答方式",
+  "counter_quiz.stop": "停止",
+  "counter_quiz.reading_question": "这个数字和量词要怎么读？",
+  "counter_quiz.type_reading": "请输入平假名读音...",
+  "counter_quiz.next": "下一题",
+  "counter_quiz.start_help": "选择作答方式后开始练习。",
+  "counter_quiz.start": "开始练习",
+  "counter_quiz.score": "答对 {correct}／已作答 {total}",
+  "counter_quiz.correct": "答对了！{answer}",
+  "counter_quiz.incorrect": "再试试。正确读音是 {answer}。"
 }
