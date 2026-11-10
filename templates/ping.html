@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel">
+  <h2>Connection test</h2>
+  <p>Request from {{ user_ip or "unknown" }}.</p>
+  <p id="ping-result" role="status" aria-live="polite">Ping: measuring...</p>
+  <p>HTTP round-trip time from this browser to the website, including server processing. Not ICMP ping.</p>
+  <button class="btn primary" id="ping-retry" type="button">Test again</button>
+  <noscript>Enable JavaScript to measure the connection latency.</noscript>
+</section>
+<section class="card">
+  <h2>Random number generator</h2>
+  <p>Uses your connection IP plus server time, machine code, IPv4, IPv6 and CPU frequency when available.</p>
+  <p>For general use only. Not suitable for passwords, verification codes or monetary draws.</p>
+  <form id="random-form">
+    <label for="random-type">Number type</label>
+    <select class="input" id="random-type">
+      <option value="int">int (integer)</option>
+      <option value="float">float (decimal)</option>
+    </select>
+    <label for="random-minimum">Minimum (inclusive)</label>
+    <input class="input" id="random-minimum" type="number" step="1" min="-9007199254740991" max="9007199254740991" value="0" required>
+    <label id="random-maximum-label" for="random-maximum">Maximum (inclusive)</label>
+    <input class="input" id="random-maximum" type="number" step="1" min="-9007199254740991" max="9007199254740991" value="1" required>
+    <button class="btn primary" id="random-generate" type="submit">Generate</button>
+    <button class="btn" id="random-quick" type="button">Generate 0 to 100</button>
+  </form>
+  <p>int includes both bounds; float excludes the maximum unless both bounds are equal.</p>
+  <p id="random-result" role="status" aria-live="polite">Choose a range and press Generate.</p>
+  <p id="random-sources"></p>
+  <p id="random-warnings" role="status" aria-live="polite"></p>
+  <noscript>Enable JavaScript to generate a number.</noscript>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const pingResult = document.getElementById("ping-result");
+  const pingRetry = document.getElementById("ping-retry");
+
+  async function measurePing() {
+    pingRetry.disabled = true;
+    pingResult.textContent = "Ping: measuring...";
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+    try {
+      const start = performance.now();
+      const response = await fetch({{ url_for("ping", probe=1) | tojson }}, {
+        cache: "no-store",
+        credentials: "same-origin",
+        signal: controller.signal,
+      });
+      if (response.redirected || response.status === 401) {
+        throw new Error("Please sign in again, then reload this page.");
+      }
+      if (!response.ok) {
+        throw new Error(`Server returned HTTP ${response.status}.`);
+      }
+      const data = await response.json();
+      const elapsed = performance.now() - start;
+      if (data.pong !== true) {
+        throw new Error("Invalid ping response.");
+      }
+      pingResult.textContent = `Ping: ${elapsed.toFixed(1)} ms`;
+    } catch (error) {
+      const reason = error.name === "AbortError" ? "Request timed out after 5 seconds." : error.message;
+      pingResult.textContent = `Ping failed: ${reason}`;
+    } finally {
+      clearTimeout(timeout);
+      pingRetry.disabled = false;
+    }
+  }
+
+  pingRetry.addEventListener("click", measurePing);
+  measurePing();
+
+  const randomForm = document.getElementById("random-form");
+  const randomResult = document.getElementById("random-result");
+  const randomSources = document.getElementById("random-sources");
+  const randomWarnings = document.getElementById("random-warnings");
+  const randomGenerate = document.getElementById("random-generate");
+  const randomQuick = document.getElementById("random-quick");
+  const randomType = document.getElementById("random-type");
+  const randomMinimum = document.getElementById("random-minimum");
+  const randomMaximum = document.getElementById("random-maximum");
+  randomType.addEventListener("change", () => {
+    const isInteger = randomType.value === "int";
+    randomMinimum.step = randomMaximum.step = isInteger ? "1" : "any";
+    document.getElementById("random-maximum-label").textContent =
+      isInteger ? "Maximum (inclusive)" : "Maximum (exclusive unless equal to minimum)";
+  });
+  randomQuick.addEventListener("click", () => {
+    randomMinimum.value = "0";
+    randomMaximum.value = "100";
+    randomForm.requestSubmit();
+  });
+  const sourceNames = {
+    client_ip: "client IP",
+    system_time: "server system time",
+    monotonic_time: "server monotonic clock",
+    sequence: "request counter",
+    ipv4: "server IPv4",
+    ipv6: "server IPv6",
+    machine_code: "server machine code",
+    cpu_frequency: "server CPU frequency",
+  };
+  randomForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    randomSources.textContent = "";
+    randomWarnings.textContent = "";
+    const minimum = Number(randomMinimum.value);
+    const maximum = Number(randomMaximum.value);
+    const numberType = randomType.value;
+    const isInteger = numberType === "int";
+    const validBound = value => Number.isFinite(value) && Math.abs(value) <= Number.MAX_SAFE_INTEGER &&
+      (!isInteger || Number.isSafeInteger(value));
+    if (!validBound(minimum) || !validBound(maximum) || minimum > maximum) {
+      randomResult.textContent = `Use ${isInteger ? "integer" : "finite numeric"} bounds within the allowed range, with minimum <= maximum.`;
+      return;
+    }
+    randomGenerate.disabled = true;
+    randomQuick.disabled = true;
+    randomType.disabled = true;
+    randomResult.textContent = "Generating...";
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+    try {
+      const data = await SA.api({{ url_for("ping_random") | tojson }}, {
+        method: "POST",
+        body: { minimum, maximum, number_type: numberType },
+        signal: controller.signal,
+      });
+      if (!Number.isFinite(data.value) || (isInteger && !Number.isSafeInteger(data.value)) ||
+          data.value < minimum || data.value > maximum ||
+          (!isInteger && minimum < maximum && data.value === maximum) ||
+          !Array.isArray(data.sources) || !Array.isArray(data.warnings)) {
+        throw new Error("Invalid random number response.");
+      }
+      randomResult.textContent = `Random ${isInteger ? "integer" : "float"}: ${data.value}`;
+      randomSources.textContent = `Sources used: ${data.sources.map(name => sourceNames[name] || name).join(", ")}.`;
+      randomWarnings.textContent = data.warnings.join(" ");
+    } catch (error) {
+      const reason = controller.signal.aborted ? "Request timed out after 15 seconds." : error.message;
+      randomResult.textContent = `Generation failed: ${reason}`;
+    } finally {
+      clearTimeout(timeout);
+      randomGenerate.disabled = false;
+      randomQuick.disabled = false;
+      randomType.disabled = false;
+    }
+  });
+</script>
+{% endblock %}

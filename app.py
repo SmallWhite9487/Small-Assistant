@@ -59,6 +59,7 @@ from services import (  # noqa: E402
     WordService,
 )
 from modules.ai_service import AIService, AIServiceError  # noqa: E402
+from modules.random_number import collect_sources, float_from_sources, integer_from_sources, validate_bounds  # noqa: E402
 
 load_dotenv(ROOT / ".env")
 
@@ -698,6 +699,34 @@ def set_access_key() -> None:
     env_path.write_text("\n".join([*lines, line]) + "\n", encoding="utf-8")
     print(f"Saved the SHA-256 hash to {env_path}. Restart the server to apply it.")
 
+@app.post("/api/ping/random")
+def ping_random():
+    data = body()
+    minimum = data.get("minimum", 0)
+    maximum = data.get("maximum", 1)
+    number_type = data.get("number_type", "int")
+    try:
+        validate_bounds(minimum, maximum, number_type)
+    except ValueError as error:
+        raise ApiError(str(error)) from error
+    sources, warnings = collect_sources(request.remote_addr)
+    for warning in warnings:
+        app.logger.warning("Random number source: %s", warning)
+    generate = integer_from_sources if number_type == "int" else float_from_sources
+    return jsonify(
+        value=generate(sources, minimum, maximum),
+        sources=list(sources),
+        warnings=warnings,
+    )
+
+
+@app.get("/ping")
+def ping():
+    if request.args.get("probe") == "1":
+        return jsonify(ip=request.remote_addr, pong=True)
+    return render_template(
+        "ping.html", page="", page_title="Connection test", user_ip=request.remote_addr
+    )
 
 if __name__ == "__main__":
     if "--set-key" in sys.argv:
