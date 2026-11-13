@@ -41,6 +41,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from modules.ai_service import AIService  # noqa: E402
+from modules.second_simplified import to_second_simplified  # noqa: E402
 from modules.conjugation import (  # noqa: E402
     ADJECTIVE_GROUPS,
     ADJECTIVE_HELP,
@@ -444,6 +445,7 @@ class AIChecker:
         "en": "English",
         "zh-TW": "Traditional Chinese (繁體中文)",
         "zh-CN": "Simplified Chinese (简体中文)",
+        "zh-2jian": "Second-round Simplified Chinese characters (1977 draft)",
         "ko": "Korean (한국어)",
         "ja": "Japanese (日本語)",
         "dev": "English",
@@ -520,8 +522,8 @@ class MachineTranslationService:
     when WEB_WINDOWS_BUILTIN_TRANSLATION=true; elsewhere it is a fallback.
     """
 
-    TARGETS = {"zh-TW", "zh-CN", "ko", "ja"}
-    ARGOS_CODES = {"zh-TW": "zt", "zh-CN": "zh", "ko": "ko", "ja": "ja"}
+    TARGETS = {"zh-TW", "zh-CN", "zh-2jian", "ko", "ja"}
+    ARGOS_CODES = {"zh-TW": "zt", "zh-CN": "zh", "zh-2jian": "zh", "ko": "ko", "ja": "ja"}
     cache: dict[tuple[str, str], str] = {}
     blocked_until = 0.0
     argos_lock = threading.Lock()
@@ -554,6 +556,8 @@ class MachineTranslationService:
                 log.warning("Translation provider %s failed: %s", provider, error.message)
                 continue
             if translation:
+                if language == "zh-2jian":
+                    translation = to_second_simplified(translation)
                 cls.cache[key] = translation
                 return translation
         raise errors[-1] if errors else ApiError("Machine translation returned an empty result.", 502)
@@ -597,7 +601,8 @@ class MachineTranslationService:
     def _google(cls, text: str, language: str) -> str:
         if time.time() < cls.blocked_until:
             raise ApiError("Translation service is rate limited; try again in a minute.", 429)
-        query = urlencode({"client": "gtx", "sl": "en", "tl": language, "dt": "t", "q": text})
+        target = "zh-CN" if language == "zh-2jian" else language
+        query = urlencode({"client": "gtx", "sl": "en", "tl": target, "dt": "t", "q": text})
         try:
             with urlopen(f"https://translate.googleapis.com/translate_a/single?{query}", timeout=15, context=ssl_context()) as response:
                 data = json.load(response)

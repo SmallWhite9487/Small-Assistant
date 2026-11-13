@@ -60,6 +60,7 @@ from services import (  # noqa: E402
 )
 from modules.ai_service import AIService, AIServiceError  # noqa: E402
 from modules.random_number import collect_sources, float_from_sources, integer_from_sources, validate_bounds  # noqa: E402
+from modules.second_simplified import to_second_simplified  # noqa: E402
 
 load_dotenv(ROOT / ".env")
 
@@ -305,7 +306,7 @@ def api_locale(language: str):
     if language == "dev":
         with (LOCALES_DIR / "en.json").open(encoding="utf-8") as file:
             return jsonify(translations={key: key for key in app.json.loads(file.read())})
-    if language not in {"en", "zh-TW", "zh-CN", "ko", "ja"}:
+    if language not in {"en", "zh-TW", "zh-CN", "zh-2jian", "ko", "ja"}:
         raise ApiError("Unsupported language.", 404)
     try:
         with (LOCALES_DIR / f"{language}.json").open(encoding="utf-8") as file:

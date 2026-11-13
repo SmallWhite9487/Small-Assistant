@@ -7,7 +7,7 @@
   function initialLanguage() {
     try {
       const saved = localStorage.getItem("sa-language");
-      if (saved && ["en", "zh-TW", "zh-CN", "ko", "ja", "dev"].includes(saved)) return saved;
+      if (saved && ["en", "zh-TW", "zh-CN", "zh-2jian", "ko", "ja", "dev"].includes(saved)) return saved;
     } catch (error) { /* storage may be blocked */ }
     const browser = navigator.language || "en";
     const lang = browser.toLowerCase();

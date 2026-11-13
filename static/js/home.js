@@ -43,10 +43,26 @@
     $("check-flagged").disabled = flaggedCount === 0 || state.aiPending;
   }
 
-  function visibleWords() {
+  function duplicateKey(word, reading) {
+    const normalize = (value) => (value || "").normalize("NFKC").trim().toLowerCase();
+    return JSON.stringify([normalize(word), normalize(reading)]);
+  }
+
+  function duplicateWordCounts() {
+    const counts = new Map();
+    for (const word of state.words) {
+      const key = duplicateKey(word.word, word.reading);
+      if (key) counts.set(key, (counts.get(key) || 0) + 1);
+    }
+    return counts;
+  }
+
+  function visibleWords(duplicates) {
     const query = state.query.trim().toLowerCase();
     return state.words.filter((word) => {
       if (state.filter === "flagged" && word.check_ai !== "True") return false;
+      if (state.filter === "duplicates" &&
+          (duplicates.get(duplicateKey(word.word, word.reading)) || 0) < 2) return false;
       if (state.posFilter && !state.posFilter.matches(word)) return false;
       if (!query) return true;
       return [word.word, word.reading, word.meaning, word.part_of_speech, word.notes]
@@ -264,7 +280,17 @@
   function render() {
     const rows = $("word-rows");
     rows.replaceChildren();
-    const words = visibleWords();
+    const duplicates = duplicateWordCounts();
+    const duplicateRecords = Array.from(duplicates.values())
+      .filter((count) => count > 1)
+      .reduce((total, count) => total + count, 0);
+    $("duplicate-count").textContent = duplicateRecords;
+    const duplicateFilter = $("filter-group").querySelector('[data-filter="duplicates"]');
+    duplicateFilter.setAttribute(
+      "aria-label",
+      SA.t("home.duplicate_filter_aria", { count: duplicateRecords }),
+    );
+    const words = visibleWords(duplicates);
 
     for (const word of words) {
       const tr = document.createElement("tr");
@@ -273,6 +299,14 @@
       const wordCell = document.createElement("td");
       wordCell.className = "w-word";
       wordCell.textContent = word.word;
+      const duplicateCount = duplicates.get(duplicateKey(word.word, word.reading)) || 0;
+      if (duplicateCount > 1) {
+        const badge = document.createElement("span");
+        badge.className = "badge warn";
+        badge.textContent = SA.t("home.duplicate_badge", { count: duplicateCount });
+        badge.title = SA.t("home.duplicate_badge_help", { count: duplicateCount });
+        wordCell.append(" ", badge);
+      }
       tr.append(wordCell);
 
       const readingCell = document.createElement("td");
@@ -363,6 +397,11 @@
         ? SA.t("home.no_words_help")
         : SA.t("home.no_matching_help");
       $("empty-add").hidden = total !== 0;
+      if (state.filter === "duplicates") {
+        $("empty-title").textContent = SA.t("home.no_duplicates");
+        $("empty-copy").textContent = SA.t("home.no_duplicates_help");
+        $("empty-add").hidden = true;
+      }
     } else {
       empty.hidden = true;
       scroll.hidden = false;

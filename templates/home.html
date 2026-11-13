@@ -40,6 +40,10 @@
   <div class="segmented" id="filter-group">
     <button class="seg-btn active" type="button" data-filter="all" data-i18n="home.all">All</button>
     <button class="seg-btn" type="button" data-filter="flagged" data-i18n="home.ai_queue">AI queue</button>
+    <button class="seg-btn" type="button" data-filter="duplicates">
+      <span data-i18n="home.duplicates">Duplicates</span>
+      <span class="badge" id="duplicate-count">0</span>
+    </button>
   </div>
   <span class="spacer"></span>
   <a class="btn ghost sm" href="/word-check?all=1" id="recheck-all">
